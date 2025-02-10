@@ -10,6 +10,11 @@ public class PlayerInput : MonoBehaviour
         EnablePlayerInputActions();
     }
 
+    public PlayerInputAction GetPlayerInputAction()
+    {
+        return playerInputActions; 
+    }
+
     public Vector2 GetPlayerMovementInput()
     {
         return playerInputActions.Player.Movement.ReadValue<Vector2>().normalized;

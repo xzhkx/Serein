@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class PlayerAnimatorControl : MonoBehaviour
 {
-    private PlayerInput playerInput;
     private Animator playerAnimator;
 
     private void Awake()
     {
         playerAnimator = GetComponent<Animator>();
-        playerInput = GetComponent<PlayerInput>();  
+        SetIdle(true);
+        SetGrounded(true);
     }
 
-    private void Update()
+    private Animator GetPlayerAnimator()
     {
-        
+        return playerAnimator;
+    }
+    
+    public void SetIdle(bool boolean)
+    {
+        playerAnimator.SetBool("IsIdle", boolean);
+    }
+
+    public void SetGrounded(bool boolean) 
+    {
+        playerAnimator.SetBool("IsGrounded", boolean);
     }
 }

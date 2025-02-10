@@ -4,6 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float walkSpeed, runSpeed, turnSmoothTime, turnSmoothVelocity;
 
+    private PlayerAnimatorControl playerAnimatorControl;
     private PlayerInput playerInput;
     private Rigidbody playerRigidbody;
 
@@ -11,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     {
         playerRigidbody = GetComponent<Rigidbody>();   
         playerInput = GetComponent<PlayerInput>();
+        playerAnimatorControl = GetComponent<PlayerAnimatorControl>();
     }
 
     private void FixedUpdate()
@@ -20,11 +22,12 @@ public class PlayerMovement : MonoBehaviour
 
         playerRigidbody.AddForce(movementDirection * runSpeed * Time.fixedDeltaTime, ForceMode.Impulse);
 
-        if(movementInput != Vector2.zero)
+        if (movementInput != Vector2.zero)
         {
+            playerAnimatorControl.SetIdle(false);
             float targetAngle = Mathf.Atan2(movementDirection.x, movementDirection.z) * Mathf.Rad2Deg;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0, angle, 0);
-        }
+        } else playerAnimatorControl.SetIdle(true);
     }
 }
