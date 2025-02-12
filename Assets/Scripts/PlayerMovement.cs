@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float walkSpeed, runSpeed, turnSmoothTime, turnSmoothVelocity;
+    [SerializeField] private float walkSpeed, runSpeed, turnSmoothTime;
+
+    private float turnSmoothVelocity;
 
     private PlayerAnimatorControl playerAnimatorControl;
     private PlayerInput playerInput;

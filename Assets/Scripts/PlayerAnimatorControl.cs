@@ -27,4 +27,9 @@ public class PlayerAnimatorControl : MonoBehaviour
     {
         playerAnimator.SetBool("IsGrounded", boolean);
     }
+
+    public void SetVelocityY(float velocity)
+    {
+        playerAnimator.SetFloat("VelocityY", velocity);
+    }
 }
