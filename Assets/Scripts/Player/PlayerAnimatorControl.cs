@@ -32,4 +32,9 @@ public class PlayerAnimatorControl : MonoBehaviour
     {
         playerAnimator.SetFloat("VelocityY", velocity);
     }
+
+    public void PlayAnimation(string animationName)
+    {
+        playerAnimator.Play(animationName);
+    }
 }
