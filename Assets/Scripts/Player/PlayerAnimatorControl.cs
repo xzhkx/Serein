@@ -37,4 +37,13 @@ public class PlayerAnimatorControl : MonoBehaviour
     {
         playerAnimator.Play(animationName);
     }
+
+    public bool CheckAnimationLength(float value)
+    {
+        if (playerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= value - 0.01f)
+        {
+            return true;
+        }
+        else return false;
+    }
 }

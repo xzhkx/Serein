@@ -23,7 +23,13 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
+        if (!Input.GetMouseButtonDown(0)) return;
         ComboAttackRootTree.Execute();
+    }
+
+    public void ResetComboAttack()
+    {
+        ComboAttackRootTree.ResetNode();
     }
 
     private class AttackNode : Node
@@ -44,12 +50,12 @@ public class PlayerAttack : MonoBehaviour
                 playerAnimatorControl.PlayAnimation(animationName);
                 return NodeState.SUCCESS;
             }
-            if (!Input.GetMouseButtonDown(0)) //-> Check animation Time
+            if (playerAnimatorControl.CheckAnimationLength(0.6f)) 
             {
                 playerAnimatorControl.SetIdle(true);
                 return NodeState.FAILURE;
             }
-            else return NodeState.RUNNING;
+            return NodeState.RUNNING;
         }
     }
 }
