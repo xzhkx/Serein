@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 movementInput = playerInput.GetPlayerMovementInput();
         Vector3 movementDirection = new Vector3(movementInput.x, 0, movementInput.y);
 
-        playerRigidbody.AddForce(movementDirection * runSpeed * Time.fixedDeltaTime, ForceMode.Impulse);
+        playerRigidbody.velocity = movementDirection * runSpeed;
 
         if (movementInput != Vector2.zero)
         {

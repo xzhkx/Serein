@@ -38,6 +38,11 @@ public class PlayerAnimatorControl : MonoBehaviour
         playerAnimator.Play(animationName);
     }
 
+    public void SetTriggerNextComboAttack()
+    {
+        playerAnimator.SetTrigger("NextCombo");
+    }
+
     public bool CheckAnimationLength(float value)
     {
         if (playerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= value - 0.01f)

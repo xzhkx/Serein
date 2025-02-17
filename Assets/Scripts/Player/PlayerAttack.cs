@@ -48,6 +48,7 @@ public class PlayerAttack : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 playerAnimatorControl.PlayAnimation(animationName);
+                playerAnimatorControl.SetTriggerNextComboAttack();
                 return NodeState.SUCCESS;
             }
             if (playerAnimatorControl.CheckAnimationLength(0.6f)) 

@@ -44,8 +44,6 @@ namespace zhk.BehaviourTree
         {
             NodeState state = childrenNodes[childIndex].Execute();
 
-            Debug.Log(childIndex.ToString() + state.ToString());
-
             if (state == NodeState.FAILURE)
             {
                 ResetNode();
