@@ -38,9 +38,9 @@ public class PlayerAnimatorControl : MonoBehaviour
         playerAnimator.Play(animationName);
     }
 
-    public void SetTriggerNextComboAttack()
+    public void SetTrigger(string triggerName)
     {
-        playerAnimator.SetTrigger("NextCombo");
+        playerAnimator.SetTrigger(triggerName);
     }
 
     public bool CheckAnimationLength(float value)

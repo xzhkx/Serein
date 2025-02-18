@@ -11,9 +11,9 @@ public class PlayerAttack : MonoBehaviour
     {
         playerAnimatorControl = GetComponent<PlayerAnimatorControl>();
 
-        AttackNode Attack01 = new AttackNode(playerAnimatorControl, "Attack01");
-        AttackNode Attack02 = new AttackNode(playerAnimatorControl, "Attack02");
-        AttackNode Attack03 = new AttackNode(playerAnimatorControl, "Attack03");
+        AttackNode Attack01 = new AttackNode(playerAnimatorControl);
+        AttackNode Attack02 = new AttackNode(playerAnimatorControl);
+        AttackNode Attack03 = new AttackNode(playerAnimatorControl);
 
         ComboAttackRootTree = new SequenceNode(3);
         ComboAttackRootTree.AttachNode(Attack01);
@@ -35,25 +35,22 @@ public class PlayerAttack : MonoBehaviour
     private class AttackNode : Node
     {
         private PlayerAnimatorControl playerAnimatorControl;
-        private string animationName;
 
-        public AttackNode(PlayerAnimatorControl playerAnimatorControl, string animationName)
-        {
+        public AttackNode(PlayerAnimatorControl playerAnimatorControl){ 
             this.playerAnimatorControl = playerAnimatorControl;
-            this.animationName = animationName;
         }
 
         public override NodeState Execute()
         {
             if (Input.GetMouseButtonDown(0))
             {
-                playerAnimatorControl.PlayAnimation(animationName);
-                playerAnimatorControl.SetTriggerNextComboAttack();
+                playerAnimatorControl.SetTrigger("NextCombo");
                 return NodeState.SUCCESS;
             }
-            if (playerAnimatorControl.CheckAnimationLength(0.6f)) 
+            if (playerAnimatorControl.CheckAnimationLength(0.6f)) //Change to when move - > Failure
             {
-                playerAnimatorControl.SetIdle(true);
+                playerAnimatorControl.PlayAnimation("Idle");
+                Debug.Log("UH");
                 return NodeState.FAILURE;
             }
             return NodeState.RUNNING;
