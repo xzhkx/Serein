@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,11 +7,17 @@ public class PlayerJump : MonoBehaviour
 
     private PlayerAnimatorControl playerAnimatorControl;
     private Rigidbody playerRigidbody;
+    private float groundCheckDistance;
+    private bool isJump;
 
     private void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody>();
         playerAnimatorControl = GetComponent<PlayerAnimatorControl>();
+
+        groundCheckDistance = GetComponent<CapsuleCollider>().height / 2 + 0.1f;
+
+        isJump = false;
     }
 
     private void Update()
@@ -34,15 +38,20 @@ public class PlayerJump : MonoBehaviour
     private void HitGroundCheck()
     {
         RaycastHit rayCastHit;
-        if (Physics.Raycast(transform.position, Vector3.down, out rayCastHit))
+        if (Physics.Raycast(transform.position, Vector3.down, out rayCastHit, groundCheckDistance))
         {
-            if (!rayCastHit.collider.CompareTag("Ground")) return;
             playerAnimatorControl.SetGrounded(true);
+            isJump = false;
+        }
+        else
+        {
+             isJump = true;
         }
     }
 
     private void Jump(InputAction.CallbackContext context)
     {
+        if (isJump) return;
         playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         playerAnimatorControl.SetGrounded(false);
     }

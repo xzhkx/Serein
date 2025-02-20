@@ -20,16 +20,19 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 movementInput = playerInput.GetPlayerMovementInput();
-        Vector3 movementDirection = new Vector3(movementInput.x, 0, movementInput.y);
+        Vector3 movementDirection = new Vector3(movementInput.x * runSpeed, playerRigidbody.velocity.y, movementInput.y * runSpeed);
 
-        playerRigidbody.velocity = movementDirection * runSpeed;
+        playerRigidbody.velocity = movementDirection;
 
         if (movementInput != Vector2.zero)
         {
             playerAnimatorControl.SetIdle(false);
+
             float targetAngle = Mathf.Atan2(movementDirection.x, movementDirection.z) * Mathf.Rad2Deg;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0, angle, 0);
         } else playerAnimatorControl.SetIdle(true);
     }
+
+
 }
