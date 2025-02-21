@@ -3,7 +3,7 @@ using zhk.BehaviourTree;
 public class PlayerAttack : MonoBehaviour
 {
     private PlayerAnimatorControl playerAnimatorControl;
-    private SequenceNode ComboAttackRootTree;
+    private SequenceNode ComboAttackRootNode;
     private PlayerInput playerInput;
 
     private Rigidbody playerRigidbody;
@@ -16,10 +16,10 @@ public class PlayerAttack : MonoBehaviour
 
         AttackNode Attack = new AttackNode(playerAnimatorControl, playerInput);
 
-        ComboAttackRootTree = new SequenceNode(3);
-        ComboAttackRootTree.AttachNode(Attack);
-        ComboAttackRootTree.AttachNode(Attack);
-        ComboAttackRootTree.AttachNode(Attack);
+        ComboAttackRootNode = new SequenceNode(3);
+        ComboAttackRootNode.AttachNode(Attack);
+        ComboAttackRootNode.AttachNode(Attack);
+        ComboAttackRootNode.AttachNode(Attack);
     }
 
     private void Update()
@@ -28,12 +28,12 @@ public class PlayerAttack : MonoBehaviour
         {
             return;
         }
-        ComboAttackRootTree.Execute();
+        ComboAttackRootNode.Execute();
     }
 
     public void ResetComboAttack()
     {
-        ComboAttackRootTree.ResetNode();
+        ComboAttackRootNode.ResetNode();
     }
 
     private class AttackNode : Node

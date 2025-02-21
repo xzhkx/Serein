@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace zhk.BehaviourTree
 {
@@ -57,6 +56,38 @@ namespace zhk.BehaviourTree
             }
 
             if (state == NodeState.SUCCESS)
+            {
+                childIndex++;
+            }
+            return NodeState.RUNNING;
+        }
+    }
+
+    public class FallbackNode : Node
+    {
+        public FallbackNode(int childAmount)
+        {
+            childIndex = 0;
+            childrenNodes = new List<Node>(childAmount);
+        }
+
+        public override NodeState Execute()
+        {
+            NodeState state = childrenNodes[childIndex].Execute();
+
+            if (state == NodeState.SUCCESS)
+            {
+                ResetNode();
+                return state;
+            }
+
+            if (childIndex >= childrenNodes.Count - 1 && state == NodeState.FAILURE)
+            {
+                ResetNode();
+                return state;
+            }
+
+            if (state == NodeState.FAILURE)
             {
                 childIndex++;
             }
