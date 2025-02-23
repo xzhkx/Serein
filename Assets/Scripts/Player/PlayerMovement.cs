@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private Transform cameraTransform;
     [SerializeField] private float walkSpeed, runSpeed, turnSmoothTime;
 
     private float turnSmoothVelocity;
@@ -20,17 +21,25 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 movementInput = playerInput.GetPlayerMovementInput();
-        Vector3 movementDirection = new Vector3(movementInput.x * runSpeed, playerRigidbody.velocity.y, movementInput.y * runSpeed);
 
-        playerRigidbody.velocity = movementDirection;
+        Vector3 xDirection = cameraTransform.right;
+        xDirection.y = 0f;
+        Vector3 zDirection = cameraTransform.forward;
+        zDirection.y = 0f;
+        Vector3 yDirection = new Vector3(0, playerRigidbody.velocity.y, 0);
+
+        Vector3 direction = xDirection * movementInput.x * runSpeed + zDirection * movementInput.y * runSpeed
+            + yDirection;
+
+        playerRigidbody.velocity = direction;
 
         if (movementInput != Vector2.zero)
         {
-            playerAnimatorControl.SetIdle(false);
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+            float angle = Mathf.SmoothDampAngle(transform.localEulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
 
-            float targetAngle = Mathf.Atan2(movementDirection.x, movementDirection.z) * Mathf.Rad2Deg;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0, angle, 0);
+            playerAnimatorControl.SetIdle(false);
+            transform.localRotation = Quaternion.Euler(0, angle, 0);
         } else playerAnimatorControl.SetIdle(true);
     }
 

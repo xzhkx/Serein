@@ -6,7 +6,6 @@ public class EnemyChasePlayer : MonoBehaviour
     [SerializeField] private Transform targetTransform;
     private Rigidbody enemyRigidbody;
 
-
     private void Awake()
     {
         enemyRigidbody = GetComponent<Rigidbody>();
@@ -18,6 +17,6 @@ public class EnemyChasePlayer : MonoBehaviour
         float distance = direction.sqrMagnitude;
 
         enemyRigidbody.velocity = direction.normalized * runSpeed;
-        transform.rotation = Quaternion.LookRotation(direction);
+        transform.localRotation = Quaternion.LookRotation(direction);
     }
 }
