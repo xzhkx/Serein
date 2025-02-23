@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MycoAnimatorControl : MonoBehaviour
+public class EnemyAnimatorControl : MonoBehaviour
 {
     private Animator mycoAnimator;
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DetectPlayerInRange : MonoBehaviour
+public class EnemyDetectPlayerInRange : MonoBehaviour
 {
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private float sightRangeRadius, attackRangeRadius;
