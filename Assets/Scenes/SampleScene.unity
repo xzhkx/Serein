@@ -913,7 +913,7 @@ GameObject:
   - component: {fileID: 919132147621749694}
   - component: {fileID: 919132147621749697}
   - component: {fileID: 919132147621749698}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Myco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1056,9 +1056,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef27f7876603b5249a26c2401ec64e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTransform: {fileID: 3352551623341540348}
   activeRangeRadius: 10
   runSpeed: 4
   restTimer: 3
+  restAfterAttackTimer: 5
 --- !u!1 &919132148285928400
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,6 +1345,7 @@ GameObject:
   - component: {fileID: 3352551623341540350}
   - component: {fileID: 3352551623341540349}
   - component: {fileID: 3352551623341540356}
+  - component: {fileID: 3352551623341540358}
   m_Layer: 3
   m_Name: YYri Controller
   m_TagString: Untagged
@@ -1567,6 +1570,22 @@ CapsuleCollider:
   m_Height: 18.153738
   m_Direction: 1
   m_Center: {x: 0, y: 0.17313099, z: 0}
+--- !u!114 &3352551623341540358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2723964589919099206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d09473e60e09c1749bcea922e9b4424e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  detectEnemyRadius: 15
 --- !u!33 &3469287838351501007
 MeshFilter:
   m_ObjectHideFlags: 0

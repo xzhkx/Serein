@@ -1,31 +1,50 @@
 using UnityEngine;
 
 public class EnemyIdle : MonoBehaviour
-{ 
+{
+    [SerializeField] private Transform playerTransform;
     [SerializeField] private float activeRangeRadius, runSpeed;
-    [SerializeField] private float restTimer;
+    [SerializeField] private float restTimer, restAfterAttackTimer;
         
-    private float timer;
+    private float normalTimer, restAttackTimer;
     private Vector3 originalPosition, currentPosition;
     private Rigidbody enemyRigidbody;
 
     private void Awake()
     {
-        timer = restTimer;
+        normalTimer = restTimer;
+        restAttackTimer = restAfterAttackTimer;
+
         originalPosition = transform.position;
         currentPosition = originalPosition;
         enemyRigidbody = GetComponent<Rigidbody>();
     }
 
-    public bool Rest()
+    public bool NormalRest()
     {
-        if (timer <= 0) {
-            timer = restTimer;
+        if (normalTimer <= 0) {
+            normalTimer = restTimer;
             return true;
         } else
         {
-            timer -= Time.deltaTime;
+            normalTimer -= Time.deltaTime;
             enemyRigidbody.velocity = Vector3.zero;
+            return false;
+        }
+    }
+
+    public bool RestAfterAttack()
+    {
+        if (restAttackTimer <= 0)
+        {
+            restAttackTimer = restAfterAttackTimer;
+            return true;
+        }
+        else
+        {
+            restAttackTimer -= Time.deltaTime;
+            LookAtTarget(playerTransform.position);
+            enemyRigidbody.velocity = Vector3.back * 2f;
             return false;
         }
     }
@@ -42,9 +61,7 @@ public class EnemyIdle : MonoBehaviour
         }
         else
         {
-            Vector3 direction = (currentPosition - transform.position).normalized;
-            enemyRigidbody.velocity = direction * runSpeed;
-            transform.rotation = Quaternion.LookRotation(direction);
+            enemyRigidbody.velocity = LookAtTarget(currentPosition) * runSpeed;
             return false;
         }
     }
@@ -53,6 +70,13 @@ public class EnemyIdle : MonoBehaviour
     {
         Vector3 direction = (transform.position - originalPosition).normalized;
         enemyRigidbody.velocity = direction * runSpeed;
-        transform.rotation = Quaternion.LookRotation(direction);
+        transform.localRotation = Quaternion.LookRotation(direction);
+    }
+
+    private Vector3 LookAtTarget(Vector3 targetPosition)
+    {
+        Vector3 direction = targetPosition - transform.position;
+        transform.localRotation = Quaternion.LookRotation(direction);
+        return direction;
     }
 }

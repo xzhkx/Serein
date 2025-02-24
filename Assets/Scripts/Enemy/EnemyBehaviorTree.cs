@@ -1,4 +1,3 @@
-using UnityEngine;
 using zhk.BehaviourTree;
 
 namespace zhk.EnemyBehaviorTree
@@ -26,7 +25,7 @@ namespace zhk.EnemyBehaviorTree
             else
             {
                 enemyAnimatorControl.SetTrigger("IdleTrigger");
-                if (enemyIdle.Rest())
+                if (enemyIdle.NormalRest())
                 {
                     return NodeState.SUCCESS;
                 }
@@ -130,7 +129,7 @@ namespace zhk.EnemyBehaviorTree
 
         public override NodeState Execute()
         {
-            if (enemyIdle.Rest())
+            if (enemyIdle.RestAfterAttack())
             {
                 return NodeState.SUCCESS;
             }
