@@ -56,7 +56,7 @@ public class EnemyIdle : MonoBehaviour
         {
             float randomX = Random.Range(originalPosition.x - activeRangeRadius, originalPosition.x + activeRangeRadius);
             float randomZ = Random.Range(originalPosition.z - activeRangeRadius, originalPosition.z + activeRangeRadius);
-            currentPosition =  new Vector3(randomX, currentPosition.y, randomZ);
+            currentPosition = new Vector3(randomX, currentPosition.y, randomZ);
             return true;
         }
         else
@@ -66,17 +66,23 @@ public class EnemyIdle : MonoBehaviour
         }
     }
 
-    public void ResetPosition()
+    public bool ResetPosition()
     {
-        Vector3 direction = (transform.position - originalPosition).normalized;
-        enemyRigidbody.velocity = direction * runSpeed;
-        transform.localRotation = Quaternion.LookRotation(direction);
+        float distance = (transform.position - originalPosition).sqrMagnitude;
+        if (distance <= 0.02f)
+        {
+            Vector3 direction = (transform.position - originalPosition).normalized;
+            enemyRigidbody.velocity = direction * runSpeed;
+            transform.localRotation = Quaternion.LookRotation(direction);
+            return false;
+        }
+        else return true;
     }
 
     private Vector3 LookAtTarget(Vector3 targetPosition)
     {
         Vector3 direction = targetPosition - transform.position;
         transform.localRotation = Quaternion.LookRotation(direction);
-        return direction;
+        return direction.normalized;
     }
 }

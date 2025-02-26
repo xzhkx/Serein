@@ -66,11 +66,14 @@ namespace zhk.EnemyBehaviorTree
     {
         private EnemyDetectPlayerInRange detectPlayerInRange;
         private EnemyChasePlayer enemyChasePlayer;
+        private EnemyIdle enemyIdle;
 
-        public ChasePlayerNode(EnemyChasePlayer enemyChasePlayer, EnemyDetectPlayerInRange detectPlayerInRange)
+        public ChasePlayerNode(EnemyChasePlayer enemyChasePlayer, EnemyDetectPlayerInRange detectPlayerInRange,
+            EnemyIdle enemyIdle)
         {
             this.detectPlayerInRange = detectPlayerInRange;
             this.enemyChasePlayer = enemyChasePlayer;
+            this.enemyIdle = enemyIdle;
         }
 
         public override NodeState Execute()
@@ -83,8 +86,13 @@ namespace zhk.EnemyBehaviorTree
             {
                 enemyChasePlayer.ChasePlayer();
                 return NodeState.RUNNING;
+            } else
+            {
+                if (enemyIdle.ResetPosition())
+                {
+                    return NodeState.SUCCESS;
+                } else return NodeState.RUNNING;
             }
-            return NodeState.SUCCESS;
         }
     }
 

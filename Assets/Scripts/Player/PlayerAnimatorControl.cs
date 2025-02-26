@@ -43,6 +43,11 @@ public class PlayerAnimatorControl : MonoBehaviour
         playerAnimator.SetTrigger(triggerName);
     }
 
+    public void ResetTrigger(string triggerName)
+    {
+        playerAnimator.ResetTrigger(triggerName);
+    }
+
     public bool CheckAnimationLength(float value)
     {
         if (playerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= value - 0.01f)

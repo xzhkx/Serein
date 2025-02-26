@@ -24,7 +24,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        if (playerRigidbody.velocity.y != 0)
+        if (playerRigidbody.velocity.y > 0)
         {
             return;
         }

@@ -8,6 +8,7 @@ public class MycoAI : MonoBehaviour
     private EnemyAnimatorControl enemyAnimatorControl;
     private EnemyChasePlayer enemyChasePlayer;
     private EnemyIdle enemyIdle;
+    private EnemyTakeDamage enemyTakeDamage;
 
     private FallbackNode MycoAIRootNode;
 
@@ -17,10 +18,11 @@ public class MycoAI : MonoBehaviour
         enemyAnimatorControl = GetComponent<EnemyAnimatorControl>();
         enemyChasePlayer = GetComponent<EnemyChasePlayer>();
         enemyIdle = GetComponent<EnemyIdle>();
+        enemyTakeDamage = GetComponent<EnemyTakeDamage>();
 
         IdleStateNode idleStateNode = new IdleStateNode(enemyAnimatorControl, enemyDetectPlayerInRange, enemyIdle);
         RandomMovementNode randomMovementNode = new RandomMovementNode(enemyIdle, enemyDetectPlayerInRange);
-        ChasePlayerNode chasePlayerNode = new ChasePlayerNode(enemyChasePlayer, enemyDetectPlayerInRange);
+        ChasePlayerNode chasePlayerNode = new ChasePlayerNode(enemyChasePlayer, enemyDetectPlayerInRange, enemyIdle);
         AttackPlayerNode attackPlayerNode = new AttackPlayerNode(enemyAnimatorControl, enemyDetectPlayerInRange);
         RestAttackNode restAttackNode = new RestAttackNode(enemyAnimatorControl, enemyDetectPlayerInRange, enemyIdle);
 
@@ -40,6 +42,7 @@ public class MycoAI : MonoBehaviour
 
     private void Update()
     {
+        if (enemyTakeDamage.IsStunnedByAttack()) return;
         MycoAIRootNode.Execute();
     }
 }

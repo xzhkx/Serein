@@ -22,7 +22,8 @@ public class PlayerJump : MonoBehaviour
 
     private void Update()
     {
-        playerAnimatorControl.SetVelocityY(playerRigidbody.velocity.y); 
+        float velocityY = playerRigidbody.velocity.y;
+        playerAnimatorControl.SetVelocityY(velocityY); 
     }
 
     private void Start()
