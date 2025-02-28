@@ -2,7 +2,7 @@ using UnityEngine;
 using zhk.BehaviourTree;
 using zhk.EnemyBehaviorTree;
 
-public class MycoAI : MonoBehaviour
+public class MycoAI : MonoBehaviour, IEnemyAI
 {
     private EnemyDetectPlayerInRange enemyDetectPlayerInRange;
     private EnemyAnimatorControl enemyAnimatorControl;
@@ -44,5 +44,10 @@ public class MycoAI : MonoBehaviour
     {
         if (enemyTakeDamage.IsStunnedByAttack()) return;
         MycoAIRootNode.Execute();
+    }
+
+    public void StopEnemyAI()
+    {
+        GetComponent<MycoAI>().enabled = false;
     }
 }

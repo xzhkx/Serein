@@ -44,5 +44,4 @@ public class PlayerLockOnAttack : MonoBehaviour
         attackVFX.PlayAttackVFX(currentEnemyLockOn.transform.position);
         currentEnemyLockOn.GetComponent<EnemyTakeDamage>().TakeDamage(2);
     }
-
 }

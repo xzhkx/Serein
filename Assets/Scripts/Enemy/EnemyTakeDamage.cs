@@ -41,6 +41,7 @@ public class EnemyTakeDamage : MonoBehaviour
     }
     private void EnemyDie()
     {
-
+        GetComponent<IEnemyAI>().StopEnemyAI();
+        enemyAnimatorControl.SetTrigger("DieTrigger");
     }
 }
