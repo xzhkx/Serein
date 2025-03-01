@@ -15,7 +15,7 @@ public class PlayerJump : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody>();
         playerAnimatorControl = GetComponent<PlayerAnimatorControl>();
 
-        groundCheckDistance = GetComponent<CapsuleCollider>().height / 2 + 0.1f;
+        groundCheckDistance = GetComponent<CapsuleCollider>().height / 2 + 0.05f;
 
         isJump = false;
     }
@@ -46,7 +46,7 @@ public class PlayerJump : MonoBehaviour
         }
         else
         {
-             isJump = true;
+            isJump = true;
         }
     }
 

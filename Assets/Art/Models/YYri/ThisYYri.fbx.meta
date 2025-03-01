@@ -237,14 +237,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 0
-        functionName: ResetComboAttack
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 58173e9dc4cdf2a48bd49f8b83673c62, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -254,7 +247,7 @@ ModelImporter:
       takeName: Armature|JumpFall
       internalID: -1878867448822944058
       firstFrame: 0
-      lastFrame: 16
+      lastFrame: 12
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -312,7 +305,7 @@ ModelImporter:
       takeName: Armature|JumpUp
       internalID: 5277777409621656941
       firstFrame: 0
-      lastFrame: 19
+      lastFrame: 16
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
