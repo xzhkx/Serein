@@ -18,7 +18,16 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "d7581dc8-2ca6-46bc-bbd1-48bc8d2ac21f",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DialogueInteract",
+                    "type": "Button",
+                    "id": "bf03af77-4403-4689-88a1-d4d5fbecdb0d",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -88,6 +97,28 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "25f7e99e-0cc6-4125-b065-fd5da60c905b",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DialogueInteract",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dbee4f26-8930-43fd-9f65-0297c30df330",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "DialogueInteract",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

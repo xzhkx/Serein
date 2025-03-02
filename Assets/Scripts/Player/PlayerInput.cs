@@ -24,4 +24,10 @@ public class PlayerInput : MonoBehaviour
     {
         playerInputActions.Enable();
     }
+
+    public bool GetInteractPressed()
+    {
+        if (playerInputActions.Player.DialogueInteract.triggered) return true;
+        return false;
+    }
 }

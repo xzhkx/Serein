@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="width: 1920px; height: 1080px; align-items: center; justify-content: flex-end; flex-grow: 1;">
+        <ui:VisualElement name="DialoguePanel" style="width: 1400px; height: 350px; min-height: 0; max-height: 350px; min-width: 0; max-width: 1500px; background-color: rgba(255, 255, 255, 0.35); -unity-background-scale-mode: stretch-to-fill; flex-direction: column; align-items: center; justify-content: space-between; margin-bottom: 70px;">
+            <ui:Label tabindex="-1" text="Om OM" parse-escape-sequences="true" display-tooltip-when-elided="true" name="NameLabel" style="align-items: stretch; width: 350px; height: 70px; font-size: 36px; justify-content: flex-start; -unity-text-align: middle-center; margin-top: 20px; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 15px; padding-right: 0; padding-bottom: 15px; padding-left: 0; color: rgb(0, 0, 0);" />
+            <ui:Label tabindex="-1" text="Dialogue ABC" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DialogueLabel" style="font-size: 36px; -unity-text-align: upper-center; width: 1000px; height: 200px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 15px; padding-right: 0; padding-bottom: 15px; padding-left: 0; color: rgb(0, 0, 0);" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
