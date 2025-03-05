@@ -2468,7 +2468,7 @@ GameObject:
   - component: {fileID: 799840638}
   - component: {fileID: 799840637}
   m_Layer: 5
-  m_Name: UIDocument
+  m_Name: Dialogue UIDocument
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4026,7 +4026,7 @@ GameObject:
   - component: {fileID: 1195411007}
   - component: {fileID: 1195411008}
   m_Layer: 5
-  m_Name: UIDocument (1)
+  m_Name: Quest UIDocument
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5822,6 +5822,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 799840638}
+  - {fileID: 2054695528}
   - {fileID: 1195411007}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11501,6 +11502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inGameQuest: {fileID: 5866666020156503787}
+  uiDocument: {fileID: 1195411008}
 --- !u!4 &1730248944
 Transform:
   m_ObjectHideFlags: 0
@@ -17155,6 +17157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questName: Pick Up Specter Dust
+  questDescription: 
   characterLevel: 0
   specterDust: 10
 --- !u!114 &1790040104
@@ -17753,6 +17756,54 @@ Transform:
   - {fileID: 1728570621}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2054695527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2054695528}
+  - component: {fileID: 2054695529}
+  m_Layer: 5
+  m_Name: 'General UIDocument '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2054695528
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054695527}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 226.79507, y: 104.760895, z: 36.619915}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1572484912}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2054695529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054695527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: ec19c543ab2784847af76022eb65f66c, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: a9096a5e2baac084a813e4b9ffa808ce, type: 3}
+  m_SortingOrder: 0
 --- !u!1 &2063566063
 GameObject:
   m_ObjectHideFlags: 0
@@ -21421,6 +21472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questName: Follow Lucas
+  questDescription: Just follow him ><
   characterLevel: 0
   specterDust: 10
 --- !u!95 &5866666020185557381
@@ -23089,11 +23141,11 @@ SceneRoots:
   - {fileID: 148578612}
   - {fileID: 1109834263}
   - {fileID: 2136153172}
+  - {fileID: 1730248944}
   - {fileID: 1790040102}
   - {fileID: 82941953}
   - {fileID: 1515819104}
   - {fileID: 371479067}
-  - {fileID: 1730248944}
   - {fileID: 543450651946232989}
   - {fileID: 1562147904}
   - {fileID: 1769547595}

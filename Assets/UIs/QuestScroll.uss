@@ -1,0 +1,18 @@
+#QuestScroll Scroller #unity-slider {
+    display: flex;
+    background-color: rgba(255, 0, 0, 0);
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0);
+    visibility: visible;
+    opacity: 1;
+    width: 480px;
+    align-items: stretch;
+    justify-content: flex-start;
+    align-self: flex-end;
+}
+
+#QuestScroll Scroller {
+    opacity: 0;
+}
+
+#QuestScroll #unity-content-container {
+}

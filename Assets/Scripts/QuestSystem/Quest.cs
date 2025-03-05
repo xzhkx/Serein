@@ -10,16 +10,18 @@ public enum QuestState
 
 public class Quest 
 {
-    private string questName;
+    public string questName;
+    public string questDescription;
     private QuestState questState;
     private IQuestFunctionality functionality;
     private QuestRequirements questRequirements;
     private QuestRewards questRewards;
 
-    public Quest(string questName, QuestState questState, IQuestFunctionality functionality,
-        QuestRequirements questRequirements, QuestRewards questRewards)
+    public Quest(string questName, string questDescription, QuestState questState, 
+        IQuestFunctionality functionality, QuestRequirements questRequirements, QuestRewards questRewards)
     {
         this.questName = questName;
+        this.questDescription = questDescription;
         this.questState = questState;
         this.functionality = functionality;
         this.questRequirements = questRequirements;
