@@ -4059,7 +4059,7 @@ MonoBehaviour:
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PanelSettings: {fileID: 11400000, guid: ec19c543ab2784847af76022eb65f66c, type: 2}
+  m_PanelSettings: {fileID: 11400000, guid: 2113f5fd923dc9e4b8bfc55f6ea27151, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 3a4f42a3d475e554697b15cdb866992d, type: 3}
   m_SortingOrder: 0
@@ -11482,6 +11482,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1730248944}
   - component: {fileID: 1730248943}
+  - component: {fileID: 1730248946}
+  - component: {fileID: 1730248945}
   m_Layer: 0
   m_Name: Quest Manager
   m_TagString: Untagged
@@ -11502,7 +11504,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inGameQuest: {fileID: 5866666020156503787}
-  uiDocument: {fileID: 1195411008}
 --- !u!4 &1730248944
 Transform:
   m_ObjectHideFlags: 0
@@ -11518,6 +11519,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1730248945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730248942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4ec0f6e5687fa14c8f0b6da526aa209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1730248946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730248942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b8920636d03a548bd6076e4cafd33e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiDocument: {fileID: 1195411008}
 --- !u!1 &1733240904
 GameObject:
   m_ObjectHideFlags: 0
@@ -17800,9 +17826,9 @@ MonoBehaviour:
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PanelSettings: {fileID: 11400000, guid: ec19c543ab2784847af76022eb65f66c, type: 2}
+  m_PanelSettings: {fileID: 11400000, guid: 3e720f241747a7e4e92c7416a2141a41, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: a9096a5e2baac084a813e4b9ffa808ce, type: 3}
+  sourceAsset: {fileID: 9197481963319205126, guid: 3b0bc2e579310dc4d8b746a064a951ab, type: 3}
   m_SortingOrder: 0
 --- !u!1 &2063566063
 GameObject:

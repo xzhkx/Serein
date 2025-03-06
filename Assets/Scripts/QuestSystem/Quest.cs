@@ -35,6 +35,6 @@ public class Quest
 
     public void StartQuest()
     {
-        Debug.Log(functionality.StartQuestProgress().ToString());
+        functionality.StartQuestProgress();
     }
 }
