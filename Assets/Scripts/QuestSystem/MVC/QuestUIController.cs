@@ -15,7 +15,13 @@ public class QuestUIController : MonoBehaviour
     private void Start()
     {
         Button openQuestInfoButton = questUIView.GetOpenQuestInfoButton();
-        //openQuestInfoButton.RegisterCallback<ClickEvent>(SetQuestInfo);
+        openQuestInfoButton.RegisterCallback<ClickEvent>(OnSetQuestInfo);
     }
 
+
+    private void OnSetQuestInfo(ClickEvent clickEvent)
+    {
+        Debug.Log("Click");
+        questUIView.SetQuestInfo(questManager.GetCurrentQuest());
+    }
 }
