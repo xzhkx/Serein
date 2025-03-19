@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerJump : MonoBehaviour
 {
-    [SerializeField] private float jumpForce;
+    [SerializeField] private float jumpForce, groundDistance;
 
     private PlayerAnimatorControl playerAnimatorControl;
     private Rigidbody playerRigidbody;
@@ -15,7 +15,7 @@ public class PlayerJump : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody>();
         playerAnimatorControl = GetComponent<PlayerAnimatorControl>();
 
-        groundCheckDistance = GetComponent<CapsuleCollider>().height / 2 + 0.05f;
+        groundCheckDistance = GetComponent<CapsuleCollider>().height / 2 + groundDistance;
 
         isJump = false;
     }
@@ -41,6 +41,7 @@ public class PlayerJump : MonoBehaviour
         RaycastHit rayCastHit;
         if (Physics.Raycast(transform.position, Vector3.down, out rayCastHit, groundCheckDistance))
         {
+            Debug.Log("Hit");
             playerAnimatorControl.SetGrounded(true);
             isJump = false;
         }
@@ -52,6 +53,7 @@ public class PlayerJump : MonoBehaviour
 
     private void Jump(InputAction.CallbackContext context)
     {
+        Debug.Log("jump");
         if (isJump) return;
         playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         playerAnimatorControl.SetGrounded(false);
