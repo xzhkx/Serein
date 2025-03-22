@@ -1,30 +1,31 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class QuestUIView : MonoBehaviour
+public class QuestUIModel : MonoBehaviour
 {
     [SerializeField] private UIDocument uiDocument;
     private VisualElement questPanel;
     private TextElement questName, questDescription;
-    private Button openQuestInfoButton;
+    private Button questInfoButton;
 
     private void Awake()
     {
         questPanel = uiDocument.rootVisualElement.Q<VisualElement>("QuestPanel");
         questName = uiDocument.rootVisualElement.Q<TextElement>("QuestName");
         questDescription = uiDocument.rootVisualElement.Q<TextElement>("QuestDescription");
-        openQuestInfoButton = uiDocument.rootVisualElement.Q<Button>("QuestInfoButton");
+        questInfoButton = uiDocument.rootVisualElement.Q<Button>("QuestInfoButton");
     }
 
-    public Button GetOpenQuestInfoButton()
+    public Button GetQuestInfoButton()
     {
-        return openQuestInfoButton;
+        return questInfoButton;
     }
 
     public void SetQuestInfo(Quest currentQuest)
     {
+        Debug.Log("Set");
         questName.text = currentQuest.questName;
-        openQuestInfoButton.text = currentQuest.questName;
+        questInfoButton.text = currentQuest.questName;
         questDescription.text = currentQuest.questDescription;
     }
 }

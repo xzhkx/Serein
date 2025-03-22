@@ -5,27 +5,27 @@ public class QuestManager : MonoBehaviour
 {
     public InGameQuest inGameQuest;
 
-    private QuestUIView questUIView;
+    private QuestUIModel questUIModel;
 
     public Quest currentQuest { get; private set; }
     private List<Quest> questList = new List<Quest>(10);
 
-    private void Awake()
+    private void Start()
     {
-        questUIView = GetComponent<QuestUIView>();
+        questUIModel = GetComponent<QuestUIModel>();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Debug.Log("Quest");
             currentQuest = inGameQuest.GetQuest();
             TrackQuest(currentQuest);
         }
         if(currentQuest != null)
         {
             currentQuest.StartQuest();
-            questUIView.SetQuestInfo(currentQuest);
         }
     }
 
@@ -33,6 +33,7 @@ public class QuestManager : MonoBehaviour
     {
         currentQuest = quest;
         quest.SetQuestState(QuestState.IN_PROGRESS);
+        questUIModel.SetQuestInfo(currentQuest);
     }
 
     public void ReceiveQuest(Quest quest)

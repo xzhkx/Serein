@@ -41,7 +41,6 @@ public class PlayerJump : MonoBehaviour
         RaycastHit rayCastHit;
         if (Physics.Raycast(transform.position, Vector3.down, out rayCastHit, groundCheckDistance))
         {
-            Debug.Log("Hit");
             playerAnimatorControl.SetGrounded(true);
             isJump = false;
         }
@@ -53,7 +52,6 @@ public class PlayerJump : MonoBehaviour
 
     private void Jump(InputAction.CallbackContext context)
     {
-        Debug.Log("jump");
         if (isJump) return;
         playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         playerAnimatorControl.SetGrounded(false);
