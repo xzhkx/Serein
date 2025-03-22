@@ -3,26 +3,20 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
-    public InGameQuest inGameQuest;
+    public static QuestManager Instance;
 
     private QuestUIModel questUIModel;
-
     public Quest currentQuest { get; private set; }
     private List<Quest> questList = new List<Quest>(10);
 
-    private void Start()
+    private void Awake()
     {
+        Instance = this;
         questUIModel = GetComponent<QuestUIModel>();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("Quest");
-            currentQuest = inGameQuest.GetQuest();
-            TrackQuest(currentQuest);
-        }
         if(currentQuest != null)
         {
             currentQuest.StartQuest();

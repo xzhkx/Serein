@@ -2,25 +2,34 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    private bool playerInRange;
-
-    [SerializeField] private PlayerInput playerInput;
+    [SerializeField] 
+    private PlayerInput playerInput;
 
     [Header("Ink File")]
-    [SerializeField] private TextAsset inkJson;
+    [SerializeField] 
+    private TextAsset inkJson;
+
+    private IFinishDialogueAction finishDialogueAction;
+    private DialogueManager dialogueManager;
+    private bool playerInRange;
 
     private void Awake()
     {
         playerInRange = false;
+        finishDialogueAction = GetComponent<IFinishDialogueAction>();
+    }
+
+    private void Start()
+    {
+        dialogueManager = DialogueManager.Instance;
     }
 
     private void Update()
     {
         if (!playerInRange) return;
-        if (playerInput.GetInteractPressed() && !DialogueManager.Instance.dialogueIsPlaying)
+        if (playerInput.GetInteractPressed() && !dialogueManager.dialogueIsPlaying)
         {
-            //SoundManager.Instance.PlaySound(SoundType.OPENUI);
-            DialogueManager.Instance.EnterDialogue(inkJson);
+            dialogueManager.EnterDialogue(inkJson);
         }
     }
 
@@ -29,6 +38,8 @@ public class DialogueTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerInRange = true;
+            if (finishDialogueAction == null) return;
+            dialogueManager.FinishDialogueEvent += finishDialogueAction.MakeAction;
         }
     }
 
@@ -37,6 +48,8 @@ public class DialogueTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerInRange = false;
+            if (finishDialogueAction == null) return;
+            dialogueManager.FinishDialogueEvent -= finishDialogueAction.MakeAction;
         }
     }
 }

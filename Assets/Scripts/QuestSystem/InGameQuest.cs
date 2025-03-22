@@ -21,8 +21,8 @@ public class InGameQuest : MonoBehaviour
         thisQuest = new Quest(questName, questDescription, QuestState.NON_EQUIP, functionality, questRequirements, questRewards);
     }
 
-    public Quest GetQuest()
+    public void TrackQuest()
     {
-        return thisQuest;
+        QuestManager.Instance.TrackQuest(thisQuest);
     }
 }

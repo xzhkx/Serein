@@ -5,19 +5,29 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 using Ink.Runtime;
+using System;
 
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
 
-    [SerializeField] private PlayerInput playerInput;
+    public Action FinishDialogueEvent;
+
+    [SerializeField] 
+    private PlayerInput playerInput;
 
     [Header("Parameters")]
-    [SerializeField] private UIDocument uiDocument;
-    [SerializeField] private float typingSpeed;
+
+    [SerializeField] 
+    private UIDocument uiDocument;
+
+    [SerializeField] 
+    private float typingSpeed;
 
     [Header("Text Color")]
-    [SerializeField] private Color yellow, red, blue;
+
+    [SerializeField] 
+    private Color yellow, red, blue;
 
     private VisualElement dialoguePanel;
     private TextElement dialogueText;
@@ -30,6 +40,7 @@ public class DialogueManager : MonoBehaviour
 
     private const string SPEAKER_TAG = "speaker";
     private const string TEXT_COLOR_TAG = "textColor";
+    private const string ANIM_TAG = "anim";
 
     private void Awake()
     {
@@ -133,6 +144,9 @@ public class DialogueManager : MonoBehaviour
                     if (tagValue == "red") characterName.style.color = red;
                     if (tagValue == "blue") characterName.style.color = blue;
                     break;
+                case ANIM_TAG:
+
+                    break;
             }
         }
     }
@@ -183,7 +197,9 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.visible = false;
         dialogueText.text = "";
 
-        if (isFirstChoice)
+        FinishDialogueEvent?.Invoke();
+
+        if (isFirstChoice) //neu chon firstChoice thi
         {
             isFirstChoice = false;
             //DialogueChoiceEvent.OnChooseChoice?.Invoke();
