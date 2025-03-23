@@ -13,7 +13,7 @@ public class GeneralQuestUIDocument : MonoBehaviour
     private void Start()
     {
         questPanel = questUIDocument.rootVisualElement.Q<VisualElement>("QuestPanel");
-        questPanel.visible = false;
+        questPanel.style.display = DisplayStyle.None;
 
         openQuestPanelButton = generalUIDocument.rootVisualElement.Q<Button>("OpenQuestPanelButton");
         openQuestPanelButton.RegisterCallback<ClickEvent>(OnOpenQuestPanel);
@@ -21,6 +21,9 @@ public class GeneralQuestUIDocument : MonoBehaviour
 
     private void OnOpenQuestPanel(ClickEvent clickEvent)
     {
-        questPanel.visible = !questPanel.visible;
+        if (questPanel.style.display != DisplayStyle.None) 
+        {
+            questPanel.style.display = DisplayStyle.None;
+        } else questPanel.style.display = DisplayStyle.Flex;
     }
 }

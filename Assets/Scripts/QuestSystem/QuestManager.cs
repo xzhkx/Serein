@@ -4,15 +4,14 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour
 {
     public static QuestManager Instance;
-
-    private QuestUIModel questUIModel;
+    private QuestUIController questUIController;
     public Quest currentQuest { get; private set; }
     private List<Quest> questList = new List<Quest>(10);
 
     private void Awake()
     {
         Instance = this;
-        questUIModel = GetComponent<QuestUIModel>();
+        questUIController = GetComponent<QuestUIController>();
     }
 
     private void Update()
@@ -27,13 +26,16 @@ public class QuestManager : MonoBehaviour
     {
         currentQuest = quest;
         quest.SetQuestState(QuestState.IN_PROGRESS);
-        questUIModel.SetQuestInfo(currentQuest);
     }
 
     public void ReceiveQuest(Quest quest)
     {
+        if (currentQuest == null) {
+            currentQuest = quest;
+        }
         questList.Add(quest);
         quest.SetQuestState(QuestState.EQUIP);
+        questUIController.CreateNewQuestUI(quest);
     }
 
     public void StartQuest()

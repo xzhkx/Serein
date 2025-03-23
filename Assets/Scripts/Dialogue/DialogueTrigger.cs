@@ -9,14 +9,14 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField] 
     private TextAsset inkJson;
 
-    private IFinishDialogueAction finishDialogueAction;
+    private IFinishDialogue iFinishDialogue;
     private DialogueManager dialogueManager;
     private bool playerInRange;
 
     private void Awake()
     {
         playerInRange = false;
-        finishDialogueAction = GetComponent<IFinishDialogueAction>();
+        iFinishDialogue = GetComponent<IFinishDialogue>();
     }
 
     private void Start()
@@ -38,8 +38,8 @@ public class DialogueTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerInRange = true;
-            if (finishDialogueAction == null) return;
-            dialogueManager.FinishDialogueEvent += finishDialogueAction.MakeAction;
+            if (iFinishDialogue == null) return;
+            dialogueManager.FinishDialogueEvent += iFinishDialogue.MakeAction;
         }
     }
 
@@ -48,8 +48,8 @@ public class DialogueTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerInRange = false;
-            if (finishDialogueAction == null) return;
-            dialogueManager.FinishDialogueEvent -= finishDialogueAction.MakeAction;
+            if (iFinishDialogue == null) return;
+            dialogueManager.FinishDialogueEvent -= iFinishDialogue.MakeAction;
         }
     }
 }

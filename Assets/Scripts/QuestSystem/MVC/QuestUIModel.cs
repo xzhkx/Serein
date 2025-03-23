@@ -4,33 +4,44 @@ using System.Collections.Generic;
 
 public class QuestUIModel : MonoBehaviour
 {
-    [SerializeField] private UIDocument uiDocument;
+    [SerializeField] 
+    private UIDocument uiDocument;
+
     private VisualElement questPanel;
     private TextElement questName, questDescription;
-    private List<Button> questInfoButtons;
+
+    private Queue<Button> questInfoButtons = new Queue<Button>(10);
+    private Dictionary<Button, Quest> buttonInfoDictionary = new Dictionary<Button, Quest>(10);
 
     private void Awake()
     {
         questPanel = uiDocument.rootVisualElement.Q<VisualElement>("QuestPanel");
         questName = uiDocument.rootVisualElement.Q<TextElement>("QuestName");
         questDescription = uiDocument.rootVisualElement.Q<TextElement>("QuestDescription");
-        
-        for(int i = 1; i <= 6; i++)
-        {
-            questInfoButtons.Add(uiDocument.rootVisualElement.Q<Button>("QuestInfoButton" + i.ToString()));
-        }
 
+        List<Button> buttons = uiDocument.rootVisualElement.Query<Button>("QuestInfoButton").ToList(); 
+        for(int i = 0; i < buttons.Count; i++)
+        {
+            buttons[i].style.display = DisplayStyle.None;
+            questInfoButtons.Enqueue(buttons[i]);
+        }
     }
 
-    //public Button GetQuestInfoButton()
-    //{
-    //    return questInfoButton;
-    //}
+    public Button AddQuestInfoButton(Quest quest)
+    {
+        Button button = questInfoButtons.Dequeue();
 
-    //public void SetQuestInfo(Quest currentQuest)
-    //{
-    //    questName.text = currentQuest.questName;
-    //    questInfoButton.text = currentQuest.questName;
-    //    questDescription.text = currentQuest.questDescription;
-    //}
+        button.style.display = DisplayStyle.Flex;
+        button.text = quest.questName;
+
+        buttonInfoDictionary.Add(button, quest);
+        return button;
+    }
+
+
+    public void SetQuestInfo(Quest quest)
+    {
+        questName.text = quest.questName;
+        questDescription.text = quest.questDescription;
+    }
 }

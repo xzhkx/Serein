@@ -4122,7 +4122,7 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: ec19c543ab2784847af76022eb65f66c, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: 3a4f42a3d475e554697b15cdb866992d, type: 3}
-  m_SortingOrder: 0
+  m_SortingOrder: 2
 --- !u!1 &1222574149
 GameObject:
   m_ObjectHideFlags: 0
@@ -22294,7 +22294,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 10
-  targetPosition: {fileID: 82941953}
+  targetPosition:
+  - {fileID: 82941953}
+  - {fileID: 1515819104}
+  - {fileID: 371479067}
 --- !u!114 &5866666020156503787
 MonoBehaviour:
   m_ObjectHideFlags: 0
