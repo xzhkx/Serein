@@ -43,8 +43,8 @@ public class Quest
         this.questState = questState;
     }
 
-    public void StartQuest()
+    public QuestState StartQuest()
     {
-        functionality.StartQuestProgress();
+        return functionality.StartQuestProgress();
     }
 }

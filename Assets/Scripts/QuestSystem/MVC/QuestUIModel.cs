@@ -46,8 +46,9 @@ public class QuestUIModel : MonoBehaviour
         return button;
     }
 
-    public void SetQuestInfo(Quest quest)
+    public void SetQuestInfo(Button questButton)
     {
+        Quest quest = buttonInfoDictionary[questButton];
         questName.text = quest.questName;
         questDescription.text = quest.questDescription;
     }

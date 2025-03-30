@@ -19,10 +19,17 @@ public class QuestManager : MonoBehaviour
 
     private void Update()
     {
-        if(currentQuest != null)
+        if (currentQuest == null) return;
+
+        QuestState state = currentQuest.StartQuest();
+        switch (state)
         {
-            currentQuest.StartQuest();
+            case QuestState.IN_PROGRESS:
+                break;
+            case QuestState.COMPLETE:
+                break;
         }
+
     }
 
     public void TrackQuest(Quest quest)

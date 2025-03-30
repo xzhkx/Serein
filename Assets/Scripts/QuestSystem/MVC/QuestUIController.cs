@@ -6,7 +6,7 @@ public class QuestUIController : MonoBehaviour
     private QuestManager questManager;
     private QuestUIModel questUIModel;
 
-    private Quest currentQuest;
+    private Button currentButton;
 
     private void Awake()
     {
@@ -16,7 +16,6 @@ public class QuestUIController : MonoBehaviour
 
     public void CreateNewQuestUI(Quest quest)
     {
-        currentQuest = quest;
         Button button = questUIModel.AddQuestInfoButton(quest);
         button.RegisterCallback<ClickEvent>(OnSetQuestInfo);
     }
@@ -28,6 +27,7 @@ public class QuestUIController : MonoBehaviour
 
     private void OnSetQuestInfo(ClickEvent clickEvent)
     {
-        questUIModel.SetQuestInfo(currentQuest);
+        currentButton = clickEvent.target as Button;
+        questUIModel.SetQuestInfo(currentButton);
     }
 }
