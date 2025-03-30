@@ -21,6 +21,10 @@ public class QuestUIController : MonoBehaviour
         button.RegisterCallback<ClickEvent>(OnSetQuestInfo);
     }
 
+    public void SetGeneralQuestName(Quest quest)
+    {
+        questUIModel.SetGeneralQuestName(quest);
+    }
 
     private void OnSetQuestInfo(ClickEvent clickEvent)
     {

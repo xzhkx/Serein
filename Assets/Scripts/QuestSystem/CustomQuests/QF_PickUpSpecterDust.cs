@@ -7,6 +7,7 @@ public class QF_PickUpSpecterDust : MonoBehaviour, IQuestFunctionality
     private void Awake()
     {
         pickedUp = false;
+        Camera cam = Camera.main;
     }
     public QuestState StartQuestProgress()
     {

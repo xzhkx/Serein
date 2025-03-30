@@ -1,15 +1,16 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+
 using System.Collections.Generic;
 using System.Collections;
 
 public class QuestUIModel : MonoBehaviour
 {
     [SerializeField] 
-    private UIDocument questUIDocument, animationUIDocument;
+    private UIDocument questUIDocument, animationUIDocument, generalUIDocument;
 
-    private VisualElement questPanel, questIconDisplay;
-    private TextElement questName, questDescription;
+    private VisualElement questPanel, questIconDisplay, questTargetIcon;
+    private TextElement questName, questDescription, generalQuestName;
 
     private Queue<Button> questInfoButtons = new Queue<Button>(10);
     private Dictionary<Button, Quest> buttonInfoDictionary = new Dictionary<Button, Quest>(10);
@@ -17,6 +18,7 @@ public class QuestUIModel : MonoBehaviour
     private void Awake()
     {
         questIconDisplay = animationUIDocument.rootVisualElement.Q<VisualElement>("QuestIconDisplay");
+        generalQuestName = generalUIDocument.rootVisualElement.Q<TextElement>("QuestName");
 
         questPanel = questUIDocument.rootVisualElement.Q<VisualElement>("QuestPanel");
         questName = questUIDocument.rootVisualElement.Q<TextElement>("QuestName");
@@ -44,17 +46,21 @@ public class QuestUIModel : MonoBehaviour
         return button;
     }
 
+    public void SetQuestInfo(Quest quest)
+    {
+        questName.text = quest.questName;
+        questDescription.text = quest.questDescription;
+    }
+
+    public void SetGeneralQuestName(Quest quest)
+    {
+        generalQuestName.text = quest.questName;
+    }
+
     private IEnumerator ReceiveQuestAnimation()
     {
         questIconDisplay.AddToClassList("quest-fade-in");
         yield return new WaitForSeconds(5);
         questIconDisplay.RemoveFromClassList("quest-fade-in");
-    }
-
-
-    public void SetQuestInfo(Quest quest)
-    {
-        questName.text = quest.questName;
-        questDescription.text = quest.questDescription;
     }
 }

@@ -1064,6 +1064,54 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252623602}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &311140148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 311140149}
+  - component: {fileID: 311140150}
+  m_Layer: 5
+  m_Name: TrackQuestTarget UIDocument
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &311140149
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311140148}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1195411007}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &311140150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311140148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: ec19c543ab2784847af76022eb65f66c, type: 2}
+  m_ParentUI: {fileID: 1195411008}
+  sourceAsset: {fileID: 9197481963319205126, guid: 95a20623be7f32b4b8a3321f863a1b1f, type: 3}
+  m_SortingOrder: 0
 --- !u!1 &329715725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,7 +1290,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 373819051}
-  - component: {fileID: 373819050}
   m_Layer: 0
   m_Name: ----- General UIs Control---------------- (2)
   m_TagString: Untagged
@@ -1250,20 +1297,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &373819050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 373819049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 063397c67a3b0d64798fdd483898f76c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  generalUIDocument: {fileID: 2054695529}
-  questUIDocument: {fileID: 1195411008}
 --- !u!4 &373819051
 Transform:
   m_ObjectHideFlags: 0
@@ -1276,7 +1309,8 @@ Transform:
   m_LocalPosition: {x: -226.79507, y: -104.760895, z: -36.619915}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 555852634}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &475810748
@@ -1490,6 +1524,52 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 537844311}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &555852633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 555852634}
+  - component: {fileID: 555852635}
+  m_Layer: 0
+  m_Name: General UI Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &555852634
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555852633}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 373819051}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &555852635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555852633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 063397c67a3b0d64798fdd483898f76c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generalUIDocument: {fileID: 2054695529}
+  questUIDocument: {fileID: 1195411008}
 --- !u!1 &655218922
 GameObject:
   m_ObjectHideFlags: 0
@@ -3900,6 +3980,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questName: Follow Lucas
   questDescription: Just follow him ><
+  targetTransform: {fileID: 4822143815471250011}
   characterLevel: 0
   specterDust: 10
 --- !u!1 &1144327720
@@ -4173,7 +4254,8 @@ Transform:
   m_LocalPosition: {x: 226.79507, y: 104.760895, z: 36.619915}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 311140149}
   m_Father: {fileID: 1572484912}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1195411008
@@ -11624,6 +11706,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questUIDocument: {fileID: 1195411008}
   animationUIDocument: {fileID: 1879012734}
+  generalUIDocument: {fileID: 2054695529}
+  trackQuestTargetUIDocument: {fileID: 311140150}
 --- !u!1 &1733240904
 GameObject:
   m_ObjectHideFlags: 0
@@ -17264,6 +17348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questName: Pick Up Specter Dust
   questDescription: 
+  targetTransform: {fileID: 0}
   characterLevel: 0
   specterDust: 10
 --- !u!114 &1790040104
@@ -24385,6 +24470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questName: Follow Lucas
   questDescription: Just follow him ><
+  targetTransform: {fileID: 0}
   characterLevel: 0
   specterDust: 10
 --- !u!4 &5873396091964863564

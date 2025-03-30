@@ -5,6 +5,9 @@ public class InGameQuest : MonoBehaviour
     [Header("Quest Info")]
     [SerializeField] private string questName, questDescription;
 
+    [Header("Quest Target")]
+    [SerializeField] private Transform targetTransform;
+
     [Header("Quest Requirements")]
     [SerializeField] private int characterLevel;
 
@@ -18,7 +21,8 @@ public class InGameQuest : MonoBehaviour
         QuestRequirements questRequirements = new QuestRequirements(characterLevel);
         QuestRewards questRewards = new QuestRewards(characterLevel);
         functionality = GetComponent<IQuestFunctionality>();
-        thisQuest = new Quest(questName, questDescription, QuestState.NON_EQUIP, functionality, questRequirements, questRewards);
+        thisQuest = new Quest(questName, questDescription, targetTransform,
+            QuestState.NON_EQUIP, functionality, questRequirements, questRewards);
     }
 
     public void ReceiveQuest()
