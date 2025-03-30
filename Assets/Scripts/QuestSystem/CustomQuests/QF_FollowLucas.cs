@@ -2,23 +2,32 @@ using UnityEngine;
 
 public class QF_FollowLucas : MonoBehaviour, IQuestFunctionality
 {
-    [SerializeField] private float runSpeed;
-    [SerializeField] private Transform[] targetPosition;
+    [SerializeField] 
+    private float runSpeed;
 
+    [SerializeField] 
+    private Transform[] targetPosition;
+
+    [SerializeField]
     private Rigidbody lucasRigidbody;
+
+    [SerializeField]
+    private LucasAnimatorControl lucasAnimatorControl;
+
+    private Transform lucasTransform;
     private Vector3 currentTarget;
     private int index;
 
     private void Awake()
     {
-        lucasRigidbody = GetComponent<Rigidbody>();
+        lucasTransform = lucasRigidbody.transform;
         index = 0;
         currentTarget = targetPosition[index].position;
     }
 
     public QuestState StartQuestProgress()
     {
-        Vector3 direction = currentTarget - transform.position;
+        Vector3 direction = currentTarget - lucasTransform.position;
         float distance = direction.sqrMagnitude;
 
         if(distance < 0.02f && index < targetPosition.Length - 1)
@@ -30,11 +39,13 @@ public class QF_FollowLucas : MonoBehaviour, IQuestFunctionality
 
         if(distance < 0.02f && index == targetPosition.Length - 1)
         {
+            lucasAnimatorControl.SetWalk(false);
             lucasRigidbody.velocity = Vector3.zero;
             return QuestState.COMPLETE;
         }
 
-        transform.localRotation = Quaternion.LookRotation(direction);
+        lucasAnimatorControl.SetWalk(true);
+        lucasTransform.localRotation = Quaternion.LookRotation(direction);
         lucasRigidbody.velocity = direction.normalized * runSpeed;
         return QuestState.IN_PROGRESS;
     }

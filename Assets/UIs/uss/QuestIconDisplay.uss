@@ -1,0 +1,12 @@
+.quest-icon-display {
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    transition-timing-function: ease-in;
+    transition-duration: 1s;
+}
+
+.quest-fade-in {
+    opacity: 1;
+}

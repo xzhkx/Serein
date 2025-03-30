@@ -11,11 +11,11 @@ public class DialogueTrigger : MonoBehaviour
 
     private IFinishDialogue iFinishDialogue;
     private DialogueManager dialogueManager;
-    private bool playerInRange;
+    private BoxCollider boxCollider;
 
     private void Awake()
     {
-        playerInRange = false;
+        boxCollider = GetComponent<BoxCollider>();
         iFinishDialogue = GetComponent<IFinishDialogue>();
     }
 
@@ -24,20 +24,12 @@ public class DialogueTrigger : MonoBehaviour
         dialogueManager = DialogueManager.Instance;
     }
 
-    private void Update()
-    {
-        if (!playerInRange) return;
-        if (playerInput.GetInteractPressed() && !dialogueManager.dialogueIsPlaying)
-        {
-            dialogueManager.EnterDialogue(inkJson);
-        }
-    }
 
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.CompareTag("Player"))
         {
-            playerInRange = true;
+            dialogueManager.EnterDialogue(inkJson);
             if (iFinishDialogue == null) return;
             dialogueManager.FinishDialogueEvent += iFinishDialogue.MakeAction;
         }
@@ -47,9 +39,9 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            playerInRange = false;
             if (iFinishDialogue == null) return;
             dialogueManager.FinishDialogueEvent -= iFinishDialogue.MakeAction;
+            boxCollider.enabled = false;
         }
     }
 }

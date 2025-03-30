@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
+using System.Collections;
 
 public class QuestUIModel : MonoBehaviour
 {
     [SerializeField] 
-    private UIDocument uiDocument;
+    private UIDocument questUIDocument, animationUIDocument;
 
-    private VisualElement questPanel;
+    private VisualElement questPanel, questIconDisplay;
     private TextElement questName, questDescription;
 
     private Queue<Button> questInfoButtons = new Queue<Button>(10);
@@ -15,11 +16,13 @@ public class QuestUIModel : MonoBehaviour
 
     private void Awake()
     {
-        questPanel = uiDocument.rootVisualElement.Q<VisualElement>("QuestPanel");
-        questName = uiDocument.rootVisualElement.Q<TextElement>("QuestName");
-        questDescription = uiDocument.rootVisualElement.Q<TextElement>("QuestDescription");
+        questIconDisplay = animationUIDocument.rootVisualElement.Q<VisualElement>("QuestIconDisplay");
 
-        List<Button> buttons = uiDocument.rootVisualElement.Query<Button>("QuestInfoButton").ToList(); 
+        questPanel = questUIDocument.rootVisualElement.Q<VisualElement>("QuestPanel");
+        questName = questUIDocument.rootVisualElement.Q<TextElement>("QuestName");
+        questDescription = questUIDocument.rootVisualElement.Q<TextElement>("QuestDescription");
+
+        List<Button> buttons = questUIDocument.rootVisualElement.Query<Button>("QuestInfoButton").ToList(); 
         for(int i = 0; i < buttons.Count; i++)
         {
             buttons[i].style.display = DisplayStyle.None;
@@ -35,7 +38,17 @@ public class QuestUIModel : MonoBehaviour
         button.text = quest.questName;
 
         buttonInfoDictionary.Add(button, quest);
+
+        StartCoroutine(ReceiveQuestAnimation());
+
         return button;
+    }
+
+    private IEnumerator ReceiveQuestAnimation()
+    {
+        questIconDisplay.AddToClassList("quest-fade-in");
+        yield return new WaitForSeconds(5);
+        questIconDisplay.RemoveFromClassList("quest-fade-in");
     }
 
 

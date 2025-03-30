@@ -1623,7 +1623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ce24dbb7a834540b9d4fb0a01a510b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inGameQuest: {fileID: 5866666020156503787}
+  inGameQuest: {fileID: 1128837645}
 --- !u!1 &670405391
 GameObject:
   m_ObjectHideFlags: 0
@@ -2910,6 +2910,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 543450651926717307}
+  - {fileID: 4822143815471250011}
   - {fileID: 543450651946232989}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3833,6 +3834,74 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123419091}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1128837642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1128837643}
+  - component: {fileID: 1128837645}
+  - component: {fileID: 1128837644}
+  m_Layer: 0
+  m_Name: 1) FollowLucas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1128837643
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128837642}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2136153172}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1128837644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128837642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8368867853573e4b937a2739e77378b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runSpeed: 10
+  targetPosition:
+  - {fileID: 82941953}
+  - {fileID: 1515819104}
+  - {fileID: 371479067}
+  lucasRigidbody: {fileID: 5305349130077528290}
+  lucasAnimatorControl: {fileID: 5305349130077528292}
+--- !u!114 &1128837645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128837642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f30bf77930c734187d618fb9332a90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questName: Follow Lucas
+  questDescription: Just follow him ><
+  characterLevel: 0
+  specterDust: 10
 --- !u!1 &1144327720
 GameObject:
   m_ObjectHideFlags: 0
@@ -5834,6 +5903,7 @@ Transform:
   - {fileID: 1195411007}
   - {fileID: 799840638}
   - {fileID: 2054695528}
+  - {fileID: 1879012733}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1576758546
@@ -11552,7 +11622,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b8920636d03a548bd6076e4cafd33e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiDocument: {fileID: 1195411008}
+  questUIDocument: {fileID: 1195411008}
+  animationUIDocument: {fileID: 1879012734}
 --- !u!1 &1733240904
 GameObject:
   m_ObjectHideFlags: 0
@@ -17483,6 +17554,54 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1848080987}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1879012732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1879012733}
+  - component: {fileID: 1879012734}
+  m_Layer: 0
+  m_Name: Animation UIDocument
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1879012733
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879012732}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1572484912}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1879012734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879012732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: ec19c543ab2784847af76022eb65f66c, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 3b8f1bfb3b7846047aaa1fe8fded84f6, type: 3}
+  m_SortingOrder: 0
 --- !u!1 &1903738627
 GameObject:
   m_ObjectHideFlags: 0
@@ -18290,6 +18409,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1730248944}
+  - {fileID: 1128837643}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2146870389
@@ -19598,7 +19718,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &919132147740817857
 GameObject:
   m_ObjectHideFlags: 0
@@ -23143,8 +23263,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5305349130077528289}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -8.458637, y: 10.17, z: 39.0083}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0.2, y: 10.17, z: 45.3}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23153,7 +23273,7 @@ Transform:
   - {fileID: 7188555752947531227}
   - {fileID: 1877042033728022165}
   - {fileID: 7965240247823066802}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 923248014}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4832943071488967312
 Transform:
@@ -23493,6 +23613,7 @@ GameObject:
   - component: {fileID: 1444422467694059553}
   - component: {fileID: 5305349130077528290}
   - component: {fileID: 5305349130077528291}
+  - component: {fileID: 5305349130077528292}
   m_Layer: 0
   m_Name: Lucas
   m_TagString: Untagged
@@ -23525,7 +23646,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &5305349130077528291
 CapsuleCollider:
@@ -23547,9 +23668,21 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 2.5
-  m_Height: 17.441177
+  m_Height: 12.6
   m_Direction: 1
-  m_Center: {x: 0, y: 0.5294113, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5305349130077528292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5305349130077528289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75354a7ea87db614b82f07fa071408f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5312797117090874005
 Transform:
   m_ObjectHideFlags: 0
@@ -24236,6 +24369,8 @@ MonoBehaviour:
   - {fileID: 82941953}
   - {fileID: 1515819104}
   - {fileID: 371479067}
+  lucasRigidbody: {fileID: 0}
+  lucasAnimatorControl: {fileID: 0}
 --- !u!114 &5866666020156503787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27588,4 +27723,3 @@ SceneRoots:
   - {fileID: 371479067}
   - {fileID: 1562147904}
   - {fileID: 1769547595}
-  - {fileID: 4822143815471250011}

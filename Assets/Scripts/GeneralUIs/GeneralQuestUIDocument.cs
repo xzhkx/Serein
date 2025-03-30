@@ -24,6 +24,9 @@ public class GeneralQuestUIDocument : MonoBehaviour
         if (questPanel.style.display != DisplayStyle.None) 
         {
             questPanel.style.display = DisplayStyle.None;
-        } else questPanel.style.display = DisplayStyle.Flex;
+        } else
+        {
+            questPanel.style.display = DisplayStyle.Flex;
+        }
     }
 }
