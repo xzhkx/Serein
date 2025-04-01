@@ -1,0 +1,11 @@
+.inventory-panel {
+    height: 900px;
+    width: 1600px;
+    flex-shrink: 1;
+    flex-direction: column;
+}
+
+.unity-scroll-view__content-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
