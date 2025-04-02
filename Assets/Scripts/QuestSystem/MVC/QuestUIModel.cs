@@ -12,6 +12,8 @@ public class QuestUIModel : MonoBehaviour
     private VisualElement questPanel, questIconDisplay, questTargetIcon;
     private TextElement questName, questDescription, generalQuestName;
 
+    private Button closeQuestPanelButton;
+
     private Queue<Button> questInfoButtons = new Queue<Button>(10);
     private Dictionary<Button, Quest> buttonInfoDictionary = new Dictionary<Button, Quest>(10);
 
@@ -20,7 +22,10 @@ public class QuestUIModel : MonoBehaviour
         questIconDisplay = animationUIDocument.rootVisualElement.Q<VisualElement>("QuestIconDisplay");
         generalQuestName = generalUIDocument.rootVisualElement.Q<TextElement>("QuestName");
 
-        questPanel = questUIDocument.rootVisualElement.Q<VisualElement>("QuestPanel");
+        closeQuestPanelButton = questUIDocument.rootVisualElement.Q<Button>("CloseButton");
+        closeQuestPanelButton.RegisterCallback<ClickEvent>(OnCloseQuestPanel);
+
+        questPanel = questUIDocument.rootVisualElement.Q<VisualElement>("QuestSystemPanel");
         questName = questUIDocument.rootVisualElement.Q<TextElement>("QuestName");
         questDescription = questUIDocument.rootVisualElement.Q<TextElement>("QuestDescription");
 
@@ -63,5 +68,10 @@ public class QuestUIModel : MonoBehaviour
         questIconDisplay.AddToClassList("quest-fade-in");
         yield return new WaitForSeconds(5);
         questIconDisplay.RemoveFromClassList("quest-fade-in");
+    }
+
+    private void OnCloseQuestPanel(ClickEvent clickEvent)
+    {
+        questPanel.style.display = DisplayStyle.None;
     }
 }

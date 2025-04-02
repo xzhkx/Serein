@@ -21,6 +21,8 @@ public class QF_PickUpSpecterDust : MonoBehaviour, IQuestFunctionality
         if(collision.CompareTag("Player"))
         {
             pickedUp = true;
+            InventoryManager.Instance.AddItem(0, 1);
+            gameObject.SetActive(false);
         }
     }
 }
