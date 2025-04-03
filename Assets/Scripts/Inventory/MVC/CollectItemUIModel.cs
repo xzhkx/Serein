@@ -7,12 +7,14 @@ public class CollectItemUIModel : MonoBehaviour
     private UIDocument generalUIDocument;
 
     private CollectItemUIController collectItemUIController;
+    private VisualElement collectItemPanel;
     private Button collectItemButton;
 
     private void Awake()
     {
         collectItemButton = generalUIDocument.rootVisualElement.Q<Button>("CollectItemButton");
-        collectItemButton.style.display = DisplayStyle.None;
+        collectItemPanel = generalUIDocument.rootVisualElement.Q<VisualElement>("CollectItemPanel");
+        collectItemPanel.style.display = DisplayStyle.None;
     }
 
     private void Start()
@@ -27,11 +29,11 @@ public class CollectItemUIModel : MonoBehaviour
 
     public void DisplayCollectItemButton()
     {
-        collectItemButton.style.display = DisplayStyle.Flex;
+        collectItemPanel.style.display = DisplayStyle.Flex;
     }
 
     public void DisableCollectItemButton()
     {
-        collectItemButton.style.display = DisplayStyle.None;
+        collectItemPanel.style.display = DisplayStyle.None;
     }
 }

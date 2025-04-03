@@ -1,11 +1,14 @@
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class CollectItemUIController : MonoBehaviour
 {
     public static CollectItemUIController Instance;
+    public Action CollectItemAction;
 
     public int currentItemID;
+
 
     private InventoryManager inventoryManager;
     private CollectItemUIModel collectItemUIModel;
@@ -28,6 +31,7 @@ public class CollectItemUIController : MonoBehaviour
     {
         collectItemUIModel.DisableCollectItemButton();
         inventoryManager.AddItem(currentItemID, 1);
+        CollectItemAction?.Invoke();
     }
 
     public void DisplayCollectItemButton()

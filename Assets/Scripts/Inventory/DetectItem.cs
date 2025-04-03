@@ -12,9 +12,16 @@ public class DetectItem : MonoBehaviour
         collectItemUIController = CollectItemUIController.Instance;
     }
 
+    private void OnCollectItem()
+    {
+        gameObject.SetActive(false);
+    }
+
     private void OnTriggerEnter(Collider collider)
     {
         if (!collider.CompareTag("Player")) return;
+
+        collectItemUIController.CollectItemAction += OnCollectItem;
         collectItemUIController.DisplayCollectItemButton();
         collectItemUIController.currentItemID = itemID;
     }
@@ -22,6 +29,8 @@ public class DetectItem : MonoBehaviour
     private void OnTriggerExit(Collider collider)
     {
         if (!collider.CompareTag("Player")) return;
+
+        collectItemUIController.CollectItemAction -= OnCollectItem;
         collectItemUIController.DisplayCollectItemButton();
     }
 }
