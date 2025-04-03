@@ -3,14 +3,12 @@ using UnityEngine.UIElements;
 
 public class QuestUIController : MonoBehaviour
 {
-    private QuestManager questManager;
     private QuestUIModel questUIModel;
 
     private Button currentButton;
 
     private void Awake()
     {
-        questManager = GetComponent<QuestManager>();
         questUIModel = GetComponent<QuestUIModel>();
     }
 

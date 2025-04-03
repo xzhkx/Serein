@@ -1,9 +1,13 @@
-using UnityEngine;
-
-public class Item : MonoBehaviour
+public class Item
 {
-    [SerializeField] private ItemScriptableObject itemScriptableObject;
-    [SerializeField] private int itemQuantity;
+    private ItemScriptableObject itemScriptableObject;
+    private int itemQuantity;
+
+    public Item(ItemScriptableObject itemScriptableObject)
+    {
+        this.itemScriptableObject = itemScriptableObject;
+        itemQuantity = 0;
+    }
 
     public void IncreaseQuantity(int quantity)
     {

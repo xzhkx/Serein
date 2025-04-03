@@ -29,7 +29,6 @@ public class QuestManager : MonoBehaviour
             case QuestState.COMPLETE:
                 break;
         }
-
     }
 
     public void TrackQuest(Quest quest)

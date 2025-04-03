@@ -19,15 +19,7 @@ public class QuestUIModel : MonoBehaviour
 
     private void Awake()
     {
-        questIconDisplay = animationUIDocument.rootVisualElement.Q<VisualElement>("QuestIconDisplay");
-        generalQuestName = generalUIDocument.rootVisualElement.Q<TextElement>("QuestName");
-
-        closeQuestPanelButton = questUIDocument.rootVisualElement.Q<Button>("CloseButton");
-        closeQuestPanelButton.RegisterCallback<ClickEvent>(OnCloseQuestPanel);
-
-        questPanel = questUIDocument.rootVisualElement.Q<VisualElement>("QuestSystemPanel");
-        questName = questUIDocument.rootVisualElement.Q<TextElement>("QuestName");
-        questDescription = questUIDocument.rootVisualElement.Q<TextElement>("QuestDescription");
+        SetUpUI();
 
         List<Button> buttons = questUIDocument.rootVisualElement.Query<Button>("QuestInfoButton").ToList(); 
         for(int i = 0; i < buttons.Count; i++)
@@ -73,5 +65,18 @@ public class QuestUIModel : MonoBehaviour
     private void OnCloseQuestPanel(ClickEvent clickEvent)
     {
         questPanel.style.display = DisplayStyle.None;
+    }
+
+    private void SetUpUI()
+    {
+        questIconDisplay = animationUIDocument.rootVisualElement.Q<VisualElement>("QuestIconDisplay");
+        generalQuestName = generalUIDocument.rootVisualElement.Q<TextElement>("QuestName");
+
+        closeQuestPanelButton = questUIDocument.rootVisualElement.Q<Button>("CloseButton");
+        closeQuestPanelButton.RegisterCallback<ClickEvent>(OnCloseQuestPanel);
+
+        questPanel = questUIDocument.rootVisualElement.Q<VisualElement>("QuestSystemPanel");
+        questName = questUIDocument.rootVisualElement.Q<TextElement>("QuestName");
+        questDescription = questUIDocument.rootVisualElement.Q<TextElement>("QuestDescription");
     }
 }

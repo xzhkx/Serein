@@ -5,24 +5,32 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
 
-    private Dictionary<int, int> inventoryItems = new Dictionary<int, int>(10);
+    [SerializeField] 
+    private List<ItemScriptableObject> itemReferences = new List<ItemScriptableObject>();
+
+    private InventoryUIModel inventoryUIModel;
+    private Dictionary<int, Item> inventoryItems = new Dictionary<int, Item>(10);
 
     private void Awake()
     {
         Instance = this;
-        for (int i = 0; i < 10; i++) {
-            inventoryItems.Add(i, 0);
+
+        for (int i = 0; i < itemReferences.Count; i++) {
+            Item item = new Item(itemReferences[i]);
+            inventoryItems.Add(itemReferences[i].itemID, item);
         }
+
+        inventoryUIModel = GetComponent<InventoryUIModel>();
     }
+
     public void AddItem(int itemID, int quantity)
     {
-        inventoryItems[itemID] = inventoryItems[itemID] + quantity;
+        inventoryItems[itemID].IncreaseQuantity(quantity);
+        inventoryUIModel.AddItemUIButton(inventoryItems[itemID]);
     }
 
     public void RemoveItem(int itemID, int quantity) 
     {
-        int value = inventoryItems[itemID];
-        value -= quantity;
-        inventoryItems[itemID] = value;
+        inventoryItems[itemID].DecreaseQuantity(quantity);
     }
 }
