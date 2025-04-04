@@ -31,6 +31,6 @@ public class DetectItem : MonoBehaviour
         if (!collider.CompareTag("Player")) return;
 
         collectItemUIController.CollectItemAction -= OnCollectItem;
-        collectItemUIController.DisplayCollectItemButton();
+        collectItemUIController.DisableCollectItemButton();
     }
 }

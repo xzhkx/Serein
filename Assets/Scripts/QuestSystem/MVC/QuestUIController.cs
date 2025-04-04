@@ -4,7 +4,6 @@ using UnityEngine.UIElements;
 public class QuestUIController : MonoBehaviour
 {
     private QuestUIModel questUIModel;
-
     private Button currentButton;
 
     private void Awake()
@@ -21,6 +20,11 @@ public class QuestUIController : MonoBehaviour
     public void SetGeneralQuestName(Quest quest)
     {
         questUIModel.SetGeneralQuestName(quest);
+    }
+
+    public void RemoveQuestUI(Quest quest)
+    {
+        questUIModel.RemoveQuestInfo(quest);
     }
 
     private void OnSetQuestInfo(ClickEvent clickEvent)

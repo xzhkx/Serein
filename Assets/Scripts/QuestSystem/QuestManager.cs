@@ -27,6 +27,9 @@ public class QuestManager : MonoBehaviour
             case QuestState.IN_PROGRESS:
                 break;
             case QuestState.COMPLETE:
+                questList.Remove(currentQuest);
+                questUIController.RemoveQuestUI(currentQuest);
+                currentQuest = null;
                 break;
         }
     }

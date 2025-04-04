@@ -16,6 +16,7 @@ public class QuestUIModel : MonoBehaviour
 
     private Queue<Button> questInfoButtons = new Queue<Button>(10);
     private Dictionary<Button, Quest> buttonInfoDictionary = new Dictionary<Button, Quest>(10);
+    private Dictionary<Quest, Button> questButtonDictionary = new Dictionary<Quest, Button>(10);
 
     private void Awake()
     {
@@ -37,6 +38,7 @@ public class QuestUIModel : MonoBehaviour
         button.text = quest.questName;
 
         buttonInfoDictionary.Add(button, quest);
+        questButtonDictionary.Add(quest, button);
 
         StartCoroutine(ReceiveQuestAnimation());
 
@@ -53,6 +55,19 @@ public class QuestUIModel : MonoBehaviour
     public void SetGeneralQuestName(Quest quest)
     {
         generalQuestName.text = quest.questName;
+    }
+
+    public void RemoveQuestInfo(Quest quest)
+    {
+        Button button = questButtonDictionary[quest];
+        button.style.display = DisplayStyle.None;
+
+        questName.text = string.Empty;
+        questDescription.text = string.Empty;
+
+        questButtonDictionary.Remove(quest);
+        buttonInfoDictionary.Remove(button);
+        questInfoButtons.Enqueue(button);
     }
 
     private IEnumerator ReceiveQuestAnimation()
