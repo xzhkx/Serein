@@ -1,18 +1,20 @@
 using UnityEngine;
 
-public class QF_PickUpSpecterDust : MonoBehaviour//, IQuestFunctionality
+public class QF_PickUpSpecterDust : MonoBehaviour, IQuestFunctionality
 {
-    //private bool pickedUp;
+    private InventoryManager inventoryManager;
 
-    //private void Awake()
-    //{
-    //    pickedUp = false;
-    //}
-    //public QuestState StartQuestProgress()
-    //{
-    //    if (pickedUp)
-    //    {
-    //        return QuestState.COMPLETE;
-    //    } else return QuestState.IN_PROGRESS;
-    //}
+    private void Start()
+    {
+        inventoryManager = InventoryManager.Instance;
+    }
+
+    public QuestState StartQuestProgress()
+    {
+        if (inventoryManager.GetItemQuantity(0) > 1)
+        {
+            return QuestState.COMPLETE;
+        }
+        else return QuestState.IN_PROGRESS;
+    }
 }

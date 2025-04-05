@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private Transform cameraTransform;
-    [SerializeField] private float walkSpeed, runSpeed, turnSmoothTime;
+    [SerializeField]
+    private Transform cameraTransform;
+    [SerializeField] 
+    private float walkSpeed, runSpeed, turnSmoothTime;
 
     private float turnSmoothVelocity;
 

@@ -32,7 +32,8 @@ public class DialogueManager : MonoBehaviour
     private VisualElement dialoguePanel;
     private TextElement dialogueText;
     private TextElement characterName;
-    private GameObject[] UIChoices;
+    private List<Button> UIChoices = new List<Button>(2);
+    private Dictionary<Button, int> choiceIndexDictionary = new Dictionary<Button, int>(2);
 
     public bool dialogueIsPlaying;
     private bool isSelectChoice, isFirstChoice, isDisplayLine;
@@ -51,19 +52,21 @@ public class DialogueManager : MonoBehaviour
     }
 
     private void Start()
-    {
-        //for (int i = 0; i < UIChoices.Length; i++)
-        //{
-        //    UIChoices[i].SetActive(false);
-        //}
-        
+    {      
         dialoguePanel = uiDocument.rootVisualElement.Q<VisualElement>("DialoguePanel");
-        dialoguePanel.visible = false;
+        dialoguePanel.style.display = DisplayStyle.None;
 
         characterName = uiDocument.rootVisualElement.Q<TextElement>("NameLabel");
-        characterName.visible = false;
 
         dialogueText = uiDocument.rootVisualElement.Q<TextElement>("DialogueLabel");
+
+        UIChoices = uiDocument.rootVisualElement.Query<Button>("ChoiceButton").ToList();
+        for (int i = 0; i < UIChoices.Count; i++)
+        {
+            UIChoices[i].RegisterCallback<ClickEvent>(MakeChoice);
+            UIChoices[i].style.display = DisplayStyle.None;
+            choiceIndexDictionary.Add(UIChoices[i], i);
+        }
     }
 
     private void Update()
@@ -79,7 +82,7 @@ public class DialogueManager : MonoBehaviour
     public void EnterDialogue(TextAsset inkJson)
     {
         dialogueIsPlaying = true;
-        dialoguePanel.visible = true;
+        dialoguePanel.style.display = DisplayStyle.Flex;
         currentStory = new Story(inkJson.text);
 
         ContinueStory();
@@ -110,7 +113,7 @@ public class DialogueManager : MonoBehaviour
             //SoundManager.Instance.PlaySound(SoundType.DIALOGUETEXT, 0.4f);
             yield return new WaitForSeconds(typingSpeed);
         }
-        //DisplayChoice();
+        DisplayChoice();
         isDisplayLine = false;
     }
 
@@ -151,51 +154,47 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    //private void DisplayChoice()
-    //{
-    //    List<Choice> currentChoices = currentStory.currentChoices;
+    private void DisplayChoice()
+    {
+        List<Choice> currentChoices = currentStory.currentChoices;
 
-    //    if (currentChoices.Count > currentChoices.Count)
-    //    {
-    //        Debug.LogWarning("Choices out of bound, please check again your support choices.");
-    //        return;
-    //    }
+        if (currentChoices.Count > currentChoices.Count)
+        {
+            Debug.LogWarning("Choices out of bound, please check again your support choices.");
+            return;
+        }
 
-    //    if (currentChoices.Count == 0) return;
+        if (currentChoices.Count == 0) return;
 
-    //    for (int i = 0; i < currentChoices.Count; i++)
-    //    {
-    //        UIChoices[i].SetActive(true);
-    //        UIChoices[i].GetComponentInChildren<TextMeshProUGUI>().text = currentChoices[i].text;
-    //        isSelectChoice = true;
-    //    }
+        for (int i = 0; i < currentChoices.Count; i++)
+        {
+            UIChoices[i].style.display = DisplayStyle.Flex;
+            UIChoices[i].text = currentChoices[i].text;
+            isSelectChoice = true;
+        }
+    }
 
-    //    StartCoroutine(SelectFirstChoice());
-    //}
+    public void MakeChoice(ClickEvent clickEvent)
+    {
+        Button button = clickEvent.target as Button;
+        int index = choiceIndexDictionary[button];
 
-    //public void MakeChoice(int choiceIndex)
-    //{
-    //    if (choiceIndex == 0)
-    //    {
-    //        isFirstChoice = true;
-    //    }
-
-    //    isSelectChoice = false;
-    //    currentStory.ChooseChoiceIndex(choiceIndex);
-    //    ContinueStory();
-    //    for (int i = 0; i < UIChoices.Length; i++)
-    //    {
-    //        UIChoices[i].SetActive(false);
-    //    }
-    //}
+        isSelectChoice = false;
+        currentStory.ChooseChoiceIndex(index);
+        ContinueStory();
+        for (int i = 0; i < UIChoices.Count; i++)
+        {
+            UIChoices[i].style.display = DisplayStyle.None;
+        }
+    }
 
     private IEnumerator ExitDialogue()
     {
         yield return new WaitForSeconds(0.1f);
 
         dialogueIsPlaying = false;
-        dialoguePanel.visible = false;
-        dialogueText.text = "";
+        dialoguePanel.style.display = DisplayStyle.None;
+        dialogueText.text = string.Empty;
 
         FinishDialogueEvent?.Invoke();
 
@@ -206,11 +205,4 @@ public class DialogueManager : MonoBehaviour
             yield break;
         }
     }
-
-    //private IEnumerator SelectFirstChoice()
-    //{
-    //    EventSystem.current.SetSelectedGameObject(null);
-    //    yield return new WaitForEndOfFrame();
-    //    EventSystem.current.SetSelectedGameObject(UIChoices[0].gameObject);
-    //}
 }

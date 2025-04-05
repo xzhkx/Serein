@@ -4,9 +4,15 @@
 Hello, it's been quite a while since I had guests. #speaker: Lucas #textColor: yellow
 
 ...Guests? #speaker: YYri #textColor: red 
-Where am I? Who are you? 
-Why am I here? 
 
++[Where am I? Who are you?]
+-> Continue
+
++[Why am I here?]
+->Continue
+
+
+== Continue ==
 My mind is filled with fog and I can't remember a thing. #speaker:
 
 Quite a curious mind here huh? #speaker: Lucas #textColor: yellow
@@ -22,8 +28,10 @@ But... you... don't have anything to ask him...
 Then, shall we depart now?  #speaker: Lucas #textColor: yellow
 Wake you up took quite a lot of time.
 
-To where...? #speaker: YYri #textColor: red 
++[To where...?]
+-> Next
 
+== Next ==
 That's a secret.  #speaker: Lucas #textColor: yellow
 You will know when you get there.
 

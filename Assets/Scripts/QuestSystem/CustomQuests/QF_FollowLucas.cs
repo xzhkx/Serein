@@ -30,18 +30,17 @@ public class QF_FollowLucas : MonoBehaviour, IQuestFunctionality
         Vector3 direction = currentTarget - lucasTransform.position;
         float distance = direction.sqrMagnitude;
 
-        if(distance < 0.03f && index < targetPosition.Length - 1)
+        if (distance < 0.05f && index < targetPosition.Length - 1)
         {
             index++;
-            lucasRigidbody.velocity = Vector3.zero;
             currentTarget = targetPosition[index].position;
             return QuestState.IN_PROGRESS;
         }
 
-        if(distance < 0.03f && index == targetPosition.Length - 1)
+        if (distance < 0.05f && index == targetPosition.Length - 1)
         {
+            lucasRigidbody.isKinematic = true;
             lucasAnimatorControl.SetWalk(false);
-            lucasRigidbody.velocity = Vector3.zero;
             return QuestState.COMPLETE;
         }
 

@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement style="flex-grow: 1; width: 1920px; height: 1080px; flex-direction: row;">
-        <ui:VisualElement name="QuestPanel" style="flex-grow: 0; width: 600px; flex-direction: column; align-self: center; height: 300px;">
+    <ui:VisualElement style="flex-grow: 1; width: 1920px; height: 600px; flex-direction: row; max-height: 530px;">
+        <ui:VisualElement name="QuestPanel" style="flex-grow: 0; width: 600px; flex-direction: column; align-self: center; height: 300px; justify-content: flex-end;">
             <ui:Button text="Quest" parse-escape-sequences="true" display-tooltip-when-elided="true" name="OpenQuestPanelButton" style="width: 125px; height: 53px; font-size: 36px; -unity-text-align: middle-center; translate: 50px 0;" />
             <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuestName" style="-unity-text-align: middle-left; width: 350px; height: 100px; font-size: 40px; translate: 50px 0;" />
         </ui:VisualElement>
@@ -8,9 +8,15 @@
             <ui:VisualElement name="GeneralPanel" style="flex-grow: 1;">
                 <ui:Button text="Inventory" parse-escape-sequences="true" display-tooltip-when-elided="true" name="OpenInventoryButton" style="width: 194px; height: 100px; font-size: 36px;" />
             </ui:VisualElement>
-            <ui:VisualElement name="CollectItemPanel" style="flex-grow: 1; justify-content: center; align-self: center; flex-direction: row-reverse; height: 900px; align-items: center;">
-                <ui:Button text="Collect" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CollectItemButton" style="width: 200px; height: 50px; font-size: 36px;" />
-                <ui:VisualElement name="FVisualElement" style="background-color: rgba(159, 159, 159, 0.89); width: 50px; height: 50px;" />
+            <ui:VisualElement style="flex-grow: 1; align-self: center; flex-direction: row; height: 900px; align-items: flex-end; width: 250px;">
+                <ui:VisualElement name="CollectItemPanel" style="flex-grow: 1; flex-direction: row-reverse; display: none;">
+                    <ui:Button text="Collect" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CollectItemButton" style="width: 200px; height: 50px; font-size: 36px;" />
+                    <ui:VisualElement name="FVisualElement" style="background-color: rgba(159, 159, 159, 0.89); width: 50px; height: 50px;" />
+                </ui:VisualElement>
+                <ui:VisualElement name="InteractPanel" style="flex-grow: 1; flex-direction: row-reverse; display: flex;">
+                    <ui:Button text="Talk" parse-escape-sequences="true" display-tooltip-when-elided="true" name="InteractButton" style="width: 200px; height: 50px; font-size: 36px;" />
+                    <ui:VisualElement name="FVisualElement" style="background-color: rgba(159, 159, 159, 0.89); width: 50px; height: 50px;" />
+                </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

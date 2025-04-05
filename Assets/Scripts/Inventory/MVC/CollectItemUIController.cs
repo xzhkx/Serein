@@ -9,7 +9,6 @@ public class CollectItemUIController : MonoBehaviour
 
     public int currentItemID;
 
-
     private InventoryManager inventoryManager;
     private CollectItemUIModel collectItemUIModel;
     private Button collectItemButton;

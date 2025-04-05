@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    [SerializeField] 
-    private PlayerInput playerInput;
-
     [Header("Ink File")]
     [SerializeField] 
     private TextAsset inkJson;

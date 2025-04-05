@@ -33,4 +33,9 @@ public class InventoryManager : MonoBehaviour
     {
         inventoryItems[itemID].DecreaseQuantity(quantity);
     }
+
+    public int GetItemQuantity(int itemID)
+    {
+        return inventoryItems[itemID].GetItemQuantity();
+    }
 }

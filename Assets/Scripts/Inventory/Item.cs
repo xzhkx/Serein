@@ -9,6 +9,11 @@ public class Item
         itemQuantity = 0;
     }
 
+    public int GetItemQuantity()
+    {
+        return itemQuantity;  
+    }
+
     public void IncreaseQuantity(int quantity)
     {
         itemQuantity += quantity;
