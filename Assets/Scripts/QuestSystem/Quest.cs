@@ -47,4 +47,9 @@ public class Quest
     {
         return functionality.StartQuestProgress();
     }
+
+    public void CompleteQuest()
+    {
+        functionality.CompleteQuest();
+    }
 }

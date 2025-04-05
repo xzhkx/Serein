@@ -3384,8 +3384,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f30bf77930c734187d618fb9332a90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questName: 
-  questDescription: 
+  questName: Pick Up Specter Dust
+  questDescription: Yellow Dusyt
   targetTransform: {fileID: 0}
   characterLevel: 0
   specterDust: 2
@@ -3417,6 +3417,76 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDisable: {fileID: 146573440}
+  d2: {fileID: 1515819103}
+  objectToEnable: {fileID: 1147849113}
+--- !u!1 &976959153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 976959156}
+  - component: {fileID: 976959154}
+  - component: {fileID: 976959155}
+  m_Layer: 0
+  m_Name: 1.2) ContinueFollow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &976959154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976959153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f30bf77930c734187d618fb9332a90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questName: 
+  questDescription: 
+  targetTransform: {fileID: 0}
+  characterLevel: 0
+  specterDust: 0
+--- !u!114 &976959155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976959153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8368867853573e4b937a2739e77378b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToEnable: {fileID: 0}
+  runSpeed: 15
+  targetPosition:
+  - {fileID: 371479067}
+  lucasRigidbody: {fileID: 5305349130077528293}
+  lucasAnimatorControl: {fileID: 5305349130077528292}
+--- !u!4 &976959156
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976959153}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 908.29614, y: -457.26724, z: 1169.4204}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2136153172}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &984726337
 GameObject:
   m_ObjectHideFlags: 0
@@ -4140,6 +4210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8368867853573e4b937a2739e77378b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectToEnable: {fileID: 1515819103}
   runSpeed: 20
   targetPosition:
   - {fileID: 82941953}
@@ -4268,6 +4339,89 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1144327720}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1147849113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1147849117}
+  - component: {fileID: 1147849116}
+  - component: {fileID: 1147849115}
+  - component: {fileID: 1147849114}
+  m_Layer: 0
+  m_Name: Pos 2 (1) Trigger Continue follow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1147849114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147849113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5ce24dbb7a834540b9d4fb0a01a510b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inGameQuest: {fileID: 976959154}
+--- !u!114 &1147849115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147849113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8012b89e6ee78394abc4e5c5aa28d960, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInput: {fileID: 5866666020109170951}
+  generalUIDocument: {fileID: 2054695529}
+  inkJson: {fileID: 4900000, guid: 9d87a1523d77234468b6c300bdb5c897, type: 3}
+--- !u!65 &1147849116
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147849113}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1147849117
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147849113}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.6, y: 10.17, z: 372.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1148456985
 GameObject:
   m_ObjectHideFlags: 0
@@ -18724,6 +18878,7 @@ Transform:
   - {fileID: 1730248944}
   - {fileID: 1128837643}
   - {fileID: 975233694}
+  - {fileID: 976959156}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2146870389
@@ -23187,7 +23342,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5305349130077528289}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -26680,6 +26835,7 @@ SceneRoots:
   - {fileID: 146573445}
   - {fileID: 82941953}
   - {fileID: 1515819104}
+  - {fileID: 1147849117}
   - {fileID: 371479067}
   - {fileID: 1562147904}
   - {fileID: 1769547595}

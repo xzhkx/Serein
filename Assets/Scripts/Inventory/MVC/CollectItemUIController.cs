@@ -28,6 +28,7 @@ public class CollectItemUIController : MonoBehaviour
 
     public void CollectItem(ClickEvent clickEvent)
     {
+        Debug.Log("Collect");
         collectItemUIModel.DisableCollectItemButton();
         inventoryManager.AddItem(currentItemID, 1);
         CollectItemAction?.Invoke();

@@ -15,7 +15,6 @@ public class DialogueContactTrigger : MonoBehaviour
 
     private IFinishDialogue iFinishDialogue;
     private DialogueManager dialogueManager;
-    private BoxCollider boxCollider;
 
     private VisualElement interactPanel;
     private Button interactButton;
@@ -23,10 +22,9 @@ public class DialogueContactTrigger : MonoBehaviour
     private bool playerInRange;
     private void Awake()
     {
-        boxCollider = GetComponent<BoxCollider>();
         iFinishDialogue = GetComponent<IFinishDialogue>();
 
-        interactPanel = generalUIDocument.rootVisualElement.Q<VisualElement>("InteractPanel");
+        interactPanel = generalUIDocument.rootVisualElement.Q<VisualElement>("InteractItemPanel");
         interactPanel.style.display = DisplayStyle.None;
 
         interactButton = generalUIDocument.rootVisualElement.Q<Button>("InteractButton");
@@ -35,6 +33,7 @@ public class DialogueContactTrigger : MonoBehaviour
 
     private void Start()
     {
+        playerInRange = false;
         dialogueManager = DialogueManager.Instance;
     }
 
@@ -80,7 +79,6 @@ public class DialogueContactTrigger : MonoBehaviour
 
             if (iFinishDialogue == null) return;
             dialogueManager.FinishDialogueEvent -= iFinishDialogue.MakeAction;
-            boxCollider.enabled = false;
         }
     }
 }

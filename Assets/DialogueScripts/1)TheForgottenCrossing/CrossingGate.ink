@@ -9,7 +9,7 @@ Hello, it's been quite a while since I had guests. #speaker: Lucas #textColor: y
 -> Continue
 
 +[Why am I here?]
-->Continue
+-> Continue
 
 
 == Continue ==
