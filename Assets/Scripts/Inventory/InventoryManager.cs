@@ -8,7 +8,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] 
     private List<ItemScriptableObject> itemReferences = new List<ItemScriptableObject>();
 
-    private InventoryUIModel inventoryUIModel;
+    private InventoryPresenter inventoryPresenter;
     private Dictionary<int, Item> inventoryItems = new Dictionary<int, Item>(10);
 
     private void Awake()
@@ -20,13 +20,13 @@ public class InventoryManager : MonoBehaviour
             inventoryItems.Add(itemReferences[i].itemID, item);
         }
 
-        inventoryUIModel = GetComponent<InventoryUIModel>();
+        inventoryPresenter = GetComponent<InventoryPresenter>();
     }
 
     public void AddItem(int itemID, int quantity)
     {
         inventoryItems[itemID].IncreaseQuantity(quantity);
-        inventoryUIModel.AddItemUIButton(inventoryItems[itemID]);
+        inventoryPresenter.AddItem(inventoryItems[itemID]);
     }
 
     public void RemoveItem(int itemID, int quantity) 
