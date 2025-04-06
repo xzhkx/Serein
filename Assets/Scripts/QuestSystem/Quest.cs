@@ -1,41 +1,35 @@
 
-using System.Numerics;
-using UnityEngine;
-
 public enum QuestState
 {
-    NON_EQUIP,
-    EQUIP,
     IN_PROGRESS,
     COMPLETE
 }
 
 public class Quest 
 {
-    public string questName;
-    public string questDescription;
-
-    public Transform questTargetTransform;
+    public QuestScriptableObject questScriptableObject;
+    private QuestRewardScriptableObject questRewardScriptableObject;
 
     private QuestState questState;
     private IQuestFunctionality functionality;
 
-    private QuestRequirements questRequirements;
-    private QuestRewards questRewards;
-
-    public Quest(string questName, string questDescription, Transform questTargetTransform, QuestState questState, 
-        IQuestFunctionality functionality, QuestRequirements questRequirements, QuestRewards questRewards)
+    public Quest(QuestScriptableObject questScriptableObject, 
+        QuestRewardScriptableObject questRewardScriptableObject, IQuestFunctionality functionality)
     {
-        this.questName = questName;
-        this.questDescription = questDescription;
-
-        this.questTargetTransform = questTargetTransform;
-
-        this.questState = questState;
+        questState = QuestState.IN_PROGRESS;
+        this.questScriptableObject = questScriptableObject;
+        this.questRewardScriptableObject = questRewardScriptableObject; 
         this.functionality = functionality;
+    }
 
-        this.questRequirements = questRequirements;
-        this.questRewards = questRewards;
+    public string GetQuestName()
+    {
+        return questScriptableObject.questName;
+    }
+
+    public string GetQuestDescription()
+    {
+        return questScriptableObject.questDescription;
     }
 
     public void SetQuestState(QuestState questState)

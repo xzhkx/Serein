@@ -3384,11 +3384,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f30bf77930c734187d618fb9332a90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questName: Pick Up Specter Dust
-  questDescription: Yellow Dusyt
-  targetTransform: {fileID: 0}
-  characterLevel: 0
-  specterDust: 2
+  questScriptableObject: {fileID: 11400000, guid: 1c6632c9751e659489f746d37bcf5b8b, type: 2}
+  questRewardScriptableObject: {fileID: 11400000, guid: 2321c09e61cff1f4d924ff01cb6082c1, type: 2}
 --- !u!4 &975233694
 Transform:
   m_ObjectHideFlags: 0
@@ -3449,11 +3446,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f30bf77930c734187d618fb9332a90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questName: 
-  questDescription: 
-  targetTransform: {fileID: 0}
-  characterLevel: 0
-  specterDust: 0
+  questScriptableObject: {fileID: 11400000, guid: d4846306046e04e4b9c569091950b46d, type: 2}
+  questRewardScriptableObject: {fileID: 11400000, guid: 2321c09e61cff1f4d924ff01cb6082c1, type: 2}
 --- !u!114 &976959155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4229,11 +4223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f30bf77930c734187d618fb9332a90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questName: Follow Lucas
-  questDescription: Just follow him ><
-  targetTransform: {fileID: 4822143815471250011}
-  characterLevel: 0
-  specterDust: 10
+  questScriptableObject: {fileID: 11400000, guid: ad72aa31218cb384e90a3fbd3034f5f4, type: 2}
+  questRewardScriptableObject: {fileID: 11400000, guid: 2321c09e61cff1f4d924ff01cb6082c1, type: 2}
 --- !u!1 &1144327720
 GameObject:
   m_ObjectHideFlags: 0
@@ -12162,9 +12153,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1730248944}
-  - component: {fileID: 1730248945}
   - component: {fileID: 1730248943}
-  - component: {fileID: 1730248946}
+  - component: {fileID: 1730248948}
+  - component: {fileID: 1730248947}
   m_Layer: 0
   m_Name: Quest Manager
   m_TagString: Untagged
@@ -12199,7 +12190,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2136153172}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1730248945
+--- !u!114 &1730248947
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12208,10 +12199,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1730248942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4ec0f6e5687fa14c8f0b6da526aa209, type: 3}
+  m_Script: {fileID: 11500000, guid: e4e4b8e28ae45cd47aef7becb75b2cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1730248946
+--- !u!114 &1730248948
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12220,12 +12211,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1730248942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60b8920636d03a548bd6076e4cafd33e, type: 3}
+  m_Script: {fileID: 11500000, guid: 1bb8a4f06c9f1334a8733b06940638c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   questUIDocument: {fileID: 1195411008}
   animationUIDocument: {fileID: 1879012734}
-  generalUIDocument: {fileID: 2054695529}
 --- !u!1 &1733240904
 GameObject:
   m_ObjectHideFlags: 0

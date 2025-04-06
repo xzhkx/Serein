@@ -4,7 +4,7 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour
 {
     public static QuestManager Instance;
-    private QuestUIController questUIController;
+    private QuestPresenter questPresenter;
     public Quest currentQuest { get; private set; }
     private List<Quest> questList = new List<Quest>(10);
 
@@ -14,7 +14,7 @@ public class QuestManager : MonoBehaviour
     {
         Instance = this;
         mainCamera = Camera.main;
-        questUIController = GetComponent<QuestUIController>();
+        questPresenter = GetComponent<QuestPresenter>();
     }
 
     private void Update()
@@ -24,11 +24,10 @@ public class QuestManager : MonoBehaviour
         QuestState state = currentQuest.StartQuest();
         switch (state)
         {
-            case QuestState.IN_PROGRESS:
-                break;
             case QuestState.COMPLETE:
                 questList.Remove(currentQuest);
-                questUIController.RemoveQuestUI(currentQuest);
+                questPresenter.RemoveQuest(currentQuest);
+
                 currentQuest.CompleteQuest();   
                 currentQuest = null;
                 break;
@@ -39,18 +38,17 @@ public class QuestManager : MonoBehaviour
     {
         currentQuest = quest;
         quest.SetQuestState(QuestState.IN_PROGRESS);
-        questUIController.SetGeneralQuestName(quest);
+        //questPresenter.SetGeneralQuestName(quest); //rieng
     }
 
     public void ReceiveQuest(Quest quest)
     {
         if (currentQuest == null) {
             currentQuest = quest;
-            questUIController.SetGeneralQuestName(quest);
+            //questUIController.SetGeneralQuestName(quest);
         }
         questList.Add(quest);
-        quest.SetQuestState(QuestState.EQUIP);
-        questUIController.CreateNewQuestUI(quest);
+        questPresenter.CreateNewQuest(quest);
     }
 
     public void StartQuest()

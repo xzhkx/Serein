@@ -3,26 +3,19 @@ using UnityEngine;
 public class InGameQuest : MonoBehaviour
 {
     [Header("Quest Info")]
-    [SerializeField] private string questName, questDescription;
+    [SerializeField]
+    private QuestScriptableObject questScriptableObject;
 
-    [Header("Quest Target")]
-    [SerializeField] private Transform targetTransform;
-
-    [Header("Quest Requirements")]
-    [SerializeField] private int characterLevel;
-
-    [Header("Quest Rewards")]
-    [SerializeField] private int specterDust;
+    [Header("Quest Reward")]
+    [SerializeField]
+    private QuestRewardScriptableObject questRewardScriptableObject;
 
     private Quest thisQuest;
     private IQuestFunctionality functionality;
     private void Awake()
     {
-        QuestRequirements questRequirements = new QuestRequirements(characterLevel);
-        QuestRewards questRewards = new QuestRewards(characterLevel);
         functionality = GetComponent<IQuestFunctionality>();
-        thisQuest = new Quest(questName, questDescription, targetTransform,
-            QuestState.NON_EQUIP, functionality, questRequirements, questRewards);
+        thisQuest = new Quest(questScriptableObject, questRewardScriptableObject, functionality);
     }
 
     public void ReceiveQuest()

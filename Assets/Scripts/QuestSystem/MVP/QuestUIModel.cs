@@ -10,7 +10,7 @@ public class QuestUIModel : MonoBehaviour
     private UIDocument questUIDocument, animationUIDocument, generalUIDocument;
 
     private VisualElement questPanel, questIconDisplay, questTargetIcon;
-    private TextElement questName, questDescription, generalQuestName;
+    private TextElement questName, questDescription, generalQuestName; //General rieng
 
     private Button closeQuestPanelButton;
 
@@ -35,7 +35,7 @@ public class QuestUIModel : MonoBehaviour
         Button button = questInfoButtons.Dequeue();
 
         button.style.display = DisplayStyle.Flex;
-        button.text = quest.questName;
+        button.text = quest.GetQuestName();
 
         buttonInfoDictionary.Add(button, quest);
         questButtonDictionary.Add(quest, button);
@@ -48,13 +48,13 @@ public class QuestUIModel : MonoBehaviour
     public void SetQuestInfo(Button questButton)
     {
         Quest quest = buttonInfoDictionary[questButton];
-        questName.text = quest.questName;
-        questDescription.text = quest.questDescription;
+        questName.text = quest.GetQuestName();
+        questDescription.text = quest.GetQuestDescription();
     }
 
     public void SetGeneralQuestName(Quest quest)
     {
-        generalQuestName.text = quest.questName;
+        generalQuestName.text = quest.GetQuestName();
     }
 
     public void RemoveQuestInfo(Quest quest)
