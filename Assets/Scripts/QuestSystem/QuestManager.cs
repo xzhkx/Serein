@@ -34,6 +34,12 @@ public class QuestManager : MonoBehaviour
         }
     }
 
+    public bool QuestExists(Quest quest)
+    {
+        if(questList.Contains(quest)) return true; 
+        else return false;
+    }
+
     public void TrackQuest(Quest quest)
     {
         currentQuest = quest;

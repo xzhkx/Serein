@@ -1,10 +1,12 @@
+using System.Collections.Generic;
+
 using UnityEngine;
 
 public class QF_FollowLucas : MonoBehaviour, IQuestFunctionality
 {
     [Header("Quest Complete")]
     [SerializeField]
-    private GameObject objectToEnable;
+    private List<GameObject> objectToEnable = new List<GameObject>(5);
 
     [SerializeField] 
     private float runSpeed;
@@ -24,9 +26,9 @@ public class QF_FollowLucas : MonoBehaviour, IQuestFunctionality
 
     private void Awake()
     {
-        if (objectToEnable != null)
+        for (int i = 0; i < objectToEnable.Count; i++)
         {
-            objectToEnable.SetActive(false);
+            objectToEnable[i].SetActive(true);
         }
 
         lucasTransform = lucasRigidbody.transform;
@@ -66,7 +68,9 @@ public class QF_FollowLucas : MonoBehaviour, IQuestFunctionality
 
     public void CompleteQuest()
     {
-        if (objectToEnable == null) return;
-        objectToEnable.SetActive(true);
+        for (int i = 0; i < objectToEnable.Count; i++) 
+        {
+            objectToEnable[i].SetActive(true);
+        }
     }
 }

@@ -1,25 +1,21 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class QF_PickUpSpecterDust : MonoBehaviour, IQuestFunctionality
 {
+    [Header("Quest Complete")]
     [SerializeField]
-    private GameObject objectToDisable, d2, objectToEnable;
+    private List<GameObject> objectToEnable, objectToDisable = new List<GameObject>(5);
 
     private InventoryManager inventoryManager;
 
     private void Start()
     {
-        objectToDisable.SetActive(false);
-        objectToEnable.SetActive(false);
         inventoryManager = InventoryManager.Instance;
     }
 
     public QuestState StartQuestProgress()
     {
-        if (!objectToDisable.activeInHierarchy)
-        {
-            objectToDisable.SetActive(true);
-        }
         if (inventoryManager.GetItemQuantity(0) > 0)
         {
             return QuestState.COMPLETE;
@@ -29,8 +25,18 @@ public class QF_PickUpSpecterDust : MonoBehaviour, IQuestFunctionality
 
     public void CompleteQuest()
     {
-        objectToDisable.SetActive(false);
-        objectToEnable.SetActive(true);
-        d2.SetActive(false);
+        ModifyObjects();
+    }
+
+    private void ModifyObjects()
+    {
+        for (int i = 0; i < objectToDisable.Count; i++)
+        {
+            objectToDisable[i].SetActive(false);
+        }
+        for (int i = 0; i < objectToEnable.Count; i++)
+        {
+            objectToEnable[i].SetActive(true);
+        }
     }
 }

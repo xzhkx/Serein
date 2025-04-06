@@ -20,6 +20,7 @@ public class InGameQuest : MonoBehaviour
 
     public void ReceiveQuest()
     {
+        if (QuestManager.Instance.QuestExists(thisQuest)) return;
         QuestManager.Instance.ReceiveQuest(thisQuest);
     }
 }
