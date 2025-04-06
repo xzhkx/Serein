@@ -5,11 +5,11 @@ public class DetectItem : MonoBehaviour
     [SerializeField]
     private int itemID;
 
-    private CollectItemUIController collectItemUIController;
+    private CollectItemPresenter collectItemPresenter;
 
     private void Start()
     {
-        collectItemUIController = CollectItemUIController.Instance;
+        collectItemPresenter = CollectItemPresenter.Instance;
     }
 
     private void OnCollectItem()
@@ -17,20 +17,20 @@ public class DetectItem : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (!collider.CompareTag("Player")) return;
+        if (!collision.gameObject.CompareTag("Player")) return;
 
-        collectItemUIController.CollectItemAction += OnCollectItem;
-        collectItemUIController.DisplayCollectItemButton();
-        collectItemUIController.currentItemID = itemID;
+        collectItemPresenter.CollectItemAction += OnCollectItem;
+        collectItemPresenter.DisplayCollectButton();
+        collectItemPresenter.SetCurrentItemID(itemID);
     }
 
-    private void OnTriggerExit(Collider collider)
+    private void OnCollisionExit(Collision collision)
     {
-        if (!collider.CompareTag("Player")) return;
+        if (!collision.gameObject.CompareTag("Player")) return;
 
-        collectItemUIController.CollectItemAction -= OnCollectItem;
-        collectItemUIController.DisableCollectItemButton();
+        collectItemPresenter.CollectItemAction -= OnCollectItem;
+        collectItemPresenter.DisableCollectButton();
     }
 }
