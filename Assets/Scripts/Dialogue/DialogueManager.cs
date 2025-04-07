@@ -29,6 +29,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] 
     private Color yellow, red, blue;
 
+    private CutSceneAnimatorControl cutSceneAnimatorControl;
+
     private VisualElement dialoguePanel;
     private TextElement dialogueText;
     private TextElement characterName;
@@ -42,11 +44,13 @@ public class DialogueManager : MonoBehaviour
     private const string SPEAKER_TAG = "speaker";
     private const string TEXT_COLOR_TAG = "textColor";
     private const string ANIM_TAG = "anim";
+    private const string CUTSCENE_TAG = "cs";
 
     private void Awake()
     {
         if (Instance == null) Instance = this;
 
+        cutSceneAnimatorControl = GetComponent<CutSceneAnimatorControl>();
         isSelectChoice = false; isFirstChoice = false; isDisplayLine = false;
         dialogueIsPlaying = false;
     }
@@ -149,6 +153,9 @@ public class DialogueManager : MonoBehaviour
                     break;
                 case ANIM_TAG:
 
+                    break;
+                case CUTSCENE_TAG:
+                    cutSceneAnimatorControl.PlayAnimation(tagValue);
                     break;
             }
         }
