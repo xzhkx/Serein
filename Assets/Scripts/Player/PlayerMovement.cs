@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         xDirection.y = 0f;
         Vector3 zDirection = cameraTransform.forward;
         zDirection.y = 0f;
-        Vector3 yDirection = new Vector3(0, playerRigidbody.velocity.y, 0);
+        Vector3 yDirection = new Vector3(0, -9.18f, 0);
 
         Vector3 direction = xDirection * movementInput.x * runSpeed + zDirection * movementInput.y * runSpeed
             + yDirection;
