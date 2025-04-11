@@ -60,9 +60,13 @@ public class QF_FollowLucas : MonoBehaviour, IQuestFunctionality
         {
             lucasRigidbody.isKinematic = false;
         }
+        
         lucasTransform.localRotation = Quaternion.LookRotation(direction);
         lucasAnimatorControl.SetWalk(true);
-        lucasRigidbody.velocity = direction.normalized * runSpeed;
+
+        direction = direction.normalized * runSpeed;
+        direction.y = -9.18f;
+        lucasRigidbody.velocity = direction;
         return QuestState.IN_PROGRESS;
     }
 
