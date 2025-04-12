@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager Instance { get; private set; }
 
     public Action FinishDialogueEvent;
+    public Action FreezePlayerAction, EnablePlayerAction;
 
     [SerializeField] 
     private PlayerInput playerInput;
@@ -34,8 +35,8 @@ public class DialogueManager : MonoBehaviour
     private VisualElement dialoguePanel;
     private TextElement dialogueText;
     private TextElement characterName;
-    private List<Button> UIChoices = new List<Button>(2);
-    private Dictionary<Button, int> choiceIndexDictionary = new Dictionary<Button, int>(2);
+    private List<Button> UIChoices = new List<Button>(3);
+    private Dictionary<Button, int> choiceIndexDictionary = new Dictionary<Button, int>(3);
 
     public bool dialogueIsPlaying;
     private bool isSelectChoice, isFirstChoice, isDisplayLine;
@@ -88,6 +89,9 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = true;
         dialoguePanel.style.display = DisplayStyle.Flex;
         currentStory = new Story(inkJson.text);
+
+        cutSceneAnimatorControl.EnableCamera();
+        FreezePlayerAction?.Invoke();
 
         ContinueStory();
     }
@@ -203,7 +207,9 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.style.display = DisplayStyle.None;
         dialogueText.text = string.Empty;
 
+        cutSceneAnimatorControl.DisableCamera();
         FinishDialogueEvent?.Invoke();
+        EnablePlayerAction?.Invoke();
 
         if (isFirstChoice) //neu chon firstChoice thi
         {

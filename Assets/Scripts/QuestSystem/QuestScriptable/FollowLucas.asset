@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questName: Follow Lucas
   questDescription: An unknown guide from this world.
+  questIconName: Echoes Through the Gate
+  questIcon: {fileID: 2800000, guid: e2c2516309d49d944aedb844444a36ab, type: 3}

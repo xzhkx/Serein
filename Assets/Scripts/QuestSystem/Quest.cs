@@ -1,3 +1,4 @@
+using UnityEngine;
 
 public enum QuestState
 {
@@ -25,6 +26,16 @@ public class Quest
     public string GetQuestName()
     {
         return questScriptableObject.questName;
+    }
+
+    public string GetQuestIconName()
+    {
+        return questScriptableObject.questIconName;
+    }
+
+    public Texture2D GetQuestIcon()
+    {
+        return questScriptableObject.questIcon;
     }
 
     public string GetQuestDescription()

@@ -1,15 +1,26 @@
 .quest-icon-display {
-    opacity: 0;
+    opacity: 1;
     align-items: center;
     justify-content: center;
     flex-grow: 1;
     transition-timing-function: ease-in;
-    transition-duration: 1s;
+    transition-duration: 2s;
     width: 500px;
     height: 500px;
     align-self: center;
 }
 
-.quest-fade-in {
+.quest-icon-panel {
+    height: 1080px;
+    width: 1920px;
+    flex-direction: column-reverse;
+    opacity: 0;
+    transition-timing-function: ease-in;
+    transition-duration: 1s;
+    background-color: rgba(0, 0, 0, 0.49);
+    transition-property: opacity;
+}
+
+.quest-panel-fade-in {
     opacity: 1;
 }

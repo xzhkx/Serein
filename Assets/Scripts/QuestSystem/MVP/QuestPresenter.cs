@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,8 +9,8 @@ public class QuestPresenter : MonoBehaviour
     [SerializeField]
     private UIDocument questUIDocument, animationUIDocument;
 
-    private VisualElement questPanel, questIconDisplay, questTargetIcon;
-    private TextElement questName, questDescription;
+    private VisualElement questPanel, questIcon, questIconPanel;
+    private TextElement questName, questDescription, questIconName;
 
     private Button closeQuestPanelButton;
 
@@ -46,7 +46,11 @@ public class QuestPresenter : MonoBehaviour
         button.text = quest.GetQuestName();
 
         questModel.CreateNewQuest(button, quest);
-        StartCoroutine(ReceiveQuestAnimation());
+
+        if (!quest.GetQuestIconName().Equals(string.Empty))
+        {
+            StartCoroutine(ReceiveQuestAnimation(quest.GetQuestIconName(), quest.GetQuestIcon()));
+        }
     }
 
     public void RemoveQuest(Quest quest)
@@ -61,11 +65,14 @@ public class QuestPresenter : MonoBehaviour
         buttonsQueue.Enqueue(button);
     }
 
-    private IEnumerator ReceiveQuestAnimation()
+    private IEnumerator ReceiveQuestAnimation(string questIconName, Texture2D questIcon)
     {
-        questIconDisplay.AddToClassList("quest-fade-in");
-        yield return new WaitForSeconds(5);
-        questIconDisplay.RemoveFromClassList("quest-fade-in");
+        this.questIcon.style.backgroundImage = questIcon;
+        this.questIconName.text = questIconName;
+
+        questIconPanel.AddToClassList("quest-panel-fade-in");
+        yield return new WaitForSeconds(3);
+        questIconPanel.RemoveFromClassList("quest-panel-fade-in");
     }
 
     private void OnCloseQuestPanel(ClickEvent clickEvent)
@@ -75,7 +82,9 @@ public class QuestPresenter : MonoBehaviour
 
     private void SetUpUI()
     {
-        questIconDisplay = animationUIDocument.rootVisualElement.Q<VisualElement>("QuestIconDisplay");
+        questIcon = animationUIDocument.rootVisualElement.Q<VisualElement>("QuestIcon");
+        questIconPanel = animationUIDocument.rootVisualElement.Q<VisualElement>("QuestIconPanel");
+        questIconName = animationUIDocument.rootVisualElement.Q<TextElement>("QuestName");
 
         closeQuestPanelButton = questUIDocument.rootVisualElement.Q<Button>("CloseButton");
         closeQuestPanelButton.RegisterCallback<ClickEvent>(OnCloseQuestPanel);

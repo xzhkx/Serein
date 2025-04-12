@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questName: Collect Specter Dust
   questDescription: Sparkles in the air.
+  questIconName: 
+  questIcon: {fileID: 0}

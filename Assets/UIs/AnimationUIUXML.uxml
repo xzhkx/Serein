@@ -1,9 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UIs/uss/QuestIconDisplay.uss?fileID=7433441132597879392&amp;guid=99148d625d25b0e4596944f94427df20&amp;type=3#QuestIconDisplay" />
-    <ui:VisualElement style="height: 1080px; width: 1920px;">
+    <ui:VisualElement name="QuestIconPanel" class="quest-icon-panel">
         <ui:VisualElement name="QuestIconDisplay" class="quest-icon-display">
-            <ui:VisualElement name="QuestIcon" style="background-color: rgb(106, 236, 217); width: 200px; height: 200px;" />
-            <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuestName" style="width: 203px; height: 51px; font-size: 50px; -unity-text-align: middle-center;" />
+            <ui:VisualElement name="QuestIcon" style="width: 400px; height: 400px;" />
+            <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuestName" style="width: 400px; height: 200px; font-size: 60px; -unity-text-align: middle-center; color: rgb(255, 255, 255);" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
