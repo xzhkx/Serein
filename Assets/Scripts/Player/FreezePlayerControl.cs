@@ -6,11 +6,13 @@ public class FreezePlayerControl : MonoBehaviour
     [SerializeField] private CameraRotation cameraRotation;
     private PlayerMovement playerMovement;
     private PlayerJump playerJump;
+    private PlayerAttack playerAttack;
 
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
         playerJump = GetComponent<PlayerJump>();
+        playerAttack = GetComponent<PlayerAttack>();
     }
 
     private void Start()
@@ -29,6 +31,7 @@ public class FreezePlayerControl : MonoBehaviour
     {
         cameraMovement.enabled = false;
         cameraRotation.enabled = false;
+        playerAttack.enabled = false;
         playerMovement.enabled = false;
         playerJump.enabled = false;
     }
@@ -39,5 +42,6 @@ public class FreezePlayerControl : MonoBehaviour
         cameraRotation.enabled = true;
         playerMovement.enabled = true;
         playerJump.enabled = true;
+        playerAttack.enabled = true;
     }
 }

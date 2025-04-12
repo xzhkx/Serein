@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class QF_PickUpSpecterDust : MonoBehaviour, IQuestFunctionality
 {
+    [SerializeField]
+    private GameObject specterDust;
+
     [Header("Quest Complete")]
     [SerializeField]
     private List<GameObject> objectToEnable, objectToDisable = new List<GameObject>(5);
@@ -11,11 +14,16 @@ public class QF_PickUpSpecterDust : MonoBehaviour, IQuestFunctionality
 
     private void Start()
     {
+        specterDust.SetActive(false);
         inventoryManager = InventoryManager.Instance;
     }
 
     public QuestState StartQuestProgress()
     {
+        if(!specterDust.activeInHierarchy)
+        {
+            specterDust.SetActive(true);
+        }
         if (inventoryManager.GetItemQuantity(0) > 0)
         {
             return QuestState.COMPLETE;

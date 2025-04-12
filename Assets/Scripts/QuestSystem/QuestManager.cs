@@ -4,6 +4,10 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour
 {
     public static QuestManager Instance;
+
+    [SerializeField]
+    private GeneralPresenter generalPresenter;
+
     private QuestPresenter questPresenter;
     public Quest currentQuest { get; private set; }
     private List<Quest> questList = new List<Quest>(10);
@@ -44,14 +48,14 @@ public class QuestManager : MonoBehaviour
     {
         currentQuest = quest;
         quest.SetQuestState(QuestState.IN_PROGRESS);
-        //questPresenter.SetGeneralQuestName(quest); //rieng
+        generalPresenter.SetGeneralQuestName(quest.GetQuestName());
     }
 
     public void ReceiveQuest(Quest quest)
     {
         if (currentQuest == null) {
             currentQuest = quest;
-            //questUIController.SetGeneralQuestName(quest);
+            generalPresenter.SetGeneralQuestName(quest.GetQuestName());
         }
         questList.Add(quest);
         questPresenter.CreateNewQuest(quest);

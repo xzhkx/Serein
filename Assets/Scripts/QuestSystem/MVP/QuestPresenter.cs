@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -71,7 +70,7 @@ public class QuestPresenter : MonoBehaviour
         this.questIconName.text = questIconName;
 
         questIconPanel.AddToClassList("quest-panel-fade-in");
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         questIconPanel.RemoveFromClassList("quest-panel-fade-in");
     }
 
