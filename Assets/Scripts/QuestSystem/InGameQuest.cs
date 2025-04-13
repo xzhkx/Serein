@@ -6,16 +6,21 @@ public class InGameQuest : MonoBehaviour
     [SerializeField]
     private QuestScriptableObject questScriptableObject;
 
+    [SerializeField]
+    private Transform targetTransform;
+
     [Header("Quest Reward")]
     [SerializeField]
     private QuestRewardScriptableObject questRewardScriptableObject;
 
     private Quest thisQuest;
     private IQuestFunctionality functionality;
+
     private void Awake()
     {
         functionality = GetComponent<IQuestFunctionality>();
-        thisQuest = new Quest(questScriptableObject, questRewardScriptableObject, functionality);
+        thisQuest = new Quest(questScriptableObject, questRewardScriptableObject, 
+            functionality, targetTransform);
     }
 
     public void ReceiveQuest()

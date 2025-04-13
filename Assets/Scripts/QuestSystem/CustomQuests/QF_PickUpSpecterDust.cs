@@ -20,6 +20,7 @@ public class QF_PickUpSpecterDust : MonoBehaviour, IQuestFunctionality
 
     public QuestState StartQuestProgress()
     {
+        if(specterDust == null) return QuestState.COMPLETE;
         if(!specterDust.activeInHierarchy)
         {
             specterDust.SetActive(true);

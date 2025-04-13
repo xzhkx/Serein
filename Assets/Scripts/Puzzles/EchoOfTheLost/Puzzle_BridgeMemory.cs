@@ -19,10 +19,6 @@ public class Puzzle_BridgeMemory : MonoBehaviour
         if (currentPassword[0] == stoneID)
         {
             currentPassword.Remove(stoneID);
-            if(currentPassword.Count == 0)
-            {
-                Debug.Log("Complete Puzzle");
-            }
         }
         else
         {

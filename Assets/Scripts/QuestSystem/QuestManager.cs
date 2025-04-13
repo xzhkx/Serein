@@ -8,6 +8,9 @@ public class QuestManager : MonoBehaviour
     [SerializeField]
     private GeneralPresenter generalPresenter;
 
+    [SerializeField]
+    private Transform playerTransform;
+
     private QuestPresenter questPresenter;
     public Quest currentQuest { get; private set; }
     private List<Quest> questList = new List<Quest>(10);
@@ -28,9 +31,15 @@ public class QuestManager : MonoBehaviour
         QuestState state = currentQuest.StartQuest();
         switch (state)
         {
+            case QuestState.IN_PROGRESS:
+                float distance = (playerTransform.position - currentQuest.GetTargetPostion()).magnitude;
+                generalPresenter.SetTargetDistance(distance);
+                break;
+
             case QuestState.COMPLETE:
                 questList.Remove(currentQuest);
                 questPresenter.RemoveQuest(currentQuest);
+                generalPresenter.ClearGeneralQuest();
 
                 currentQuest.CompleteQuest();   
                 currentQuest = null;

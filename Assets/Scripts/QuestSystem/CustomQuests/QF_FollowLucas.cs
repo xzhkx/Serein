@@ -65,7 +65,6 @@ public class QF_FollowLucas : MonoBehaviour, IQuestFunctionality
         lucasAnimatorControl.SetWalk(true);
 
         direction = direction.normalized * runSpeed;
-        //direction.y = -9.18f;
         lucasRigidbody.velocity = direction;
         return QuestState.IN_PROGRESS;
     }

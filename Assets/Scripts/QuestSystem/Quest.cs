@@ -14,13 +14,17 @@ public class Quest
     private QuestState questState;
     private IQuestFunctionality functionality;
 
-    public Quest(QuestScriptableObject questScriptableObject, 
-        QuestRewardScriptableObject questRewardScriptableObject, IQuestFunctionality functionality)
+    private Transform targetTransform;
+
+    public Quest(QuestScriptableObject questScriptableObject,
+        QuestRewardScriptableObject questRewardScriptableObject, IQuestFunctionality functionality,
+        Transform targetTransform)
     {
         questState = QuestState.IN_PROGRESS;
         this.questScriptableObject = questScriptableObject;
         this.questRewardScriptableObject = questRewardScriptableObject; 
         this.functionality = functionality;
+        this.targetTransform = targetTransform;
     }
 
     public string GetQuestName()
@@ -31,6 +35,11 @@ public class Quest
     public string GetQuestIconName()
     {
         return questScriptableObject.questIconName;
+    }
+
+    public Vector3 GetTargetPostion()
+    {
+        return targetTransform.position;
     }
 
     public Texture2D GetQuestIcon()
