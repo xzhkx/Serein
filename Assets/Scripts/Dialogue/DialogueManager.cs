@@ -52,6 +52,8 @@ public class DialogueManager : MonoBehaviour
         if (Instance == null) Instance = this;
 
         cutSceneAnimatorControl = GetComponent<CutSceneAnimatorControl>();
+        cutSceneAnimatorControl.DisableCamera();
+
         isSelectChoice = false; isFirstChoice = false; isDisplayLine = false;
         dialogueIsPlaying = false;
     }
@@ -90,9 +92,7 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.style.display = DisplayStyle.Flex;
         currentStory = new Story(inkJson.text);
 
-        cutSceneAnimatorControl.EnableCamera();
         FreezePlayerAction?.Invoke();
-
         ContinueStory();
     }
 
@@ -159,6 +159,7 @@ public class DialogueManager : MonoBehaviour
 
                     break;
                 case CUTSCENE_TAG:
+                    cutSceneAnimatorControl.EnableCamera();
                     cutSceneAnimatorControl.PlayAnimation(tagValue);
                     break;
             }

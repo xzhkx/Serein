@@ -3,7 +3,12 @@ using UnityEngine;
 
 public class Puzzle_BridgeMemory : MonoBehaviour
 {
-    [SerializeField] private string password;
+    [SerializeField] 
+    private string password;
+
+    [SerializeField]
+    private GameObject bridgeWoodPlank;
+
     private List<char> currentPassword = new List<char>(4);
 
     private void Awake()
@@ -19,6 +24,10 @@ public class Puzzle_BridgeMemory : MonoBehaviour
         if (currentPassword[0] == stoneID)
         {
             currentPassword.Remove(stoneID);
+            if (currentPassword.Count == 0)
+            {
+                bridgeWoodPlank.SetActive(true);
+            }
         }
         else
         {

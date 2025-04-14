@@ -1,12 +1,11 @@
 using System.Collections.Generic;
-
 using UnityEngine;
 
 public class QF_FollowLucas : MonoBehaviour, IQuestFunctionality
 {
     [Header("Quest Complete")]
     [SerializeField]
-    private List<GameObject> objectToEnable = new List<GameObject>(5);
+    private List<GameObject> objectToEnable, objectToDisable = new List<GameObject>(10);
 
     [SerializeField] 
     private float runSpeed;
@@ -74,6 +73,10 @@ public class QF_FollowLucas : MonoBehaviour, IQuestFunctionality
         for (int i = 0; i < objectToEnable.Count; i++) 
         {
             objectToEnable[i].SetActive(true);
+        }
+        for (int i = 0; i < objectToDisable.Count; i++)
+        {
+            objectToDisable[i].SetActive(false);
         }
     }
 }
