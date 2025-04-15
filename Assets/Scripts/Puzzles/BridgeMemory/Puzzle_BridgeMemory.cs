@@ -21,6 +21,8 @@ public class Puzzle_BridgeMemory : MonoBehaviour
 
     public void AddPasswordID(char stoneID)
     {
+        if (currentPassword.Count <= 0) return;
+
         if (currentPassword[0] == stoneID)
         {
             currentPassword.Remove(stoneID);
