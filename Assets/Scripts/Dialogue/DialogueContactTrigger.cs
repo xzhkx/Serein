@@ -4,14 +4,13 @@ using UnityEngine.UIElements;
 public class DialogueContactTrigger : MonoBehaviour
 {
     [SerializeField]
-    private PlayerInput playerInput;
-
-    [SerializeField]
     private UIDocument generalUIDocument;
 
     [Header("Ink File")]
     [SerializeField]
     private TextAsset inkJson;
+
+    private PlayerInput playerInput;
 
     private IFinishDialogue iFinishDialogue;
     private DialogueManager dialogueManager;
@@ -33,6 +32,7 @@ public class DialogueContactTrigger : MonoBehaviour
 
     private void Start()
     {
+        playerInput = PlayerInput.Instance;
         playerInRange = false;
         dialogueManager = DialogueManager.Instance;
     }

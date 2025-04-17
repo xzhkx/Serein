@@ -69,6 +69,7 @@ public class QuestPresenter : MonoBehaviour
         this.questIcon.style.backgroundImage = questIcon;
         this.questIconName.text = questIconName;
 
+        yield return new WaitForSeconds(2);
         questIconPanel.AddToClassList("quest-panel-fade-in");
         yield return new WaitForSeconds(5);
         questIconPanel.RemoveFromClassList("quest-panel-fade-in");

@@ -208,7 +208,10 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.style.display = DisplayStyle.None;
         dialogueText.text = string.Empty;
 
+        FadePresenter.Instance.PlayFadeAnimation();
+        yield return new WaitForSeconds(1f);
         cutSceneAnimatorControl.DisableCamera();
+
         FinishDialogueEvent?.Invoke();
         EnablePlayerAction?.Invoke();
 

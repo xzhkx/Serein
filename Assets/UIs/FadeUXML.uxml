@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UIs/uss/Fade.uss?fileID=7433441132597879392&amp;guid=af9d58b8b5ad3894db3488ffb26d85f4&amp;type=3#Fade" />
+    <ui:VisualElement name="FadePanel" class="fade-panel" />
+</ui:UXML>

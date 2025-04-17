@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    public static PlayerInput Instance;
     private PlayerInputAction playerInputActions;
 
     private void Awake()
     {
+        Instance = this;
         playerInputActions = new PlayerInputAction();
         EnablePlayerInputActions();
     }
