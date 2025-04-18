@@ -7,12 +7,15 @@ public class DialogueTrigger : MonoBehaviour
     private TextAsset inkJson;
 
     private IFinishDialogue iFinishDialogue;
+    private IStartDialogue iStartDialogue;
+
     private DialogueManager dialogueManager;
     private BoxCollider boxCollider;
 
     private void Awake()
     {
         boxCollider = GetComponent<BoxCollider>();
+        iStartDialogue = GetComponent<IStartDialogue>();
         iFinishDialogue = GetComponent<IFinishDialogue>();
     }
 
@@ -26,9 +29,15 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            if (iStartDialogue != null)
+            {
+                dialogueManager.StartDialogueEvent += iStartDialogue.MakeAction;
+            }
+            if (iFinishDialogue != null)
+            {
+                dialogueManager.FinishDialogueEvent += iFinishDialogue.MakeAction;
+            }
             dialogueManager.EnterDialogue(inkJson);
-            if (iFinishDialogue == null) return;
-            dialogueManager.FinishDialogueEvent += iFinishDialogue.MakeAction;
         }
     }
 
@@ -36,8 +45,14 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (iFinishDialogue == null) return;
-            dialogueManager.FinishDialogueEvent -= iFinishDialogue.MakeAction;
+            if (iStartDialogue != null)
+            {
+                dialogueManager.StartDialogueEvent -= iStartDialogue.MakeAction;
+            }
+            if (iFinishDialogue != null)
+            {
+                dialogueManager.FinishDialogueEvent -= iFinishDialogue.MakeAction;
+            }
             boxCollider.enabled = false;
         }
     }

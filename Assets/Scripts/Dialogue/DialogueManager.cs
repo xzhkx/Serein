@@ -11,7 +11,7 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
 
-    public Action FinishDialogueEvent;
+    public Action StartDialogueEvent, FinishDialogueEvent;
     public Action FreezePlayerAction, EnablePlayerAction;
 
     [SerializeField] 
@@ -92,6 +92,7 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.style.display = DisplayStyle.Flex;
         currentStory = new Story(inkJson.text);
 
+        StartDialogueEvent?.Invoke();
         FreezePlayerAction?.Invoke();
         ContinueStory();
     }
@@ -204,7 +205,6 @@ public class DialogueManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
 
-        dialogueIsPlaying = false;
         dialoguePanel.style.display = DisplayStyle.None;
         dialogueText.text = string.Empty;
 
@@ -214,6 +214,8 @@ public class DialogueManager : MonoBehaviour
 
         FinishDialogueEvent?.Invoke();
         EnablePlayerAction?.Invoke();
+
+        dialogueIsPlaying = false;
 
         if (isFirstChoice) //neu chon firstChoice thi
         {

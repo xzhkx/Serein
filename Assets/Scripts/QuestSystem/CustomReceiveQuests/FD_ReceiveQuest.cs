@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ReceiveQuestDialogue : MonoBehaviour, IFinishDialogue
+public class FD_ReceiveQuest : MonoBehaviour, IFinishDialogue
 {
     [SerializeField]
     private InGameQuest inGameQuest;

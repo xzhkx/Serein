@@ -7,12 +7,16 @@ public class FreezePlayerControl : MonoBehaviour
     private PlayerMovement playerMovement;
     private PlayerJump playerJump;
     private PlayerAttack playerAttack;
+    private Rigidbody playerRigidbody;
+    private PlayerAnimatorControl playerAnimatorControl;
 
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
         playerJump = GetComponent<PlayerJump>();
         playerAttack = GetComponent<PlayerAttack>();
+        playerRigidbody = GetComponent<Rigidbody>();
+        playerAnimatorControl = GetComponent<PlayerAnimatorControl>();
     }
 
     private void Start()
@@ -34,6 +38,8 @@ public class FreezePlayerControl : MonoBehaviour
         playerAttack.enabled = false;
         playerMovement.enabled = false;
         playerJump.enabled = false;
+        playerRigidbody.isKinematic = true;
+        playerAnimatorControl.SetIdle(true);
     }
 
     private void EnablePlayerMovement()
@@ -42,6 +48,7 @@ public class FreezePlayerControl : MonoBehaviour
         cameraRotation.enabled = true;
         playerMovement.enabled = true;
         playerJump.enabled = true;
+        playerRigidbody.isKinematic = false;
         playerAttack.enabled = true;
     }
 }

@@ -11,9 +11,10 @@ public class DialogueContactTrigger : MonoBehaviour
     private TextAsset inkJson;
 
     private PlayerInput playerInput;
-
-    private IFinishDialogue iFinishDialogue;
     private DialogueManager dialogueManager;
+
+    private IStartDialogue iStartDialogue;
+    private IFinishDialogue iFinishDialogue;
 
     private VisualElement interactPanel;
     private Button interactButton;
@@ -21,6 +22,7 @@ public class DialogueContactTrigger : MonoBehaviour
     private bool playerInRange;
     private void Awake()
     {
+        iStartDialogue = GetComponent<IStartDialogue>();
         iFinishDialogue = GetComponent<IFinishDialogue>();
 
         interactPanel = generalUIDocument.rootVisualElement.Q<VisualElement>("InteractItemPanel");
@@ -65,8 +67,14 @@ public class DialogueContactTrigger : MonoBehaviour
             playerInRange = true;
             interactPanel.style.display = DisplayStyle.Flex;
 
-            if (iFinishDialogue == null) return;
-            dialogueManager.FinishDialogueEvent += iFinishDialogue.MakeAction;
+            if (iStartDialogue != null)
+            {
+                dialogueManager.StartDialogueEvent += iStartDialogue.MakeAction;
+            }
+            if (iFinishDialogue != null)
+            {
+                dialogueManager.FinishDialogueEvent += iFinishDialogue.MakeAction;
+            }
         }
     }
 
@@ -77,8 +85,13 @@ public class DialogueContactTrigger : MonoBehaviour
             playerInRange = false;
             interactPanel.style.display = DisplayStyle.None;
 
-            if (iFinishDialogue == null) return;
-            dialogueManager.FinishDialogueEvent -= iFinishDialogue.MakeAction;
+            if (iStartDialogue != null)
+            {
+                dialogueManager.StartDialogueEvent -= iStartDialogue.MakeAction;
+            }
+            if (iFinishDialogue != null) {
+                dialogueManager.FinishDialogueEvent -= iFinishDialogue.MakeAction;
+            }
         }
     }
 }
