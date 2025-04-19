@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SF_UnlockFunctionality : MonoBehaviour, IFinishDialogue
+public class FD_UnlockFunctionality : MonoBehaviour, IFinishDialogue
 {
     [SerializeField]
     private FunctionalityScriptableObject functionalityObject;
@@ -10,6 +10,6 @@ public class SF_UnlockFunctionality : MonoBehaviour, IFinishDialogue
     public void MakeAction()
     {
         UnlockFunctionalityPresenter.Instance.UnlockFunctionality(functionalityObject);
-        generalPresenter.EnableInventoryButton();
+        generalPresenter.EnableFunctionalityButton(functionalityObject.ID);
     }
 }

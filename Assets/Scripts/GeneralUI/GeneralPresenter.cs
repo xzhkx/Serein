@@ -41,7 +41,7 @@ public class GeneralPresenter : MonoBehaviour
     public void ClearGeneralQuest()
     {
         targetDistance.text = string.Empty;
-        generalQuestName.text += string.Empty;
+        generalQuestName.text = string.Empty;
     }
 
     private void OnOpenQuestPanel(ClickEvent clickEvent)
@@ -56,14 +56,17 @@ public class GeneralPresenter : MonoBehaviour
         inventoryPanel.style.display = DisplayStyle.Flex;
     }
 
-    public void EnableInventoryButton()
+    public void EnableFunctionalityButton(int functionalityID)
     {
-        openInventoryButton.style.display = DisplayStyle.Flex;
-    }
-
-    public void EnableQuestButton()
-    {
-        openQuestPanelButton.style.display = DisplayStyle.Flex;
+        switch(functionalityID)
+        {
+            case 0:
+                openInventoryButton.style.display = DisplayStyle.Flex;
+                break;
+            case 1:
+                openQuestPanelButton.style.display = DisplayStyle.Flex;
+                break;
+        }    
     }
 
     public void DisableGeneralButtons()

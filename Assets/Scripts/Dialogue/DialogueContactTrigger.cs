@@ -13,8 +13,8 @@ public class DialogueContactTrigger : MonoBehaviour
     private PlayerInput playerInput;
     private DialogueManager dialogueManager;
 
-    private IStartDialogue iStartDialogue;
-    private IFinishDialogue iFinishDialogue;
+    private IStartDialogue[] iStartDialogue;
+    private IFinishDialogue[] iFinishDialogue;
 
     private VisualElement interactPanel;
     private Button interactButton;
@@ -22,8 +22,8 @@ public class DialogueContactTrigger : MonoBehaviour
     private bool playerInRange;
     private void Awake()
     {
-        iStartDialogue = GetComponent<IStartDialogue>();
-        iFinishDialogue = GetComponent<IFinishDialogue>();
+        iStartDialogue = GetComponents<IStartDialogue>();
+        iFinishDialogue = GetComponents<IFinishDialogue>();
 
         interactPanel = generalUIDocument.rootVisualElement.Q<VisualElement>("InteractItemPanel");
         interactPanel.style.display = DisplayStyle.None;
@@ -43,7 +43,7 @@ public class DialogueContactTrigger : MonoBehaviour
     {
         if (playerInRange)
         {
-            if (playerInput.GetInteractPressed() && !dialogueManager.dialogueIsPlaying)
+            if (playerInput.GetInteractPressed())
             {
                 interactPanel.style.display = DisplayStyle.None;
                 dialogueManager.EnterDialogue(inkJson);
@@ -53,7 +53,7 @@ public class DialogueContactTrigger : MonoBehaviour
 
     private void OnEnterDialogue(ClickEvent clickEvent)
     {
-        if (playerInRange && !dialogueManager.dialogueIsPlaying)
+        if (playerInRange)
         {
             interactPanel.style.display = DisplayStyle.None;
             dialogueManager.EnterDialogue(inkJson);
@@ -62,20 +62,28 @@ public class DialogueContactTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !dialogueManager.dialogueIsPlaying)
         {
             playerInRange = true;
             interactPanel.style.display = DisplayStyle.Flex;
 
-            if (iStartDialogue != null)
+            dialogueManager.StartDialogueEvent = null;
+            dialogueManager.FinishDialogueEvent = null;
+
+            for (int i = 0; i < iStartDialogue.Length; i++)
             {
-                dialogueManager.StartDialogueEvent = null;
-                dialogueManager.StartDialogueEvent += iStartDialogue.MakeAction;
+                if (iStartDialogue[i] != null)
+                {
+                    dialogueManager.StartDialogueEvent += iStartDialogue[i].MakeAction;
+                }
             }
-            if (iFinishDialogue != null)
+
+            for (int i = 0; i < iFinishDialogue.Length; i++)
             {
-                dialogueManager.FinishDialogueEvent = null;
-                dialogueManager.FinishDialogueEvent += iFinishDialogue.MakeAction;
+                if (iFinishDialogue[i] != null)
+                {
+                    dialogueManager.FinishDialogueEvent += iFinishDialogue[i].MakeAction;
+                }
             }
         }
     }
@@ -86,15 +94,6 @@ public class DialogueContactTrigger : MonoBehaviour
         {
             playerInRange = false;
             interactPanel.style.display = DisplayStyle.None;
-
-            if (iStartDialogue != null)
-            {
-                dialogueManager.StartDialogueEvent -= iStartDialogue.MakeAction;
-            }
-            if (iFinishDialogue != null)
-            {
-                dialogueManager.FinishDialogueEvent -= iFinishDialogue.MakeAction;
-            }
         }
     }
 }

@@ -1,10 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SD_DisableObject : MonoBehaviour, IStartDialogue
 {
-    [SerializeField] private GameObject objectToDisable;
+    [SerializeField] 
+    private List<GameObject> objectToDisable;
     public void MakeAction()
     {
-        objectToDisable.SetActive(false);
+        for(int i = 0; i < objectToDisable.Count; i++)
+        {
+            objectToDisable[i].SetActive(false);
+        }
     }
 }

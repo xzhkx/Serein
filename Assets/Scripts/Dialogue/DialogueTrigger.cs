@@ -6,8 +6,8 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField]
     private TextAsset inkJson;
 
-    private IFinishDialogue iFinishDialogue;
-    private IStartDialogue iStartDialogue;
+    private IFinishDialogue[] iFinishDialogue;
+    private IStartDialogue[] iStartDialogue;
 
     private DialogueManager dialogueManager;
     private BoxCollider boxCollider;
@@ -15,8 +15,8 @@ public class DialogueTrigger : MonoBehaviour
     private void Awake()
     {
         boxCollider = GetComponent<BoxCollider>();
-        iStartDialogue = GetComponent<IStartDialogue>();
-        iFinishDialogue = GetComponent<IFinishDialogue>();
+        iStartDialogue = GetComponents<IStartDialogue>();
+        iFinishDialogue = GetComponents<IFinishDialogue>();
     }
 
     private void Start()
@@ -29,16 +29,25 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (iStartDialogue != null)
+            dialogueManager.StartDialogueEvent = null;
+            dialogueManager.FinishDialogueEvent = null;
+
+            for (int i = 0; i < iStartDialogue.Length; i++)
             {
-                dialogueManager.StartDialogueEvent = null;
-                dialogueManager.StartDialogueEvent += iStartDialogue.MakeAction;
+                if (iStartDialogue[i] != null)
+                {
+                    dialogueManager.StartDialogueEvent += iStartDialogue[i].MakeAction;
+                }
             }
-            if (iFinishDialogue != null)
+
+            for(int i = 0; i < iFinishDialogue.Length; i++)
             {
-                dialogueManager.FinishDialogueEvent = null;
-                dialogueManager.FinishDialogueEvent += iFinishDialogue.MakeAction;
+                if (iFinishDialogue[i] != null)
+                {
+                    dialogueManager.FinishDialogueEvent += iFinishDialogue[i].MakeAction;
+                }
             }
+
             dialogueManager.EnterDialogue(inkJson);
         }
     }

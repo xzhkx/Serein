@@ -1,8 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:VisualElement style="flex-grow: 1; width: 1920px; height: 600px; flex-direction: row; max-height: 530px;">
-        <ui:VisualElement name="QuestPanel" style="flex-grow: 0; width: 600px; flex-direction: column; align-self: center; height: 300px; justify-content: flex-end; align-items: flex-start; display: flex;">
-            <ui:Button text="Quest" parse-escape-sequences="true" display-tooltip-when-elided="true" name="OpenQuestPanelButton" style="width: 162px; height: 53px; font-size: 36px; -unity-text-align: middle-center; translate: 50px -50px; display: none; max-width: 30px;" />
-            <ui:VisualElement style="flex-direction: row; max-height: 100px; margin-left: 50px; align-items: center;">
+        <ui:VisualElement name="QuestPanel" style="flex-grow: 0; width: 600px; flex-direction: column; align-self: center; height: 450px; justify-content: flex-end; align-items: flex-start; display: flex;">
+            <ui:Button name="OpenQuestPanelButton" style="width: 80px; height: 80px; display: flex; translate: 50px 0; background-color: rgba(188, 188, 188, 0); background-image: url(&quot;project://database/Assets/Art/UI/QuestIcon.png?fileID=2800000&amp;guid=0537d46e700515848b61313874532fe0&amp;type=3#QuestIcon&quot;);" />
+            <ui:VisualElement style="flex-direction: row; max-height: 100px; margin-left: 50px; align-items: center; justify-content: flex-end;">
                 <ui:VisualElement name="TrackIcon" style="width: 60px; height: 60px; background-image: url(&quot;project://database/Assets/Art/UI/TrackIcon.png?fileID=2800000&amp;guid=57570482ceb6a1d4f883f78855b83d8e&amp;type=3#TrackIcon&quot;);" />
                 <ui:Label tabindex="-1" text="gssghhdfhdhdfhhhhhh" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuestName" style="-unity-text-align: middle-left; font-size: 40px; color: rgb(0, 0, 0); width: 400px; height: 100px; margin-left: 9px; white-space: normal; flex-direction: column-reverse;" />
             </ui:VisualElement>
