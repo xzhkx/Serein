@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edfb576fe8d2c0c458b890068e4f207f, type: 3}
+  m_Name: InQuietPassing
+  m_EditorClassIdentifier: 
+  questName: In Quiet Passing
+  questDescription: "A bundle of forgotten offerings sits quietly at the edge of
+    a stall, each tagged with no name\u2014only faint traces of where they belong.
+    Lucas believes they\u2019re meant for the lingering souls scattered through the
+    market."
+  questIconName: 
+  questIcon: {fileID: 0}

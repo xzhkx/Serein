@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class QuestPresenter : MonoBehaviour
 {
     [SerializeField]
-    private UIDocument questUIDocument, animationUIDocument;
+    private UIDocument questUIDocument, questIconDisplayUIDocument;
 
     private VisualElement questPanel, questIcon, questIconPanel;
     private TextElement questName, questDescription, questIconName;
@@ -16,6 +16,8 @@ public class QuestPresenter : MonoBehaviour
     private Queue<Button> buttonsQueue = new Queue<Button>(10);
 
     private QuestModel questModel;
+
+    private Quest selectedQuest;
 
     private void Awake()
     {
@@ -34,6 +36,8 @@ public class QuestPresenter : MonoBehaviour
 
         questName.text = quest.GetQuestName();
         questDescription.text = quest.GetQuestDescription();
+
+        selectedQuest = quest; //-> Track button!
     }
 
     public void CreateNewQuest(Quest quest)
@@ -94,9 +98,9 @@ public class QuestPresenter : MonoBehaviour
 
     private void SetUpUI()
     {
-        questIcon = animationUIDocument.rootVisualElement.Q<VisualElement>("QuestIcon");
-        questIconPanel = animationUIDocument.rootVisualElement.Q<VisualElement>("QuestIconPanel");
-        questIconName = animationUIDocument.rootVisualElement.Q<TextElement>("QuestName");
+        questIcon = questIconDisplayUIDocument.rootVisualElement.Q<VisualElement>("QuestIcon");
+        questIconPanel = questIconDisplayUIDocument.rootVisualElement.Q<VisualElement>("QuestIconPanel");
+        questIconName = questIconDisplayUIDocument.rootVisualElement.Q<TextElement>("QuestName");
 
         closeQuestPanelButton = questUIDocument.rootVisualElement.Q<Button>("CloseButton");
         closeQuestPanelButton.RegisterCallback<ClickEvent>(OnCloseQuestPanel);

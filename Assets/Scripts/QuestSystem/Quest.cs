@@ -39,6 +39,7 @@ public class Quest
 
     public Vector3 GetTargetPostion()
     {
+        if(targetTransform == null) return Vector3.zero;
         return targetTransform.position;
     }
 

@@ -1453,6 +1453,8 @@ GameObject:
   - component: {fileID: 318753880}
   - component: {fileID: 318753881}
   - component: {fileID: 318753882}
+  - component: {fileID: 318753883}
+  - component: {fileID: 318753884}
   m_Layer: 0
   m_Name: Talk To Merchant
   m_TagString: Untagged
@@ -1524,6 +1526,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   functionalityObject: {fileID: 11400000, guid: e7fec8e4335da314cbf0dfe7a26f5c8d, type: 2}
   generalPresenter: {fileID: 555852635}
+--- !u!114 &318753883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318753876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6eb079e736d42342becff1d7c0b4021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToDisable:
+  - {fileID: 318753876}
+--- !u!114 &318753884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318753876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5ce24dbb7a834540b9d4fb0a01a510b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inGameQuest: {fileID: 1607477797}
 --- !u!1 &329715725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,6 +1784,7 @@ Transform:
   m_Children:
   - {fileID: 555852634}
   - {fileID: 1999837176}
+  - {fileID: 1730248944}
   - {fileID: 128721709}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3659,6 +3689,7 @@ Transform:
   m_Children:
   - {fileID: 614520286}
   - {fileID: 1238457860}
+  - {fileID: 1607477796}
   m_Father: {fileID: 2136153172}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &856584086
@@ -7292,6 +7323,68 @@ Transform:
   - {fileID: 369325849}
   m_Father: {fileID: 1109834263}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1607477795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1607477796}
+  - component: {fileID: 1607477797}
+  - component: {fileID: 1607477798}
+  m_Layer: 0
+  m_Name: 2.2) InQuietPassing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1607477796
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607477795}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 831956386}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1607477797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607477795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f30bf77930c734187d618fb9332a90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questScriptableObject: {fileID: 11400000, guid: 93767bbfe2625914190ba04af38f4c9d, type: 2}
+  targetTransform: {fileID: 0}
+  questRewardScriptableObject: {fileID: 11400000, guid: 2321c09e61cff1f4d924ff01cb6082c1, type: 2}
+--- !u!114 &1607477798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607477795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2dc54e9f9c011440964327035fbe5f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToEnable: []
+  objectToDisable: []
 --- !u!1 &1617157054
 GameObject:
   m_ObjectHideFlags: 0
@@ -12647,7 +12740,7 @@ GameObject:
   - component: {fileID: 1730248948}
   - component: {fileID: 1730248947}
   m_Layer: 0
-  m_Name: Quest Manager
+  m_Name: Quest Manager + Presenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12680,7 +12773,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2136153172}
+  m_Father: {fileID: 373819051}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1730248947
 MonoBehaviour:
@@ -12707,7 +12800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questUIDocument: {fileID: 1195411008}
-  animationUIDocument: {fileID: 1879012734}
+  questIconDisplayUIDocument: {fileID: 1879012734}
 --- !u!1 &1744767383
 GameObject:
   m_ObjectHideFlags: 0
@@ -19778,7 +19871,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1730248944}
   - {fileID: 287716358}
   - {fileID: 831956386}
   m_Father: {fileID: 0}

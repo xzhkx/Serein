@@ -32,6 +32,10 @@ public class QuestManager : MonoBehaviour
         switch (state)
         {
             case QuestState.IN_PROGRESS:
+                if (currentQuest.GetTargetPostion().Equals(Vector3.zero))
+                {
+                    break;
+                }
                 float distance = (playerTransform.position - currentQuest.GetTargetPostion()).magnitude;
                 generalPresenter.SetTargetDistance(distance);
                 break;
