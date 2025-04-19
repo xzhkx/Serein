@@ -1,18 +1,29 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SD_EnableObject : MonoBehaviour, IStartDialogue
 {
     [SerializeField]
-    private GameObject objectToEnable;
+    private List<GameObject> objectToEnable = new List<GameObject>(5);
 
     [SerializeField]
-    private Transform targetTransform;
+    private List<Transform> targetTransform = new List<Transform>(5);
 
     public void MakeAction()
     {
-        if (targetTransform != null) {
-            objectToEnable.transform.position = targetTransform.position;
+        for (int i = 0; i < targetTransform.Count; i++) {
+            if (targetTransform[i] != null)
+            {
+                objectToEnable[i].transform.position = targetTransform[i].position;
+                objectToEnable[i].transform.localRotation = targetTransform[i].localRotation;
+            }
         }
-        objectToEnable.SetActive(true);
+        for (int i = 0; i < objectToEnable.Count; i++)
+        {
+            if(objectToEnable[i] != null)
+            {
+                objectToEnable[i].SetActive(true);
+            }
+        }
     }
 }

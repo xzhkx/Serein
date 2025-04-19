@@ -1,0 +1,14 @@
+.functionality-panel {
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0.59);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition-timing-function: ease-in-sine;
+    transition-duration: 1s;
+}
+
+.fade-in {
+    opacity: 1;
+}

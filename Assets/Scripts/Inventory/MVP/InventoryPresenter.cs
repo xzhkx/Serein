@@ -31,13 +31,13 @@ public class InventoryPresenter : MonoBehaviour
         button.style.display = DisplayStyle.Flex;
 
         //-> Load Image BG
-        //button.style.backgroundImage = new StyleBackground(Resources.Load<Sprite>("")); 
         inventoryModel.AddItem(button, item);
     }
 
     private void OnCloseInventoryPanel(ClickEvent clickEvent)
     {
         inventoryPanel.style.display = DisplayStyle.None;
+        inventoryPanel.visible = false;
     }
 
     private void SetUpUI()

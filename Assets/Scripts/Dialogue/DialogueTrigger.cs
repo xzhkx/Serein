@@ -3,7 +3,7 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     [Header("Ink File")]
-    [SerializeField] 
+    [SerializeField]
     private TextAsset inkJson;
 
     private IFinishDialogue iFinishDialogue;
@@ -31,10 +31,12 @@ public class DialogueTrigger : MonoBehaviour
         {
             if (iStartDialogue != null)
             {
+                dialogueManager.StartDialogueEvent = null;
                 dialogueManager.StartDialogueEvent += iStartDialogue.MakeAction;
             }
             if (iFinishDialogue != null)
             {
+                dialogueManager.FinishDialogueEvent = null;
                 dialogueManager.FinishDialogueEvent += iFinishDialogue.MakeAction;
             }
             dialogueManager.EnterDialogue(inkJson);
@@ -45,16 +47,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (iStartDialogue != null)
-            {
-                dialogueManager.StartDialogueEvent -= iStartDialogue.MakeAction;
-            }
-            if (iFinishDialogue != null)
-            {
-                dialogueManager.FinishDialogueEvent -= iFinishDialogue.MakeAction;
-            }
             boxCollider.enabled = false;
         }
     }
 }
-

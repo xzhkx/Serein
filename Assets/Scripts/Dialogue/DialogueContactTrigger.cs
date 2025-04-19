@@ -69,10 +69,12 @@ public class DialogueContactTrigger : MonoBehaviour
 
             if (iStartDialogue != null)
             {
+                dialogueManager.StartDialogueEvent = null;
                 dialogueManager.StartDialogueEvent += iStartDialogue.MakeAction;
             }
             if (iFinishDialogue != null)
             {
+                dialogueManager.FinishDialogueEvent = null;
                 dialogueManager.FinishDialogueEvent += iFinishDialogue.MakeAction;
             }
         }
@@ -89,7 +91,8 @@ public class DialogueContactTrigger : MonoBehaviour
             {
                 dialogueManager.StartDialogueEvent -= iStartDialogue.MakeAction;
             }
-            if (iFinishDialogue != null) {
+            if (iFinishDialogue != null)
+            {
                 dialogueManager.FinishDialogueEvent -= iFinishDialogue.MakeAction;
             }
         }

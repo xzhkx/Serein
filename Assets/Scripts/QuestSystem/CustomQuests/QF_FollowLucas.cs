@@ -37,7 +37,7 @@ public class QF_FollowLucas : MonoBehaviour, IQuestFunctionality
 
 
     public QuestState StartQuestProgress()
-    {    
+    {
         Vector3 direction = currentTarget - lucasTransform.position;
         float distance = direction.sqrMagnitude;
 

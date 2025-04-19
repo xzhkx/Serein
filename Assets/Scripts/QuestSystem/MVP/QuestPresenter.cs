@@ -38,6 +38,9 @@ public class QuestPresenter : MonoBehaviour
 
     public void CreateNewQuest(Quest quest)
     {
+        questPanel.visible = true;
+        questPanel.style.display = DisplayStyle.None;
+
         Button button = buttonsQueue.Dequeue();
         button.RegisterCallback<ClickEvent>(OnSetQuest);
 
@@ -48,12 +51,17 @@ public class QuestPresenter : MonoBehaviour
 
         if (!quest.GetQuestIconName().Equals(string.Empty))
         {
+            questIconPanel.visible = true;
+            questIconPanel.style.display = DisplayStyle.Flex;
             StartCoroutine(ReceiveQuestAnimation(quest.GetQuestIconName(), quest.GetQuestIcon()));
         }
     }
 
     public void RemoveQuest(Quest quest)
     {
+        questPanel.visible = true;
+        questPanel.style.display = DisplayStyle.None;
+
         Button button = questModel.GetButton(quest);
         button.style.display = DisplayStyle.None;
 
@@ -66,18 +74,22 @@ public class QuestPresenter : MonoBehaviour
 
     private IEnumerator ReceiveQuestAnimation(string questIconName, Texture2D questIcon)
     {
+        questIconPanel.visible = true;
         this.questIcon.style.backgroundImage = questIcon;
         this.questIconName.text = questIconName;
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         questIconPanel.AddToClassList("quest-panel-fade-in");
         yield return new WaitForSeconds(5);
         questIconPanel.RemoveFromClassList("quest-panel-fade-in");
+        yield return new WaitForSeconds(1);
+        questIconPanel.visible = false;
     }
 
     private void OnCloseQuestPanel(ClickEvent clickEvent)
     {
         questPanel.style.display = DisplayStyle.None;
+        questPanel.visible = false;
     }
 
     private void SetUpUI()
@@ -99,5 +111,8 @@ public class QuestPresenter : MonoBehaviour
             buttons[i].style.display = DisplayStyle.None;
             buttonsQueue.Enqueue(buttons[i]);
         }
+
+        questIconPanel.visible = false;
+        questPanel.visible = false;
     }
 }

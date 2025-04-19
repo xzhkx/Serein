@@ -27,7 +27,7 @@ public class GeneralPresenter : MonoBehaviour
 
     public void SetGeneralQuestName(string questName)
     {
-        generalQuestName.text = questName;  
+        generalQuestName.text = questName;
     }
 
     public void SetTargetDistance(float distance)
@@ -46,18 +46,24 @@ public class GeneralPresenter : MonoBehaviour
 
     private void OnOpenQuestPanel(ClickEvent clickEvent)
     {
+        questPanel.visible = true;
         questPanel.style.display = DisplayStyle.Flex;
     }
 
     private void OnOpenInventoryPanel(ClickEvent clickEvent)
     {
+        inventoryPanel.visible = true;
         inventoryPanel.style.display = DisplayStyle.Flex;
     }
 
-    public void EnableGeneralButtons()
+    public void EnableInventoryButton()
+    {
+        openInventoryButton.style.display = DisplayStyle.Flex;
+    }
+
+    public void EnableQuestButton()
     {
         openQuestPanelButton.style.display = DisplayStyle.Flex;
-        openInventoryButton.style.display = DisplayStyle.Flex;
     }
 
     public void DisableGeneralButtons()
@@ -70,6 +76,7 @@ public class GeneralPresenter : MonoBehaviour
     {
         questPanel = questUIDocument.rootVisualElement.Q<VisualElement>("QuestSystemPanel");
         questPanel.style.display = DisplayStyle.None;
+        questPanel.visible = false;
 
         openQuestPanelButton = generalUIDocument.rootVisualElement.Q<Button>("OpenQuestPanelButton");
         openQuestPanelButton.RegisterCallback<ClickEvent>(OnOpenQuestPanel);
@@ -78,6 +85,7 @@ public class GeneralPresenter : MonoBehaviour
 
         inventoryPanel = inventoryUIDocument.rootVisualElement.Q<VisualElement>("InventoryPanel");
         inventoryPanel.style.display = DisplayStyle.None;
+        inventoryPanel.visible = false;
 
         openInventoryButton = generalUIDocument.rootVisualElement.Q<Button>("OpenInventoryButton");
         openInventoryButton.RegisterCallback<ClickEvent>(OnOpenInventoryPanel);

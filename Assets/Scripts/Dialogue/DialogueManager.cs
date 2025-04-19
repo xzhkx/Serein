@@ -60,11 +60,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {      
-        dialoguePanel = uiDocument.rootVisualElement.Q<VisualElement>("DialoguePanel");
-        dialoguePanel.style.display = DisplayStyle.None;
-
         characterName = uiDocument.rootVisualElement.Q<TextElement>("NameLabel");
-
         dialogueText = uiDocument.rootVisualElement.Q<TextElement>("DialogueLabel");
 
         UIChoices = uiDocument.rootVisualElement.Query<Button>("ChoiceButton").ToList();
@@ -74,6 +70,9 @@ public class DialogueManager : MonoBehaviour
             UIChoices[i].style.display = DisplayStyle.None;
             choiceIndexDictionary.Add(UIChoices[i], i);
         }
+
+        dialoguePanel = uiDocument.rootVisualElement.Q<VisualElement>("DialoguePanel");
+        dialoguePanel.visible = false;
     }
 
     private void Update()
@@ -88,8 +87,16 @@ public class DialogueManager : MonoBehaviour
 
     public void EnterDialogue(TextAsset inkJson)
     {
+        StartCoroutine(StartDialogue(inkJson));
+    }
+
+    private IEnumerator StartDialogue(TextAsset inkJson)
+    {
+        FadePresenter.Instance.PlayFadeAnimation();
+        yield return new WaitForSeconds(0.5f);
+
         dialogueIsPlaying = true;
-        dialoguePanel.style.display = DisplayStyle.Flex;
+        dialoguePanel.visible = true;
         currentStory = new Story(inkJson.text);
 
         StartDialogueEvent?.Invoke();
@@ -131,7 +138,7 @@ public class DialogueManager : MonoBehaviour
         if (currentTags.Count > 0)
         {
             characterName.text = "";
-            characterName.visible = true;
+            characterName.style.display = DisplayStyle.Flex;
         }
 
         for (int i = 0; i < currentTags.Count; i++)
@@ -205,8 +212,8 @@ public class DialogueManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
 
-        dialoguePanel.style.display = DisplayStyle.None;
         dialogueText.text = string.Empty;
+        dialoguePanel.visible = false;
 
         FadePresenter.Instance.PlayFadeAnimation();
         yield return new WaitForSeconds(1f);
