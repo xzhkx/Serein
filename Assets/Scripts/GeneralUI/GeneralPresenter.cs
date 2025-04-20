@@ -38,6 +38,13 @@ public class GeneralPresenter : MonoBehaviour
         targetDistance.text = distanceText.ToString();
     }
 
+    public void SetUndetermineDistance()
+    {
+        distanceText.Clear();
+        distanceText.Append("Undetermine");
+        targetDistance.text = distanceText.ToString();
+    }
+
     public void ClearGeneralQuest()
     {
         targetDistance.text = string.Empty;

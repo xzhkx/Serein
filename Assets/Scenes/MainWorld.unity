@@ -470,7 +470,7 @@ Transform:
   m_GameObject: {fileID: 82780787}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.35, y: 0, z: 3.25}
+  m_LocalPosition: {x: 11.62, y: 0, z: 9.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1318,12 +1318,12 @@ GameObject:
   - component: {fileID: 303202481}
   - component: {fileID: 303202480}
   m_Layer: 0
-  m_Name: Old Man
+  m_Name: Old Man - Durn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &303202479
 Transform:
   m_ObjectHideFlags: 0
@@ -1333,11 +1333,11 @@ Transform:
   m_GameObject: {fileID: 303202478}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1488, y: 114.9, z: 928.8}
+  m_LocalPosition: {x: 2317.1, y: 114.9, z: 844.1}
   m_LocalScale: {x: 10, y: 20, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1958287419}
+  m_Father: {fileID: 1546828871}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &303202480
 BoxCollider:
@@ -1452,9 +1452,11 @@ GameObject:
   - component: {fileID: 318753877}
   - component: {fileID: 318753880}
   - component: {fileID: 318753881}
-  - component: {fileID: 318753882}
   - component: {fileID: 318753883}
+  - component: {fileID: 318753882}
   - component: {fileID: 318753884}
+  - component: {fileID: 318753885}
+  - component: {fileID: 318753886}
   m_Layer: 0
   m_Name: Talk To Merchant
   m_TagString: Untagged
@@ -1512,6 +1514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalUIDocument: {fileID: 2054695529}
   inkJson: {fileID: 4900000, guid: 2aa567ad9c7952d499f2b904f40b0f03, type: 3}
+  playOnce: 1
 --- !u!114 &318753882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1553,6 +1556,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inGameQuest: {fileID: 1607477797}
+--- !u!114 &318753885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318753876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5ce24dbb7a834540b9d4fb0a01a510b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inGameQuest: {fileID: 1239868107}
+--- !u!114 &318753886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318753876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a69dd6b4c7b5d4a954f43b5d15a2ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToEnable:
+  - {fileID: 303202478}
+  - {fileID: 1002735718}
+  - {fileID: 637880732}
+  targetTransform: []
 --- !u!1 &329715725
 GameObject:
   m_ObjectHideFlags: 0
@@ -2567,12 +2600,12 @@ GameObject:
   - component: {fileID: 637880735}
   - component: {fileID: 637880734}
   m_Layer: 0
-  m_Name: Woman
+  m_Name: Woman - Maerel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &637880733
 Transform:
   m_ObjectHideFlags: 0
@@ -2582,11 +2615,11 @@ Transform:
   m_GameObject: {fileID: 637880732}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 2029, y: 114.9, z: 992.5}
+  m_LocalPosition: {x: 2177.8, y: 114.9, z: 1066.8}
   m_LocalScale: {x: 10, y: 20, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1958287419}
+  m_Father: {fileID: 1546828871}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &637880734
 BoxCollider:
@@ -3690,6 +3723,7 @@ Transform:
   - {fileID: 614520286}
   - {fileID: 1238457860}
   - {fileID: 1607477796}
+  - {fileID: 1239868105}
   m_Father: {fileID: 2136153172}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &856584086
@@ -4615,12 +4649,12 @@ GameObject:
   - component: {fileID: 1002735721}
   - component: {fileID: 1002735720}
   m_Layer: 0
-  m_Name: Child
+  m_Name: Child - Nilo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1002735719
 Transform:
   m_ObjectHideFlags: 0
@@ -4630,11 +4664,11 @@ Transform:
   m_GameObject: {fileID: 1002735718}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1651.3, y: 114.9, z: 1112.3}
+  m_LocalPosition: {x: 1866.9, y: 114.9, z: 858.3}
   m_LocalScale: {x: 10, y: 20, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1958287419}
+  m_Father: {fileID: 1546828871}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &1002735720
 BoxCollider:
@@ -5480,6 +5514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalUIDocument: {fileID: 2054695529}
   inkJson: {fileID: 4900000, guid: eb6d90c9a30e9f94383aafed780591e1, type: 3}
+  playOnce: 1
 --- !u!65 &1147849116
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5809,6 +5844,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questScriptableObject: {fileID: 11400000, guid: a540713ed58866d47bac1ae6f8f4cdee, type: 2}
   targetTransform: {fileID: 4822143815471250011}
+  questRewardScriptableObject: {fileID: 11400000, guid: 2321c09e61cff1f4d924ff01cb6082c1, type: 2}
+--- !u!1 &1239868104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1239868105}
+  - component: {fileID: 1239868107}
+  - component: {fileID: 1239868106}
+  m_Layer: 0
+  m_Name: 2.3) WovenAstray
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1239868105
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239868104}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 831956386}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1239868106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239868104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2dc54e9f9c011440964327035fbe5f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToEnable: []
+  objectToDisable: []
+--- !u!114 &1239868107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239868104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f30bf77930c734187d618fb9332a90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questScriptableObject: {fileID: 11400000, guid: bffa877b5d8d0f449a1a6332ae296e7d, type: 2}
+  targetTransform: {fileID: 543450653570347612}
   questRewardScriptableObject: {fileID: 11400000, guid: 2321c09e61cff1f4d924ff01cb6082c1, type: 2}
 --- !u!1 &1303262129
 GameObject:
@@ -6882,6 +6979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalUIDocument: {fileID: 2054695529}
   inkJson: {fileID: 4900000, guid: ae0ecf71bb4f59647b1eefa5b7e35438, type: 3}
+  playOnce: 0
 --- !u!65 &1532621544
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7053,6 +7151,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1122550405}
+  - {fileID: 303202479}
+  - {fileID: 1002735719}
+  - {fileID: 637880733}
   m_Father: {fileID: 1121758408}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1561077890
@@ -18700,10 +18801,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 303202479}
-  - {fileID: 1002735719}
-  - {fileID: 637880733}
+  m_Children: []
   m_Father: {fileID: 94139793}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1958631171
@@ -18754,6 +18852,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generalUIDocument: {fileID: 2054695529}
   inkJson: {fileID: 4900000, guid: 6abf00bf67bbaa84ea8bba392d1e9e0f, type: 3}
+  playOnce: 1
 --- !u!65 &1958631175
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18787,7 +18886,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6eb079e736d42342becff1d7c0b4021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToDisable: []
+  objectToDisable:
+  - {fileID: 5305349130077528289}
 --- !u!1 &1961300144
 GameObject:
   m_ObjectHideFlags: 0
@@ -20472,7 +20572,7 @@ Transform:
   m_GameObject: {fileID: 919132147740817857}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.09059028, z: -0, w: 0.99588823}
-  m_LocalPosition: {x: 935, y: 10, z: 555.9}
+  m_LocalPosition: {x: 0, y: 10, z: 9.8}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:

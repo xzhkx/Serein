@@ -6,5 +6,5 @@ public class ItemScriptableObject : ScriptableObject
     public int itemID;
     public string itemName;
     public string itemDescription;
-    public string spritePath;
+    public Texture2D itemIcon;
 }

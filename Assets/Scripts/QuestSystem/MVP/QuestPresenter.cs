@@ -11,10 +11,9 @@ public class QuestPresenter : MonoBehaviour
     private VisualElement questPanel, questIcon, questIconPanel;
     private TextElement questName, questDescription, questIconName;
 
-    private Button closeQuestPanelButton;
+    private Button closeQuestPanelButton, trackButton;
 
     private Queue<Button> buttonsQueue = new Queue<Button>(10);
-
     private QuestModel questModel;
 
     private Quest selectedQuest;
@@ -37,7 +36,17 @@ public class QuestPresenter : MonoBehaviour
         questName.text = quest.GetQuestName();
         questDescription.text = quest.GetQuestDescription();
 
-        selectedQuest = quest; //-> Track button!
+        selectedQuest = quest;
+    }
+
+    public Quest GetSelectedQuest()
+    {
+        return selectedQuest;
+    }
+
+    public Button GetTrackButton()
+    {
+        return trackButton;
     }
 
     public void CreateNewQuest(Quest quest)
@@ -104,6 +113,7 @@ public class QuestPresenter : MonoBehaviour
 
         closeQuestPanelButton = questUIDocument.rootVisualElement.Q<Button>("CloseButton");
         closeQuestPanelButton.RegisterCallback<ClickEvent>(OnCloseQuestPanel);
+        trackButton = questUIDocument.rootVisualElement.Q<Button>("TrackButton");
 
         questPanel = questUIDocument.rootVisualElement.Q<VisualElement>("QuestSystemPanel");
         questName = questUIDocument.rootVisualElement.Q<TextElement>("QuestName");

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class QuestManager : MonoBehaviour
 {
@@ -24,6 +25,11 @@ public class QuestManager : MonoBehaviour
         questPresenter = GetComponent<QuestPresenter>();
     }
 
+    private void Start()
+    {
+        questPresenter.GetTrackButton().RegisterCallback<ClickEvent>(TrackQuest);
+    }
+
     private void Update()
     {
         if (currentQuest == null) return;
@@ -34,6 +40,7 @@ public class QuestManager : MonoBehaviour
             case QuestState.IN_PROGRESS:
                 if (currentQuest.GetTargetPostion().Equals(Vector3.zero))
                 {
+                    generalPresenter.SetUndetermineDistance();
                     break;
                 }
                 float distance = (playerTransform.position - currentQuest.GetTargetPostion()).magnitude;
@@ -57,8 +64,9 @@ public class QuestManager : MonoBehaviour
         else return false;
     }
 
-    public void TrackQuest(Quest quest)
+    public void TrackQuest(ClickEvent clickEvent)
     {
+        Quest quest = questPresenter.GetSelectedQuest();
         currentQuest = quest;
         quest.SetQuestState(QuestState.IN_PROGRESS);
         generalPresenter.SetGeneralQuestName(quest.GetQuestName());

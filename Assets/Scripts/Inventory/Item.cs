@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class Item
 {
     private ItemScriptableObject itemScriptableObject;
@@ -12,6 +14,11 @@ public class Item
     public int GetItemQuantity()
     {
         return itemQuantity;  
+    }
+
+    public Texture2D GetItemIcon()
+    {
+        return itemScriptableObject.itemIcon;
     }
 
     public void IncreaseQuantity(int quantity)

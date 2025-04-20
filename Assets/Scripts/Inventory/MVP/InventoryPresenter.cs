@@ -27,11 +27,14 @@ public class InventoryPresenter : MonoBehaviour
 
     public void AddItem(Item item)
     {
+        inventoryPanel.visible = true;
         Button button = buttonsQueue.Dequeue();
         button.style.display = DisplayStyle.Flex;
 
-        //-> Load Image BG
+        button.Q<VisualElement>("ItemIcon").style.backgroundImage = item.GetItemIcon();
+
         inventoryModel.AddItem(button, item);
+        inventoryPanel.visible = false;
     }
 
     private void OnCloseInventoryPanel(ClickEvent clickEvent)

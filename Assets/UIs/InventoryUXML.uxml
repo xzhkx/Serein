@@ -1,26 +1,12 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UIs/uss/Inventory.uss?fileID=7433441132597879392&amp;guid=65d6dd0b9c9c7a64d81f7ef06a2d2480&amp;type=3#Inventory" />
-    <ui:VisualElement name="InventoryPanel" style="flex-grow: 1; width: 1920px; height: 1080px; flex-direction: row; background-color: rgba(0, 0, 0, 0.58);">
-        <ui:ScrollView name="ItemSelection" style="width: 250px; flex-direction: column; height: 900px; align-self: center; justify-content: center;">
-            <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" style="width: 150px; height: 150px; align-self: center;" />
-        </ui:ScrollView>
-        <ui:VisualElement name="ItemScrollPanel" style="flex-grow: 1; justify-content: center; align-items: center; flex-shrink: 1;">
+    <ui:VisualElement name="InventoryPanel" style="flex-grow: 1; width: 1920px; height: 1080px; flex-direction: row; background-color: rgba(0, 0, 0, 0.59);">
+        <ui:VisualElement name="CollectiblePanel" style="flex-grow: 1; justify-content: center; align-items: center; flex-shrink: 1;">
             <ui:ScrollView mode="Horizontal" horizontal-scroller-visibility="Hidden" name="ItemPanelScrollView" class="inventory-panel">
-                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ItemButton" style="width: 200px; height: 200px; margin-right: 25px; margin-left: 25px; margin-top: 25px; margin-bottom: 25px;" />
-                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ItemButton" style="width: 200px; height: 200px; margin-right: 25px; margin-left: 25px; margin-top: 25px; margin-bottom: 25px;" />
-                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ItemButton" style="width: 200px; height: 200px; margin-right: 25px; margin-left: 25px; margin-top: 25px; margin-bottom: 25px;" />
-                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ItemButton" style="width: 200px; height: 200px; margin-right: 25px; margin-left: 25px; margin-top: 25px; margin-bottom: 25px;" />
-                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ItemButton" style="width: 200px; height: 200px; margin-right: 25px; margin-left: 25px; margin-top: 25px; margin-bottom: 25px;" />
-                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ItemButton" style="width: 200px; height: 200px; margin-right: 25px; margin-left: 25px; margin-top: 25px; margin-bottom: 25px;" />
-                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ItemButton" style="width: 200px; height: 200px; margin-right: 25px; margin-left: 25px; margin-top: 25px; margin-bottom: 25px;" />
-                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ItemButton" style="width: 200px; height: 200px; margin-right: 25px; margin-left: 25px; margin-top: 25px; margin-bottom: 25px;" />
-                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ItemButton" style="width: 200px; height: 200px; margin-right: 25px; margin-left: 25px; margin-top: 25px; margin-bottom: 25px;" />
-                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ItemButton" style="width: 200px; height: 200px; margin-right: 25px; margin-left: 25px; margin-top: 25px; margin-bottom: 25px;" />
-                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ItemButton" style="width: 200px; height: 200px; margin-right: 25px; margin-left: 25px; margin-top: 25px; margin-bottom: 25px;" />
-                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ItemButton" style="width: 200px; height: 200px; margin-right: 25px; margin-left: 25px; margin-top: 25px; margin-bottom: 25px;" />
-                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ItemButton" style="width: 200px; height: 200px; margin-right: 25px; margin-left: 25px; margin-top: 25px; margin-bottom: 25px;" />
-                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ItemButton" style="width: 200px; height: 200px; margin-right: 25px; margin-left: 25px; margin-top: 25px; margin-bottom: 25px;" />
-                <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ItemButton" style="width: 200px; height: 200px; margin-right: 25px; margin-left: 25px; margin-top: 25px; margin-bottom: 25px;" />
+                <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="ItemButton" style="width: 200px; height: 200px; margin-right: 30px; margin-bottom: 30px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; padding-left: 5px;">
+                    <ui:VisualElement name="ItemIcon" style="width: 150px; height: 150px; align-self: center;" />
+                    <ui:Label tabindex="-1" text="1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ItemQuantity" style="font-size: 36px; -unity-text-align: middle-right; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+                </ui:Button>
             </ui:ScrollView>
         </ui:VisualElement>
         <ui:Button text="X" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CloseButton" style="font-size: 36px; width: 50px; height: 50px;" />
