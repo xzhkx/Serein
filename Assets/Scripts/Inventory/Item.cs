@@ -21,6 +21,16 @@ public class Item
         return itemScriptableObject.itemIcon;
     }
 
+    public string GetItemDescription()
+    {
+        return itemScriptableObject.itemDescription;
+    }
+
+    public string GetItemName()
+    {
+        return itemScriptableObject.itemName;
+    }
+
     public void IncreaseQuantity(int quantity)
     {
         itemQuantity += quantity;

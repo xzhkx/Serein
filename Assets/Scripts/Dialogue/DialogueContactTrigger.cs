@@ -18,6 +18,7 @@ public class DialogueContactTrigger : MonoBehaviour
 
     private IStartDialogue[] iStartDialogue;
     private IFinishDialogue[] iFinishDialogue;
+    private IFirstChoice[] iFirstChoice;
 
     private VisualElement interactPanel;
     private Button interactButton;
@@ -27,6 +28,7 @@ public class DialogueContactTrigger : MonoBehaviour
     {
         iStartDialogue = GetComponents<IStartDialogue>();
         iFinishDialogue = GetComponents<IFinishDialogue>();
+        iFirstChoice = GetComponents<IFirstChoice>();
 
         interactPanel = generalUIDocument.rootVisualElement.Q<VisualElement>("InteractItemPanel");
         interactPanel.style.display = DisplayStyle.None;
@@ -72,6 +74,7 @@ public class DialogueContactTrigger : MonoBehaviour
 
             dialogueManager.StartDialogueEvent = null;
             dialogueManager.FinishDialogueEvent = null;
+            dialogueManager.FirstChoiceEvent = null;
 
             for (int i = 0; i < iStartDialogue.Length; i++)
             {
@@ -88,6 +91,14 @@ public class DialogueContactTrigger : MonoBehaviour
                     dialogueManager.FinishDialogueEvent += iFinishDialogue[i].MakeAction;
                 }
             }
+
+            for (int i = 0; i < iFirstChoice.Length; i++)
+            {
+                if (iFirstChoice[i] != null)
+                {
+                    dialogueManager.FirstChoiceEvent += iFirstChoice[i].MakeAction;
+                }
+            }
         }
     }
 
@@ -97,7 +108,7 @@ public class DialogueContactTrigger : MonoBehaviour
         {
             playerInRange = false;
             interactPanel.style.display = DisplayStyle.None;
-            if (playOnce)
+            if (playOnce) //chuyen sang FD_PlayOnce
             {
                 GetComponent<BoxCollider>().enabled = false;
             }

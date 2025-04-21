@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
 
+    public Action FirstChoiceEvent;
     public Action StartDialogueEvent, FinishDialogueEvent;
     public Action FreezePlayerAction, EnablePlayerAction;
 
@@ -198,6 +199,10 @@ public class DialogueManager : MonoBehaviour
     {
         Button button = clickEvent.target as Button;
         int index = choiceIndexDictionary[button];
+        if(index == 0)
+        {
+            isFirstChoice = true;
+        } else isFirstChoice = false;
 
         isSelectChoice = false;
         currentStory.ChooseChoiceIndex(index);
@@ -224,10 +229,10 @@ public class DialogueManager : MonoBehaviour
 
         dialogueIsPlaying = false;
 
-        if (isFirstChoice) //neu chon firstChoice thi
+        if (isFirstChoice)
         {
             isFirstChoice = false;
-            //DialogueChoiceEvent.OnChooseChoice?.Invoke();
+            FirstChoiceEvent?.Invoke();
             yield break;
         }
     }

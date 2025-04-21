@@ -8,6 +8,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private IFinishDialogue[] iFinishDialogue;
     private IStartDialogue[] iStartDialogue;
+    private IFirstChoice[] iFirstChoice;
 
     private DialogueManager dialogueManager;
     private BoxCollider boxCollider;
@@ -17,6 +18,7 @@ public class DialogueTrigger : MonoBehaviour
         boxCollider = GetComponent<BoxCollider>();
         iStartDialogue = GetComponents<IStartDialogue>();
         iFinishDialogue = GetComponents<IFinishDialogue>();
+        iFirstChoice = GetComponents<IFirstChoice>();
     }
 
     private void Start()
@@ -24,13 +26,13 @@ public class DialogueTrigger : MonoBehaviour
         dialogueManager = DialogueManager.Instance;
     }
 
-
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.CompareTag("Player"))
         {
             dialogueManager.StartDialogueEvent = null;
             dialogueManager.FinishDialogueEvent = null;
+            dialogueManager.FirstChoiceEvent = null;
 
             for (int i = 0; i < iStartDialogue.Length; i++)
             {
@@ -45,6 +47,14 @@ public class DialogueTrigger : MonoBehaviour
                 if (iFinishDialogue[i] != null)
                 {
                     dialogueManager.FinishDialogueEvent += iFinishDialogue[i].MakeAction;
+                }
+            }
+
+            for (int i = 0; i < iFirstChoice.Length; i++)
+            {
+                if (iFirstChoice[i] != null)
+                {
+                    dialogueManager.FirstChoiceEvent += iFirstChoice[i].MakeAction;
                 }
             }
 

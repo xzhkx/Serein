@@ -9,7 +9,7 @@ public class InventoryManager : MonoBehaviour
     private List<ItemScriptableObject> itemReferences = new List<ItemScriptableObject>();
 
     private InventoryPresenter inventoryPresenter;
-    private Dictionary<int, Item> inventoryItems = new Dictionary<int, Item>(10);
+    private Dictionary<int, Item> inventoryItems = new Dictionary<int, Item>(100);
 
     private void Awake()
     {
@@ -31,7 +31,12 @@ public class InventoryManager : MonoBehaviour
 
     public void RemoveItem(int itemID, int quantity) 
     {
-        inventoryItems[itemID].DecreaseQuantity(quantity);
+        if(inventoryItems.ContainsKey(itemID)
+        && inventoryItems[itemID].GetItemQuantity() >= quantity){
+            inventoryItems[itemID].DecreaseQuantity(quantity);
+
+            inventoryPresenter.RemoveItem(inventoryItems[itemID], inventoryItems[itemID].GetItemQuantity());
+        } 
     }
 
     public int GetItemQuantity(int itemID)
