@@ -487,6 +487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deliverUIDocument: {fileID: 628662432}
+  QFdeliverItem: {fileID: 1607477798}
 --- !u!1 &82780787
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,7 +1231,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -7711,11 +7712,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1607477795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2dc54e9f9c011440964327035fbe5f7, type: 3}
+  m_Script: {fileID: 11500000, guid: da307e5e4ef6d9d428b8ab2af8fa6cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToEnable: []
-  objectToDisable: []
+  itemTrack: 010000000200000003000000
 --- !u!1 &1617157054
 GameObject:
   m_ObjectHideFlags: 0
@@ -12928,6 +12928,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 313814f820959bb46bfb39ed8c22a7d5, type: 2}
   - {fileID: 11400000, guid: cfa2ea7167a717548a60af13abd4af99, type: 2}
   - {fileID: 11400000, guid: 34a5731a84c7d2a4dbef65e057c32051, type: 2}
+  - {fileID: 11400000, guid: 2c21342e7b0bbd04e975993388b501b3, type: 2}
 --- !u!114 &1714821829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21005,7 +21006,7 @@ Transform:
   m_GameObject: {fileID: 919132147740817857}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.09059028, z: -0, w: 0.99588823}
-  m_LocalPosition: {x: 976, y: 10, z: 588}
+  m_LocalPosition: {x: 1521, y: 10, z: 895}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:

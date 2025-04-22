@@ -3,23 +3,20 @@ using UnityEngine;
 
 public class QF_DeliverItemTrack : MonoBehaviour, IQuestFunctionality
 {
-    private List<bool> itemTrack = new List<bool>(3);
-
-    private void Start()
-    {
-        for (int i = 0; i < itemTrack.Count; i++) {
-            itemTrack[i] = false;
-        }
-    }
+    [SerializeField]
+    private List<int> itemTrack = new List<int>(5);
 
     public QuestState StartQuestProgress()
     {
-        for (int i = 0; i < itemTrack.Count; i++)
-        {
-            if (!itemTrack[i]) return QuestState.IN_PROGRESS;
-        }
-        return QuestState.COMPLETE;
+        if (itemTrack.Count == 0) return QuestState.COMPLETE;
+        return QuestState.IN_PROGRESS;
     } 
+
+    public void DeliverSuccess(int itemID)
+    {
+        Debug.Log(itemTrack.Count);
+        itemTrack.Remove(itemID);
+    }
 
     public void CompleteQuest()
     {

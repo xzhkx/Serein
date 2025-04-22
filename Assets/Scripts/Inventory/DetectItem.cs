@@ -17,18 +17,18 @@ public class DetectItem : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-        if (!collision.gameObject.CompareTag("Player")) return;
+        if (!collider.gameObject.CompareTag("Player")) return;
 
         collectItemPresenter.CollectItemAction += OnCollectItem;
         collectItemPresenter.DisplayCollectButton();
         collectItemPresenter.SetCurrentItemID(itemID);
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collider)
     {
-        if (!collision.gameObject.CompareTag("Player")) return;
+        if (!collider.gameObject.CompareTag("Player")) return;
 
         collectItemPresenter.CollectItemAction -= OnCollectItem;
         collectItemPresenter.DisableCollectButton();

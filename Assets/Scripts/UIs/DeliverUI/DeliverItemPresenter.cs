@@ -7,10 +7,13 @@ public class DeliverItemPresenter : MonoBehaviour
     [SerializeField]
     private UIDocument deliverUIDocument;
 
+    [SerializeField]
+    private QF_DeliverItemTrack QFdeliverItem;
+
     private VisualElement deliverPanel;
     private Button deliverButton;
 
-    public static Action<int> SetCurrentItemEvent;
+    public Action<int> SetCurrentItemEvent;
     private int currentItemID;
 
     private void Awake()
@@ -34,6 +37,7 @@ public class DeliverItemPresenter : MonoBehaviour
         if(InventoryManager.Instance.RemoveItem(currentItemID, 1))
         {
             deliverPanel.visible = false;
+            QFdeliverItem.DeliverSuccess(currentItemID);
         } else
         {
             Debug.Log("Cant find item to deliver");
