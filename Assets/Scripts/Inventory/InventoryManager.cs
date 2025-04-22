@@ -26,17 +26,18 @@ public class InventoryManager : MonoBehaviour
     public void AddItem(int itemID, int quantity)
     {
         inventoryItems[itemID].IncreaseQuantity(quantity);
-        inventoryPresenter.AddItem(inventoryItems[itemID]);
+        inventoryPresenter.AddItem(inventoryItems[itemID], inventoryItems[itemID].GetItemQuantity());
     }
 
-    public void RemoveItem(int itemID, int quantity) 
+    public bool RemoveItem(int itemID, int quantity) 
     {
         if(inventoryItems.ContainsKey(itemID)
         && inventoryItems[itemID].GetItemQuantity() >= quantity){
             inventoryItems[itemID].DecreaseQuantity(quantity);
 
             inventoryPresenter.RemoveItem(inventoryItems[itemID], inventoryItems[itemID].GetItemQuantity());
-        } 
+            return true;
+        } return false;
     }
 
     public int GetItemQuantity(int itemID)

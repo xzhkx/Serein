@@ -24,4 +24,10 @@ public class InventoryModel : MonoBehaviour
     {
         return itemButtonDictionary[item];
     }
+
+    public bool ExistItem(Item item)
+    {
+        if (itemButtonDictionary.ContainsKey(item)) return true;
+        else return false;
+    }
 }

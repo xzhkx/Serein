@@ -5,8 +5,16 @@ public class FC_DeliverItem : MonoBehaviour, IFirstChoice
     [SerializeField]
     private int itemID, quantity;
 
+    [SerializeField]
+    private DeliverItemPresenter deliverPresenter;
+
     public void MakeAction()
     {
-        InventoryManager.Instance.RemoveItem(itemID, quantity);
+        deliverPresenter.EnableDeliverPanel();
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        deliverPresenter.SetCurrentItem(itemID);
     }
 }

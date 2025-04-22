@@ -27,16 +27,26 @@ public class InventoryPresenter : MonoBehaviour
         inventoryModel = GetComponent<InventoryModel>();
     }
 
-    public void AddItem(Item item)
+    public void AddItem(Item item, int quantity)
     {
         inventoryPanel.visible = true;
-        Button button = buttonsQueue.Dequeue();
-        button.RegisterCallback<ClickEvent>(SelectItem);
+        if (inventoryModel.ExistItem(item))
+        {
+            Button button = inventoryModel.GetButton(item);
+            button.Q<TextElement>("ItemQuantity").text = quantity.ToString();
+        }
 
-        button.style.display = DisplayStyle.Flex;
-        button.Q<VisualElement>("ItemIcon").style.backgroundImage = item.GetItemIcon();
+        else
+        {
+            Button button = buttonsQueue.Dequeue();
+            button.RegisterCallback<ClickEvent>(SelectItem);
 
-        inventoryModel.AddItem(button, item);
+            button.style.display = DisplayStyle.Flex;
+            button.style.backgroundImage = item.GetItemIcon();
+
+            inventoryModel.AddItem(button, item);
+        }
+     
         inventoryPanel.visible = false;
     }
 
