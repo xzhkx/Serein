@@ -1,7 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:VisualElement name="DeliverPanel" style="height: 1080px; width: 640px; background-color: rgba(255, 255, 255, 0.6); align-items: center;">
-        <ui:VisualElement style="height: 874px; width: 640px; align-items: center;">
-            <ui:VisualElement name="ItemIcon" style="width: 200px; height: 200px; background-color: rgba(56, 174, 188, 0.52);" />
+        <ui:Button text="X" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ClosePanelButton" style="align-self: flex-end; width: 50px; height: 50px; font-size: 36px;" />
+        <ui:VisualElement style="height: 841px; width: 640px; align-items: center; justify-content: flex-end; padding-bottom: 50px;">
+            <ui:VisualElement name="ItemIcon" style="width: 200px; height: 200px; background-image: url(&quot;project://database/Assets/Art/UI/SnowFish.png?fileID=2800000&amp;guid=7f4fbd1ddff6c954dbc0b91e12e3c74b&amp;type=3#SnowFish&quot;); background-color: rgba(67, 67, 67, 0.4);" />
         </ui:VisualElement>
         <ui:Button text="Deliver" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DeliverButton" style="width: 350px; height: 70px; font-size: 36px;" />
     </ui:VisualElement>

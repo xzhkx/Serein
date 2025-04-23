@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UIs/uss/QuestScroll.uss?fileID=7433441132597879392&amp;guid=58dc076171dab0d47b9f95fdc12d76ea&amp;type=3#QuestScroll" />
     <ui:VisualElement name="QuestSystemPanel" style="flex-grow: 1; background-color: rgba(67, 67, 67, 0.39); flex-direction: row; flex-wrap: nowrap; justify-content: center; align-self: center; width: 1920px; height: 1080px; align-items: center;">
-        <ui:ScrollView name="QuestScroll" elasticity="0.5" horizontal-page-size="-1" vertical-page-size="-1" touch-scroll-type="Elastic" mouse-wheel-scroll-size="20" scroll-deceleration-rate="0.5" focusable="false" horizontal-scroller-visibility="Auto" vertical-scroller-visibility="Auto" style="height: 900px; width: 650px;">
+        <ui:ScrollView name="QuestScroll" elasticity="0.5" horizontal-page-size="-1" vertical-page-size="-1" touch-scroll-type="Elastic" mouse-wheel-scroll-size="20" scroll-deceleration-rate="0.5" focusable="false" horizontal-scroller-visibility="Auto" vertical-scroller-visibility="Auto" style="height: 900px; width: 850px;">
             <ui:Button text="Label Quest" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuestInfoButton" enable-rich-text="true" style="width: 600px; height: 130px; margin-top: 10px; margin-right: 10px; margin-bottom: 20px; margin-left: 10px; font-size: 40px; -unity-text-align: middle-left; padding-right: 30px; padding-left: 30px; background-color: rgb(217, 140, 140);">
                 <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Description" style="display: none;" />
             </ui:Button>
@@ -21,11 +21,11 @@
                 <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Description" style="display: none;" />
             </ui:Button>
         </ui:ScrollView>
-        <ui:VisualElement name="QuestInfo" style="flex-grow: 0; flex-direction: column; background-color: rgba(207, 207, 207, 0.73); width: 1000px; height: 900px; flex-shrink: 1; flex-wrap: nowrap;">
+        <ui:VisualElement name="QuestInfo" style="flex-grow: 1; flex-direction: column; background-color: rgba(207, 207, 207, 0.73); width: 1000px; height: 900px; flex-shrink: 1; flex-wrap: nowrap;">
             <ui:Label tabindex="-1" text="Quest Name" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuestName" style="font-size: 40px; -unity-text-align: middle-left; height: 100px; translate: 30px 10px; width: 600px; -unity-font-style: bold;" />
             <ui:Label tabindex="-1" text="Description" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuestDescription" style="height: 500px; font-size: 36px; -unity-text-align: upper-left; width: 820px; margin-left: 30px; white-space: normal;" />
             <ui:Button text="Track&#10;" parse-escape-sequences="true" display-tooltip-when-elided="true" name="TrackButton" style="width: 184px; height: 70px; font-size: 36px; -unity-text-align: upper-center; align-self: flex-end; margin-right: 30px;" />
         </ui:VisualElement>
-        <ui:Button text="X" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CloseButton" style="width: 50px; height: 50px; align-self: flex-start; translate: 50px 50px; font-size: 36px;" />
+        <ui:Button text="X" parse-escape-sequences="true" display-tooltip-when-elided="true" name="CloseButton" style="width: 50px; height: 50px; align-self: flex-start; font-size: 36px;" />
     </ui:VisualElement>
 </ui:UXML>

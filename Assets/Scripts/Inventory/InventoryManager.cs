@@ -26,6 +26,7 @@ public class InventoryManager : MonoBehaviour
     public void AddItem(int itemID, int quantity)
     {
         inventoryItems[itemID].IncreaseQuantity(quantity);
+        Debug.Log(inventoryItems[itemID].GetItemQuantity());
         inventoryPresenter.AddItem(inventoryItems[itemID], inventoryItems[itemID].GetItemQuantity());
     }
 

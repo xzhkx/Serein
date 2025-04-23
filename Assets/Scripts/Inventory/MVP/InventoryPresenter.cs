@@ -44,7 +44,6 @@ public class InventoryPresenter : MonoBehaviour
             button.style.display = DisplayStyle.Flex;
             button.style.backgroundImage = item.GetItemIcon();
 
-            itemBigIcon.style.backgroundImage = item.GetItemIcon();
             inventoryModel.AddItem(button, item);
         }
      
@@ -73,11 +72,15 @@ public class InventoryPresenter : MonoBehaviour
 
         itemName.text = item.GetItemName();
         itemDescription.text = item.GetItemDescription();
+        itemBigIcon.style.backgroundImage = item.GetItemBigIcon();
     }
 
     private void CloseInventoryPanel(ClickEvent clickEvent)
     {
         inventoryPanel.style.display = DisplayStyle.None;
+        itemBigIcon.style.backgroundImage = null;
+        itemName.text = string.Empty;
+        itemDescription.text = string.Empty;    
         inventoryPanel.visible = false;
     }
 
@@ -92,6 +95,10 @@ public class InventoryPresenter : MonoBehaviour
         itemBigIcon = inventoryUIDocument.rootVisualElement.Q<VisualElement>("ItemBigIcon");
         itemDescription = inventoryUIDocument.rootVisualElement.Q<TextElement>("ItemDescription");
         itemName = inventoryUIDocument.rootVisualElement.Q<TextElement>("ItemName");
+
+        itemBigIcon.style.backgroundImage = null;
+        itemName.text = string.Empty;
+        itemDescription.text = string.Empty;
 
         List<Button> buttons = inventoryUIDocument.rootVisualElement.Query<Button>("ItemButton").ToList();
         for (int i = 0; i < buttons.Count; i++)

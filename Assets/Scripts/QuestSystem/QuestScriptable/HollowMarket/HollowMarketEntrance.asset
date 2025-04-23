@@ -15,4 +15,4 @@ MonoBehaviour:
   questName: To The Hollow Market
   questDescription: Hollow Market - Once Wisker Away
   questIconName: Traces In Transit
-  questIcon: {fileID: 2800000, guid: 7b45dba954267ba4eb6c3093b31f7eb9, type: 3}
+  questIcon: {fileID: 2800000, guid: ffef928534f64774b82acba2a07d7c12, type: 3}

@@ -21,6 +21,11 @@ public class Item
         return itemScriptableObject.itemIcon;
     }
 
+    public Texture2D GetItemBigIcon()
+    {
+        return itemScriptableObject.itemBigIcon;
+    }
+
     public string GetItemDescription()
     {
         return itemScriptableObject.itemDescription;

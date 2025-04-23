@@ -10,19 +10,24 @@ public class DeliverItemPresenter : MonoBehaviour
     [SerializeField]
     private QF_DeliverItemTrack QFdeliverItem;
 
-    private VisualElement deliverPanel;
-    private Button deliverButton;
+    private VisualElement deliverPanel, itemIcon;
+    private Button deliverButton, closePanelButton;
 
-    public Action<int> SetCurrentItemEvent;
+    public Action<int, Texture2D> SetCurrentItemEvent;
     private int currentItemID;
 
     private void Awake()
     {
-        deliverPanel = deliverUIDocument.rootVisualElement.Q<VisualElement>("DeliverPanel");
         deliverButton = deliverUIDocument.rootVisualElement.Q<Button>("DeliverButton");
-
-        deliverPanel.visible = false;
         deliverButton.RegisterCallback<ClickEvent>(DeliverItem);
+
+        closePanelButton = deliverUIDocument.rootVisualElement.Q<Button>("ClosePanelButton");
+        closePanelButton.RegisterCallback<ClickEvent>(CloseDeliverPanel);
+
+        itemIcon = deliverUIDocument.rootVisualElement.Q<VisualElement>("ItemIcon");
+
+        deliverPanel = deliverUIDocument.rootVisualElement.Q<VisualElement>("DeliverPanel");
+        deliverPanel.visible = false;
 
         SetCurrentItemEvent += SetCurrentItem;
     }
@@ -44,12 +49,18 @@ public class DeliverItemPresenter : MonoBehaviour
         }
     }
 
+    private void CloseDeliverPanel(ClickEvent clickEvent)
+    {
+        deliverPanel.visible = false;
+    }
+
     public void EnableDeliverPanel()
     {
         deliverPanel.visible = true;
     }
 
-    public void SetCurrentItem(int itemID) { 
-        currentItemID = itemID; 
+    public void SetCurrentItem(int itemID, Texture2D itemIcon) { 
+        currentItemID = itemID;
+        this.itemIcon.style.backgroundImage = itemIcon;
     }
 }

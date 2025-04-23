@@ -15,4 +15,5 @@ MonoBehaviour:
   itemID: 1
   itemName: Snow Fish Plushie
   itemDescription: Snow fish, snow fish, snow fish.
-  itemIcon: {fileID: 2800000, guid: e220998774d32de40a341144994ad84c, type: 3}
+  itemIcon: {fileID: 2800000, guid: 7f4fbd1ddff6c954dbc0b91e12e3c74b, type: 3}
+  itemBigIcon: {fileID: 2800000, guid: e220998774d32de40a341144994ad84c, type: 3}

@@ -6,6 +6,9 @@ public class FC_DeliverItem : MonoBehaviour, IFirstChoice
     private int itemID, quantity;
 
     [SerializeField]
+    private Texture2D itemIcon;
+
+    [SerializeField]
     private DeliverItemPresenter deliverPresenter;
 
     public void MakeAction()
@@ -15,6 +18,6 @@ public class FC_DeliverItem : MonoBehaviour, IFirstChoice
 
     private void OnTriggerEnter(Collider collider)
     {
-        deliverPresenter.SetCurrentItem(itemID);
+        deliverPresenter.SetCurrentItem(itemID, itemIcon);
     }
 }
