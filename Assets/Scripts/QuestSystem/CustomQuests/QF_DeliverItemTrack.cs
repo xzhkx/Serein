@@ -14,7 +14,6 @@ public class QF_DeliverItemTrack : MonoBehaviour, IQuestFunctionality
 
     public void DeliverSuccess(int itemID)
     {
-        Debug.Log(itemTrack.Count);
         itemTrack.Remove(itemID);
     }
 

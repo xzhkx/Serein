@@ -10,7 +10,7 @@ public class InventoryPresenter : MonoBehaviour
     private VisualElement inventoryPanel;
     private Button closeInventoryPanelButton;
 
-    private VisualElement itemVisual;
+    private VisualElement itemBigIcon;
     private TextElement itemDescription, itemName;
 
     private Queue<Button> buttonsQueue = new Queue<Button>(15);
@@ -44,6 +44,7 @@ public class InventoryPresenter : MonoBehaviour
             button.style.display = DisplayStyle.Flex;
             button.style.backgroundImage = item.GetItemIcon();
 
+            itemBigIcon.style.backgroundImage = item.GetItemIcon();
             inventoryModel.AddItem(button, item);
         }
      
@@ -88,7 +89,7 @@ public class InventoryPresenter : MonoBehaviour
             rootVisualElement.Q<Button>("CloseButton");
         closeInventoryPanelButton.RegisterCallback<ClickEvent>(CloseInventoryPanel);
 
-        itemVisual = inventoryUIDocument.rootVisualElement.Q<VisualElement>("ItemVisual");
+        itemBigIcon = inventoryUIDocument.rootVisualElement.Q<VisualElement>("ItemBigIcon");
         itemDescription = inventoryUIDocument.rootVisualElement.Q<TextElement>("ItemDescription");
         itemName = inventoryUIDocument.rootVisualElement.Q<TextElement>("ItemName");
 
