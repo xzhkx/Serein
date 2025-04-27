@@ -48,6 +48,6 @@ public class MycoAI : MonoBehaviour, IEnemyAI
 
     public void StopEnemyAI()
     {
-        GetComponent<MycoAI>().enabled = false;
+        
     }
 }

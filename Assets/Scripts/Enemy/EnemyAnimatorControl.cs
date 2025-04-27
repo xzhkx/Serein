@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class EnemyAnimatorControl : MonoBehaviour
 {
-    private Animator mycoAnimator;
+    private Animator enemyAnimator;
 
     private void Awake()
     {
-        mycoAnimator = GetComponent<Animator>();
+        enemyAnimator = GetComponent<Animator>();
     }
 
     public void SetTrigger(string triggerName)
     {
-        mycoAnimator.SetTrigger(triggerName);   
+        enemyAnimator.SetTrigger(triggerName);   
     }
 }
