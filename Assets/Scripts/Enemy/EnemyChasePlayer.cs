@@ -1,22 +1,44 @@
 using UnityEngine;
 
-public class EnemyChasePlayer : MonoBehaviour
+public class EnemyChasePlayer
 {
-    [SerializeField] private float runSpeed;
-    [SerializeField] private Transform targetTransform;
+    private Transform currentTransform;
     private Rigidbody enemyRigidbody;
 
-    private void Awake()
+    private Vector3 originalPosition;
+    private float runSpeed;
+    private float chaseSpeed;
+
+    public EnemyChasePlayer(Transform currentTransform, Rigidbody enemyRigidbody, 
+        float runSpeed, float chaseSpeed)
     {
-        enemyRigidbody = GetComponent<Rigidbody>();
+        this.currentTransform = currentTransform;
+        this.enemyRigidbody = enemyRigidbody;
+
+        this.runSpeed = runSpeed;
+        this.chaseSpeed = chaseSpeed;
+
+        originalPosition = currentTransform.position;
     }
 
-    public void ChasePlayer()
-    {
-        Vector3 direction = targetTransform.position - transform.position;
+    public void ChasePlayer(Transform targetTransform)
+    { 
+        Vector3 direction = targetTransform.position - currentTransform.position;
         float distance = direction.sqrMagnitude;
 
-        enemyRigidbody.velocity = direction.normalized * runSpeed;
-        transform.localRotation = Quaternion.LookRotation(direction);
+        enemyRigidbody.velocity = direction.normalized * chaseSpeed;
+        currentTransform.localRotation = Quaternion.LookRotation(direction);
+    }
+    public bool ResetPosition()
+    {
+        float distance = (currentTransform.position - originalPosition).sqrMagnitude;
+        if (distance <= 0.02f)
+        {
+            Vector3 direction = (currentTransform.position - originalPosition).normalized;
+            enemyRigidbody.velocity = direction * runSpeed;
+            currentTransform.localRotation = Quaternion.LookRotation(direction);
+            return false;
+        }
+        else return true;
     }
 }

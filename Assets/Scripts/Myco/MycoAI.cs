@@ -20,24 +20,24 @@ public class MycoAI : MonoBehaviour, IEnemyAI
         enemyIdle = GetComponent<EnemyIdle>();
         enemyTakeDamage = GetComponent<EnemyTakeDamage>();
 
-        IdleStateNode idleStateNode = new IdleStateNode(enemyAnimatorControl, enemyDetectPlayerInRange, enemyIdle);
-        RandomMovementNode randomMovementNode = new RandomMovementNode(enemyIdle, enemyDetectPlayerInRange);
-        ChasePlayerNode chasePlayerNode = new ChasePlayerNode(enemyChasePlayer, enemyDetectPlayerInRange, enemyIdle);
-        AttackPlayerNode attackPlayerNode = new AttackPlayerNode(enemyAnimatorControl, enemyDetectPlayerInRange);
-        RestAttackNode restAttackNode = new RestAttackNode(enemyAnimatorControl, enemyDetectPlayerInRange, enemyIdle);
+        //IdleStateNode idleStateNode = new IdleStateNode(enemyAnimatorControl, enemyDetectPlayerInRange, enemyIdle);
+        //RandomMovementNode randomMovementNode = new RandomMovementNode(enemyIdle, enemyDetectPlayerInRange);
+        //ChasePlayerNode chasePlayerNode = new ChasePlayerNode(enemyChasePlayer, enemyDetectPlayerInRange, enemyIdle);
+        //AttackPlayerNode attackPlayerNode = new AttackPlayerNode(enemyAnimatorControl, enemyDetectPlayerInRange);
+        //RestAttackNode restAttackNode = new RestAttackNode(enemyAnimatorControl, enemyDetectPlayerInRange, enemyIdle);
 
         MycoAIRootNode = new FallbackNode(3);
         SequenceNode EnemyMovementNode = new SequenceNode(2);
         SequenceNode EnemyAttackNode = new SequenceNode(2);
 
-        EnemyMovementNode.AttachNode(idleStateNode);
-        EnemyMovementNode.AttachNode(randomMovementNode);
-        EnemyAttackNode.AttachNode(attackPlayerNode);
-        EnemyAttackNode.AttachNode(restAttackNode);
+        //EnemyMovementNode.AttachNode(idleStateNode);
+        //EnemyMovementNode.AttachNode(randomMovementNode);
+        //EnemyAttackNode.AttachNode(attackPlayerNode);
+        //EnemyAttackNode.AttachNode(restAttackNode);
 
-        MycoAIRootNode.AttachNode(EnemyMovementNode);
-        MycoAIRootNode.AttachNode(chasePlayerNode);
-        MycoAIRootNode.AttachNode(EnemyAttackNode);
+        //MycoAIRootNode.AttachNode(EnemyMovementNode);
+        //MycoAIRootNode.AttachNode(chasePlayerNode);
+        //MycoAIRootNode.AttachNode(EnemyAttackNode);
     }
 
     private void Update()

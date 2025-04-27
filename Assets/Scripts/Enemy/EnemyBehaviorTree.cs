@@ -5,14 +5,11 @@ namespace zhk.EnemyBehaviorTree
     public class IdleStateNode : Node
     {
         private EnemyDetectPlayerInRange detectPlayerInRange;
-        private EnemyAnimatorControl enemyAnimatorControl;
         private EnemyIdle enemyIdle;
 
-        public IdleStateNode(EnemyAnimatorControl enemyAnimatorControl, 
-            EnemyDetectPlayerInRange detectPlayerInRange, EnemyIdle enemyIdle)
+        public IdleStateNode(EnemyDetectPlayerInRange detectPlayerInRange, EnemyIdle enemyIdle)
         {
             this.detectPlayerInRange = detectPlayerInRange;
-            this.enemyAnimatorControl = enemyAnimatorControl;
             this.enemyIdle = enemyIdle;
         }
 
@@ -24,8 +21,7 @@ namespace zhk.EnemyBehaviorTree
             }
             else
             {
-                enemyAnimatorControl.SetTrigger("IdleTrigger");
-                if (enemyIdle.NormalRest())
+                if (enemyIdle.Rest())
                 {
                     return NodeState.SUCCESS;
                 }
@@ -37,11 +33,12 @@ namespace zhk.EnemyBehaviorTree
     public class RandomMovementNode : Node
     {
         private EnemyDetectPlayerInRange detectPlayerInRange;
-        private EnemyIdle enemyIdle;
+        private EnemyRandomMovement enemyRandomMovement;
 
-        public RandomMovementNode(EnemyIdle enemyIdle, EnemyDetectPlayerInRange detectPlayerInRange)
+        public RandomMovementNode(EnemyRandomMovement enemyRandomMovement, 
+            EnemyDetectPlayerInRange detectPlayerInRange)
         {
-            this.enemyIdle = enemyIdle;
+            this.enemyRandomMovement = enemyRandomMovement;
             this.detectPlayerInRange = detectPlayerInRange;
         }
 
@@ -53,7 +50,7 @@ namespace zhk.EnemyBehaviorTree
             }
             else
             {
-                if (enemyIdle.RandomMovement())
+                if (enemyRandomMovement.RandomMovement())
                 {
                     return NodeState.SUCCESS;
                 }
@@ -66,14 +63,14 @@ namespace zhk.EnemyBehaviorTree
     {
         private EnemyDetectPlayerInRange detectPlayerInRange;
         private EnemyChasePlayer enemyChasePlayer;
-        private EnemyIdle enemyIdle;
+        private GetTargetTransform getTargetTransform;
 
-        public ChasePlayerNode(EnemyChasePlayer enemyChasePlayer, EnemyDetectPlayerInRange detectPlayerInRange,
-            EnemyIdle enemyIdle)
+        public ChasePlayerNode(EnemyChasePlayer enemyChasePlayer, 
+            EnemyDetectPlayerInRange detectPlayerInRange, GetTargetTransform getTargetTransform)
         {
             this.detectPlayerInRange = detectPlayerInRange;
             this.enemyChasePlayer = enemyChasePlayer;
-            this.enemyIdle = enemyIdle;
+            this.getTargetTransform = getTargetTransform;
         }
 
         public override NodeState Execute()
@@ -84,11 +81,12 @@ namespace zhk.EnemyBehaviorTree
             }
             if (detectPlayerInRange.IsPlayerInSightRange())
             {
-                enemyChasePlayer.ChasePlayer();
+                if(getTargetTransform.GetTarget() == null) return NodeState.SUCCESS;
+                enemyChasePlayer.ChasePlayer(getTargetTransform.GetTarget());
                 return NodeState.RUNNING;
             } else
             {
-                if (enemyIdle.ResetPosition())
+                if (enemyChasePlayer.ResetPosition())
                 {
                     return NodeState.SUCCESS;
                 } else return NodeState.RUNNING;
@@ -99,19 +97,19 @@ namespace zhk.EnemyBehaviorTree
     public class AttackPlayerNode : Node
     {
         private EnemyDetectPlayerInRange detectPlayerInRange;
-        private EnemyAnimatorControl enemyAnimatorControl;
+        private EnemyAttack enemyAttack;
 
-        public AttackPlayerNode(EnemyAnimatorControl enemyAnimatorControl, EnemyDetectPlayerInRange detectPlayerInRange)
+        public AttackPlayerNode(EnemyDetectPlayerInRange detectPlayerInRange, EnemyAttack enemyAttack)
         {
             this.detectPlayerInRange = detectPlayerInRange;
-            this.enemyAnimatorControl = enemyAnimatorControl;
+            this.enemyAttack = enemyAttack;
         }
 
         public override NodeState Execute()
         {
             if (detectPlayerInRange.IsPlayerInAttackRange())
             {
-                enemyAnimatorControl.SetTrigger("AttackTrigger");
+                enemyAttack.AttackPlayer();
                 return NodeState.SUCCESS;
             }
             else
@@ -121,29 +119,31 @@ namespace zhk.EnemyBehaviorTree
         }
     }
 
-    public class RestAttackNode : Node
+    public class IdleAttackNode : Node
     {
         private EnemyDetectPlayerInRange detectPlayerInRange;
-        private EnemyAnimatorControl enemyAnimatorControl;
-        private EnemyIdle enemyIdle;
+        private EnemyAttackIdle enemyAttackIdle;
+        private GetTargetTransform getTargetTransform;
 
-        public RestAttackNode(EnemyAnimatorControl enemyAnimatorControl, 
-            EnemyDetectPlayerInRange detectPlayerInRange, EnemyIdle enemyIdle)
+        public IdleAttackNode(EnemyDetectPlayerInRange detectPlayerInRange, 
+            EnemyAttackIdle enemyAttackIdle, GetTargetTransform getTargetTransform)
         {
             this.detectPlayerInRange = detectPlayerInRange;
-            this.enemyAnimatorControl = enemyAnimatorControl;
-            this.enemyIdle = enemyIdle;
+            this.enemyAttackIdle = enemyAttackIdle;
+            this.getTargetTransform = getTargetTransform;
         }
 
         public override NodeState Execute()
         {
-            if (enemyIdle.RestAfterAttack())
+            if (getTargetTransform.GetTarget() == null) return NodeState.SUCCESS;
+
+            bool rest = enemyAttackIdle.RestAfterAttack(getTargetTransform.GetTarget());
+            if (rest)
             {
                 return NodeState.SUCCESS;
             }
             else
             {
-                enemyAnimatorControl.SetTrigger("IdleTrigger");
                 return NodeState.RUNNING;
             }
         }
