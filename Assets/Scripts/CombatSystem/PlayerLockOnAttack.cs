@@ -7,14 +7,11 @@ public class PlayerLockOnAttack : MonoBehaviour
     [SerializeField] 
     private float detectEnemyRadius;
 
-    private AttackVFX attackVFX;
-
     private GameObject currentEnemyLockOn;
     private Collider[] enemiesInRange;
 
     private void Awake()
     {
-        attackVFX = GetComponent<AttackVFX>();
         enemiesInRange = new Collider[5];
     }
 
@@ -37,14 +34,12 @@ public class PlayerLockOnAttack : MonoBehaviour
         }
     }
 
-    //animation
     public void LookAtTarget()
     {
         if (currentEnemyLockOn == null) return;
         Vector3 direction = currentEnemyLockOn.transform.localPosition - transform.localPosition;
         transform.localRotation = Quaternion.LookRotation(direction);
 
-        attackVFX.PlayAttackVFX(currentEnemyLockOn.transform.position);
         currentEnemyLockOn.GetComponent<EnemyTakeDamage>().TakeDamage(2);
     }
 }

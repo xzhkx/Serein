@@ -1,14 +1,12 @@
 using UnityEngine;
 using zhk.BehaviourTree;
 public class PlayerAttack : MonoBehaviour
-{  
+{
     private PlayerAnimatorControl playerAnimatorControl;
     private PlayerInput playerInput;
 
     private SequenceNode ComboAttackRootNode;
     private Rigidbody playerRigidbody;
-
-    private Vector3 combo01 = new Vector3(-38.152f, -118.921f, 593.672f);
 
     private void Awake()
     {
@@ -43,7 +41,11 @@ public class PlayerAttack : MonoBehaviour
         private PlayerAnimatorControl playerAnimatorControl;
         private PlayerInput playerInput;
 
-        public AttackNode(PlayerAnimatorControl playerAnimatorControl, PlayerInput playerInput){ 
+        private Transform VFXSplash;
+        private Vector3 comboPosition;
+
+        public AttackNode(PlayerAnimatorControl playerAnimatorControl, PlayerInput playerInput)
+        { 
             this.playerAnimatorControl = playerAnimatorControl;
             this.playerInput = playerInput;
         }
