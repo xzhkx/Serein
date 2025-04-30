@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class PlayerLockOnAttack : MonoBehaviour
 {
-    [SerializeField] private LayerMask enemyLayerMask;
-    [SerializeField] private float detectEnemyRadius;
+    [SerializeField] 
+    private LayerMask enemyLayerMask;
+    [SerializeField] 
+    private float detectEnemyRadius;
 
     private AttackVFX attackVFX;
 
@@ -35,6 +37,7 @@ public class PlayerLockOnAttack : MonoBehaviour
         }
     }
 
+    //animation
     public void LookAtTarget()
     {
         if (currentEnemyLockOn == null) return;

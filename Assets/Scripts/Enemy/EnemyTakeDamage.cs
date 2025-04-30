@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class EnemyTakeDamage : MonoBehaviour
 {
-    [SerializeField] private int enemyHealth;
-    [SerializeField] private float stunnedTime;
+    [SerializeField] 
+    private float stunnedTime;
 
     private float currentStunnedTime;
     private EnemyAnimatorControl enemyAnimatorControl;
@@ -19,12 +19,12 @@ public class EnemyTakeDamage : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentStunnedTime = stunnedTime;
-        enemyHealth -= damage;
-        enemyAnimatorControl.SetTrigger("DefendTrigger");
-        if(enemyHealth <= 0)
-        {
-            EnemyDie();
-        }
+        //enemyHealth -= damage;
+        //enemyAnimatorControl.SetTrigger("DefendTrigger");
+        //if(enemyHealth <= 0)
+        //{
+        //    EnemyDie();
+        //}
     }
 
     public bool IsStunnedByAttack()

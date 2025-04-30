@@ -1,12 +1,14 @@
 using UnityEngine;
 using zhk.BehaviourTree;
 public class PlayerAttack : MonoBehaviour
-{
+{  
     private PlayerAnimatorControl playerAnimatorControl;
-    private SequenceNode ComboAttackRootNode;
     private PlayerInput playerInput;
 
+    private SequenceNode ComboAttackRootNode;
     private Rigidbody playerRigidbody;
+
+    private Vector3 combo01 = new Vector3(-38.152f, -118.921f, 593.672f);
 
     private void Awake()
     {
