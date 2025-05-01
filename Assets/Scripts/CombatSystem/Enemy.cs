@@ -1,4 +1,3 @@
-
 public class Enemy
 {
     private int health;
@@ -8,5 +7,15 @@ public class Enemy
     {
         this.health = health;
         this.damage = damage;
+    }
+
+    public int GetHealth()
+    {
+        return health;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 }

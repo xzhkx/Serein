@@ -37,9 +37,9 @@ public class PlayerLockOnAttack : MonoBehaviour
     public void LookAtTarget()
     {
         if (currentEnemyLockOn == null) return;
-        Vector3 direction = currentEnemyLockOn.transform.localPosition - transform.localPosition;
+        Vector3 direction = currentEnemyLockOn.transform.position - transform.position;
+        direction.y = 0;
         transform.localRotation = Quaternion.LookRotation(direction);
-
-        currentEnemyLockOn.GetComponent<EnemyTakeDamage>().TakeDamage(2);
+        currentEnemyLockOn.GetComponent<IDamagable>().TakeDamage(2);
     }
 }

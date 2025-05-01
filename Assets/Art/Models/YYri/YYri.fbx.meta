@@ -108,6 +108,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0
+        functionName: LookAtTarget
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: d09473e60e09c1749bcea922e9b4424e, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -144,6 +151,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0
+        functionName: LookAtTarget
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: d09473e60e09c1749bcea922e9b4424e, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -177,6 +191,13 @@ ModelImporter:
         functionName: PlayVFX03
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 3e34ef3f4a5dc3849a1bbf1c15691c32, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: LookAtTarget
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: d09473e60e09c1749bcea922e9b4424e, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0

@@ -1417,14 +1417,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282209387}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.579228, y: -0.579228, z: -0.4055798, w: 0.4055798}
+  m_LocalRotation: {x: -0.6314456, y: -0.6314456, z: 0.31823972, w: -0.31823972}
   m_LocalPosition: {x: 2634.5952, y: 116.987114, z: 629.13995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 386920467}
   m_Father: {fileID: 1148456986}
-  m_LocalEulerAnglesHint: {x: -110, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: -233.495, y: 0, z: -90}
 --- !u!1 &285493604
 GameObject:
   m_ObjectHideFlags: 0
@@ -11643,7 +11643,7 @@ Transform:
   m_GameObject: {fileID: 919132147667371047}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1963.2122, y: 57.551453, z: 56.60382}
+  m_LocalPosition: {x: 1963.2122, y: 55, z: 56.60382}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12332,7 +12332,8 @@ GameObject:
   - component: {fileID: 919132147667371051}
   - component: {fileID: 919132147667371050}
   - component: {fileID: 919132147667371049}
-  m_Layer: 0
+  - component: {fileID: 919132147667371055}
+  m_Layer: 6
   m_Name: ShortSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12426,8 +12427,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 30, y: 10, z: 30}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 30, y: 9.6577015, z: 30}
+  m_Center: {x: 0, y: 0.17116109, z: 0}
 --- !u!65 &919132147667371053
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12447,8 +12448,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 6.5, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 10.933804, z: 1}
+  m_Center: {x: 0, y: -0.21689263, z: 0}
 --- !u!54 &919132147667371054
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12457,7 +12458,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132147667371047}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -12471,11 +12472,25 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &919132147667371055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147667371047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0434c89e846b348a23817f81f2499d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisHealth: 10
+  thisDamage: 5
 --- !u!1 &919132147740817857
 GameObject:
   m_ObjectHideFlags: 0
@@ -17722,8 +17737,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyLayerMask:
     serializedVersion: 2
-    m_Bits: 0
-  detectEnemyRadius: 0
+    m_Bits: 64
+  detectEnemyRadius: 30
 --- !u!114 &5866666020109170953
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,18 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordEnemy : MonoBehaviour
+public class SwordEnemy : MonoBehaviour, IDamagable
 {
     [SerializeField]
-    private int health;
+    private int thisHealth;
 
     [SerializeField]
-    private int damage;
+    private int thisDamage;
+
+    private Enemy swordEnemy;
 
     private void Awake()
     {
-        Enemy swordEnemy = new Enemy(health, damage);
-
+        swordEnemy = new Enemy(thisHealth, thisDamage);
     }
+
+    public void TakeDamage(int damage)
+    {
+        swordEnemy.TakeDamage(damage);
+        Debug.Log(swordEnemy.GetHealth());
+    } 
 }
