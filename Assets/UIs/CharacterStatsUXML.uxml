@@ -1,0 +1,32 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="CharacterStatsPanel" style="flex-grow: 1; flex-direction: column;">
+        <ui:VisualElement style="height: 900px; width: 1920px; flex-direction: row;">
+            <ui:VisualElement name="StatsPanel" style="height: 400px; width: 550px; background-color: rgba(255, 255, 255, 0.43); padding-top: 31px; padding-right: 31px; padding-bottom: 31px; padding-left: 31px;">
+                <ui:VisualElement style="height: 100px; flex-direction: row;">
+                    <ui:Label tabindex="-1" text="Soul" parse-escape-sequences="true" display-tooltip-when-elided="true" style="flex-grow: 1; font-size: 42px; -unity-text-align: middle-left; flex-shrink: 1;" />
+                    <ui:Label tabindex="-1" text="100000" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 42px; -unity-text-align: middle-left;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="height: 100px; flex-direction: row;">
+                    <ui:Label tabindex="-1" text="HP" parse-escape-sequences="true" display-tooltip-when-elided="true" style="flex-grow: 1; font-size: 42px; -unity-text-align: middle-left; flex-shrink: 1;" />
+                    <ui:Label tabindex="-1" text="100000" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 42px; -unity-text-align: middle-left;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="height: 100px; flex-direction: row;">
+                    <ui:Label tabindex="-1" text="Attack" parse-escape-sequences="true" display-tooltip-when-elided="true" style="flex-grow: 1; font-size: 42px; -unity-text-align: middle-left; flex-shrink: 1;" />
+                    <ui:Label tabindex="-1" text="100000" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 42px; -unity-text-align: middle-left;" />
+                </ui:VisualElement>
+                <ui:VisualElement style="height: 100px; flex-direction: row;">
+                    <ui:Label tabindex="-1" text="DEF" parse-escape-sequences="true" display-tooltip-when-elided="true" style="flex-grow: 1; font-size: 42px; -unity-text-align: middle-left; flex-shrink: 1;" />
+                    <ui:Label tabindex="-1" text="100000" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 42px; -unity-text-align: middle-left;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="CameraVisualPanel" style="height: 1080px; width: 800px;" />
+            <ui:VisualElement name="LevelUpPanel" style="flex-grow: 1; height: 500px; justify-content: space-between; align-self: center; background-color: rgba(255, 255, 255, 0.55);">
+                <ui:VisualElement name="MaterialsPanel" style="height: 350px;" />
+                <ui:VisualElement style="flex-grow: 1; justify-content: center; align-items: center;">
+                    <ui:Button text="Level Up" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" style="height: 100px; width: 300px; font-size: 42px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1; flex-direction: row;" />
+    </ui:VisualElement>
+</ui:UXML>

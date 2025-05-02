@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-
 public class CanvasUIGridRenderer : Graphic
 {
     public Vector2Int gridSize;
