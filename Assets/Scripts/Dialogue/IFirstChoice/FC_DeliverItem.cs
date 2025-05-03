@@ -11,6 +11,23 @@ public class FC_DeliverItem : MonoBehaviour, IFirstChoice
     [SerializeField]
     private DeliverItemPresenter deliverPresenter;
 
+
+    private void OnEnable()
+    {
+        deliverPresenter.DeliverCompleteEvent += DeliverComplete;
+    }
+
+    private void OnDisable()
+    {
+        deliverPresenter.DeliverCompleteEvent -= DeliverComplete;
+    }
+
+    private void DeliverComplete(int itemID)
+    {
+        if (itemID != this.itemID) return;
+        gameObject.SetActive(false);
+    }
+
     public void MakeAction()
     {
         deliverPresenter.EnableDeliverPanel();

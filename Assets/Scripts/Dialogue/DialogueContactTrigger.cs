@@ -10,9 +10,6 @@ public class DialogueContactTrigger : MonoBehaviour
     [SerializeField]
     private TextAsset inkJson;
 
-    [SerializeField]
-    private bool playOnce;
-
     private PlayerInput playerInput;
     private DialogueManager dialogueManager;
 
@@ -108,10 +105,12 @@ public class DialogueContactTrigger : MonoBehaviour
         {
             playerInRange = false;
             interactPanel.style.display = DisplayStyle.None;
-            if (playOnce) //chuyen sang FD_PlayOnce
-            {
-                GetComponent<BoxCollider>().enabled = false;
-            }
         }
+    }
+
+    private void OnDisable()
+    {
+        playerInRange = false;
+        interactPanel.style.display = DisplayStyle.None;
     }
 }

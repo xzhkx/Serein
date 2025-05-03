@@ -13,6 +13,7 @@ public class DeliverItemPresenter : MonoBehaviour
     private VisualElement deliverPanel, itemIcon;
     private Button deliverButton, closePanelButton;
 
+    public Action<int> DeliverCompleteEvent;
     public Action<int, Texture2D> SetCurrentItemEvent;
     private int currentItemID;
 
@@ -43,6 +44,7 @@ public class DeliverItemPresenter : MonoBehaviour
         {
             deliverPanel.visible = false;
             QFdeliverItem.DeliverSuccess(currentItemID);
+            DeliverCompleteEvent?.Invoke(currentItemID);
         } else
         {
             Debug.Log("Cant find item to deliver");

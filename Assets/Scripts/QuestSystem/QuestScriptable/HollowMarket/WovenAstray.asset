@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: WovenAstray
   m_EditorClassIdentifier: 
   questName: Woven Astray
-  questDescription: "A cloth merchant (like the Soul Cloth NPC) is missing a set
-    of special fabrics\u2014they vanished without a trace one evening, as if taken
-    by the wind. The merchant insists they weren't stolen\u2026 just \"taken by someone
-    who needed them more.\""
+  questDescription: "A cloth merchant is missing a set of special fabrics\u2014they
+    vanished without a trace one evening, as if taken by the wind. The merchant insists
+    they weren't stolen\u2026 just \"taken by someone who needed them more.\""
   questIconName: 
   questIcon: {fileID: 0}
