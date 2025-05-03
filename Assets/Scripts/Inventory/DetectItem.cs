@@ -14,7 +14,7 @@ public class DetectItem : MonoBehaviour
 
     private void OnCollectItem()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider collider)

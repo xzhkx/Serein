@@ -7,7 +7,6 @@ public class DeliverItemPresenter : MonoBehaviour
     [SerializeField]
     private UIDocument deliverUIDocument;
 
-    [SerializeField]
     private QF_DeliverItemTrack QFdeliverItem;
 
     private VisualElement deliverPanel, itemIcon;
@@ -36,6 +35,11 @@ public class DeliverItemPresenter : MonoBehaviour
     public void OnDisable()
     {
         SetCurrentItemEvent -= SetCurrentItem;
+    }
+
+    public void SetQFDeliveryTrack(QF_DeliverItemTrack deliverItemTrack)
+    {
+        QFdeliverItem = deliverItemTrack;
     }
 
     public void DeliverItem(ClickEvent clickEvent)
