@@ -32,6 +32,8 @@ public class DialogueManager : MonoBehaviour
     private Color yellow, red, blue;
 
     private CutSceneAnimatorControl cutSceneAnimatorControl;
+    private CharacterAnimators characterAnimators;
+    private Animator currentAnimator;
 
     private VisualElement dialoguePanel;
     private TextElement dialogueText;
@@ -45,12 +47,15 @@ public class DialogueManager : MonoBehaviour
 
     private const string SPEAKER_TAG = "speaker";
     private const string TEXT_COLOR_TAG = "textColor";
+    private const string ANIMATORID_TAG = "animatorID";
     private const string ANIM_TAG = "anim";
     private const string CUTSCENE_TAG = "cs";
 
     private void Awake()
     {
         if (Instance == null) Instance = this;
+
+        characterAnimators = GetComponent<CharacterAnimators>();
 
         cutSceneAnimatorControl = GetComponent<CutSceneAnimatorControl>();
         cutSceneAnimatorControl.DisableCamera();
@@ -164,8 +169,11 @@ public class DialogueManager : MonoBehaviour
                     if (tagValue == "red") characterName.style.color = red;
                     if (tagValue == "blue") characterName.style.color = blue;
                     break;
+                case ANIMATORID_TAG:
+                    currentAnimator = characterAnimators.GetCurrentAnimator(int.Parse(tagValue));
+                    break;
                 case ANIM_TAG:
-
+                    currentAnimator.Play(tagValue);
                     break;
                 case CUTSCENE_TAG:
                     cutSceneAnimatorControl.EnableCamera();

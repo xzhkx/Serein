@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edfb576fe8d2c0c458b890068e4f207f, type: 3}
+  m_Name: TheWayYouCannotSee
+  m_EditorClassIdentifier: 
+  questName: The Way You Cannot See
+  questDescription: Trapped in a land of echoes and dust, find the path that leads
+    beyond the battlefield.
+  questIconName: Ash Beyond Horizon
+  questIcon: {fileID: 2800000, guid: 2581f34cf8e767742a9ba6a3e1f7ba7d, type: 3}

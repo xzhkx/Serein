@@ -1,0 +1,63 @@
+-> Main
+
+== Main ==
+Stillrot welcome.  #speaker: ??? #animatorID: 2 #anim: Hello
+What do you want, coral pumpkin? 
+
+... #speaker: You
++[Hello...] 
+-> Continue
+
++[Can I buy anything here?]
+-> Continue
+
+== Continue == 
+
+... #speaker:??? 
+1 specter dust for 2 plants. #animatorID: 2 #anim: 2Plants
+
+Let’s see...
+We’ve got Past Plants, Future Plants, Newbie Plants…
+January, March, December blooms are still around. The rest? Gone.
+Also… 2050s vines, 2000s roots, two-hundred-and-22’s.
+And a few cannibal plants, but you probably don’t want those.
+Call me Dun. #animatorID: 2 #anim: NameDun
+Like “June” but say it wrong and I’ll pretend I didn’t hear you. #speaker: Dun
+
+You think about all of the options. #speaker:
+Long long time ago, you and him would travel around the world.
+He'd buy you ice scream, and you held his hand while walking under the 
+stars. 
+But you forgot his name.
+
+... #speaker: You
++[Can I have an ice cube please?]
+-> Next 
+ 
+== Next ==
+... #speaker Dun
+...Did you just say ice cube?
+
+Do I look like an ice cube to you?
+
+Look, kiddo. 
+I ain't wanna look like an evil snake
+But if you keep drifting through like some blank page,
+I’ll toss you out like wilted moss.
+
+Grow up. Or go home.
+
+And- 
+Let me guess, a blonde guy brought you here?
+That man... He's doing it again. #animatorID: 2 #anim: Warning
+
+... #speaker: You
++[Yes]
+
+Sign... #speaker: Dun 
+Don't trust anyone in this world, anyone but yourself. #anim: Trust
+
+-> END
+
+
+
