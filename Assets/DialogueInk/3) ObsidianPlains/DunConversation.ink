@@ -2,7 +2,7 @@
 
 == Main ==
 Stillrot welcome.  #speaker: ??? #animatorID: 2 #anim: Hello
-What do you want, coral pumpkin? 
+What do you want, coral pumpkin? #anim: HelloTalk
 
 ... #speaker: You
 +[Hello...] 
@@ -22,7 +22,7 @@ January, March, December blooms are still around. The rest? Gone.
 Also… 2050s vines, 2000s roots, two-hundred-and-22’s.
 And a few cannibal plants, but you probably don’t want those.
 Call me Dun. #animatorID: 2 #anim: NameDun
-Like “June” but say it wrong and I’ll pretend I didn’t hear you. #speaker: Dun
+Like “June” but say it wrong and I’ll pretend I didn’t hear you. #speaker: Dun #anim: NameDunTalk
 
 You think about all of the options. #speaker:
 Long long time ago, you and him would travel around the world.
@@ -35,20 +35,20 @@ But you forgot his name.
 -> Next 
  
 == Next ==
-... #speaker Dun
-...Did you just say ice cube?
+... #speaker Dun 
+...Did you just say ice cube? #anim: NameDunTalk
 
-Do I look like an ice cube to you?
+Do I look like an ice cube to you? #anim: NameDunTalk
 
 Look, kiddo. 
-I ain't wanna look like an evil snake
+I ain't wanna look like an evil snake #anim: NameDunTalk
 But if you keep drifting through like some blank page,
 I’ll toss you out like wilted moss.
 
-Grow up. Or go home.
+Grow up. Or go home. 
 
 And- 
-Let me guess, a blonde guy brought you here?
+Let me guess, a blonde guy brought you here? #anim: NameDunTalk
 That man... He's doing it again. #animatorID: 2 #anim: Warning
 
 ... #speaker: You
