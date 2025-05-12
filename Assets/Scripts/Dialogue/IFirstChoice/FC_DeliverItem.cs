@@ -38,6 +38,6 @@ public class FC_DeliverItem : MonoBehaviour, IFirstChoice
     private void OnTriggerEnter(Collider collider)
     {
         deliverPresenter.SetQFDeliveryTrack(deliverItemTrack);
-        deliverPresenter.SetCurrentItem(itemID, itemIcon);
+        deliverPresenter.SetCurrentItem(itemID, quantity, itemIcon);
     }
 }

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dfe1cbe73456b5419b628c350a66f5a, type: 3}
+  m_Name: AsiaticLily
+  m_EditorClassIdentifier: 
+  itemID: 10
+  itemName: Asiatic LiLy
+  itemDescription: 
+  itemIcon: {fileID: 2800000, guid: e6e6b13a778c6c5499d4d7e9e9484354, type: 3}
+  itemBigIcon: {fileID: 2800000, guid: 9fe951a52b417b14faf3a9713f1ac90b, type: 3}

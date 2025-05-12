@@ -13,8 +13,8 @@ public class DeliverItemPresenter : MonoBehaviour
     private Button deliverButton, closePanelButton;
 
     public Action<int> DeliverCompleteEvent;
-    public Action<int, Texture2D> SetCurrentItemEvent;
-    private int currentItemID;
+    public Action<int, int, Texture2D> SetCurrentItemEvent;
+    private int currentItemID, currentQuantity;
 
     private void Awake()
     {
@@ -44,7 +44,7 @@ public class DeliverItemPresenter : MonoBehaviour
 
     public void DeliverItem(ClickEvent clickEvent)
     {
-        if(InventoryManager.Instance.RemoveItem(currentItemID, 1))
+        if(InventoryManager.Instance.RemoveItem(currentItemID, currentQuantity))
         {
             deliverPanel.visible = false;
             QFdeliverItem.DeliverSuccess(currentItemID);
@@ -65,8 +65,9 @@ public class DeliverItemPresenter : MonoBehaviour
         deliverPanel.visible = true;
     }
 
-    public void SetCurrentItem(int itemID, Texture2D itemIcon) { 
+    public void SetCurrentItem(int itemID, int quantity, Texture2D itemIcon) { 
         currentItemID = itemID;
+        currentQuantity = quantity;
         this.itemIcon.style.backgroundImage = itemIcon;
     }
 }

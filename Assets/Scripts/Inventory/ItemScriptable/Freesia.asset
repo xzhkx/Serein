@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dfe1cbe73456b5419b628c350a66f5a, type: 3}
+  m_Name: Freesia
+  m_EditorClassIdentifier: 
+  itemID: 11
+  itemName: Freesia
+  itemDescription: 
+  itemIcon: {fileID: 2800000, guid: d0de8b434e2c83b47ba864a979172974, type: 3}
+  itemBigIcon: {fileID: 2800000, guid: add30b92543cad047b3109749b4ba7ff, type: 3}
