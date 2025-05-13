@@ -14,6 +14,13 @@ public class FC_DeliverItem : MonoBehaviour, IFirstChoice
     [SerializeField]
     private QF_DeliverItemTrack deliverItemTrack;
 
+    private ICompleteDeliver iCompleteDeliver;
+
+    private void Awake()
+    {
+        iCompleteDeliver = GetComponent<ICompleteDeliver>();
+    }
+
     private void OnEnable()
     {
         deliverPresenter.DeliverCompleteEvent += DeliverComplete;
@@ -28,6 +35,10 @@ public class FC_DeliverItem : MonoBehaviour, IFirstChoice
     {
         if (itemID != this.itemID) return;
         gameObject.SetActive(false);
+        if(iCompleteDeliver != null)
+        {
+            iCompleteDeliver.MakeAction();
+        }
     }
 
     public void MakeAction()

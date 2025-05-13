@@ -8,9 +8,10 @@ public class GeneralPresenter : MonoBehaviour
     [SerializeField] private UIDocument generalUIDocument;
     [SerializeField] private UIDocument questUIDocument;
     [SerializeField] private UIDocument inventoryUIDocument;
+    [SerializeField] private UIDocument statsUIDocument;
 
-    private VisualElement questPanel, inventoryPanel;
-    private Button openQuestPanelButton, openInventoryButton;
+    private VisualElement questPanel, inventoryPanel, statsPanel;
+    private Button openQuestPanelButton, openInventoryButton, openStatsButton;
 
     private TextElement generalQuestName, targetDistance;
 
@@ -51,18 +52,6 @@ public class GeneralPresenter : MonoBehaviour
         generalQuestName.text = string.Empty;
     }
 
-    private void OnOpenQuestPanel(ClickEvent clickEvent)
-    {
-        questPanel.visible = true;
-        questPanel.style.display = DisplayStyle.Flex;
-    }
-
-    private void OnOpenInventoryPanel(ClickEvent clickEvent)
-    {
-        inventoryPanel.visible = true;
-        inventoryPanel.style.display = DisplayStyle.Flex;
-    }
-
     public void EnableFunctionalityButton(int functionalityID)
     {
         switch(functionalityID)
@@ -73,6 +62,9 @@ public class GeneralPresenter : MonoBehaviour
             case 1:
                 openQuestPanelButton.style.display = DisplayStyle.Flex;
                 break;
+            case 2:
+                openStatsButton.style.display = DisplayStyle.Flex;
+                break;
         }    
     }
 
@@ -80,6 +72,25 @@ public class GeneralPresenter : MonoBehaviour
     {
         openQuestPanelButton.style.display = DisplayStyle.None;
         openInventoryButton.style.display = DisplayStyle.None;
+        openStatsButton.style.display = DisplayStyle.None;
+    }
+
+    private void OpenQuestPanel(ClickEvent clickEvent)
+    {
+        questPanel.visible = true;
+        questPanel.style.display = DisplayStyle.Flex;
+    }
+
+    private void OpenInventoryPanel(ClickEvent clickEvent)
+    {
+        inventoryPanel.visible = true;
+        inventoryPanel.style.display = DisplayStyle.Flex;
+    }
+
+    private void OpenCharacterStatsPanel(ClickEvent clickEvent)
+    {
+        statsPanel.visible = true;
+        statsPanel.style.display = DisplayStyle.Flex;
     }
 
     private void SetUpUI()
@@ -89,7 +100,7 @@ public class GeneralPresenter : MonoBehaviour
         questPanel.visible = false;
 
         openQuestPanelButton = generalUIDocument.rootVisualElement.Q<Button>("OpenQuestPanelButton");
-        openQuestPanelButton.RegisterCallback<ClickEvent>(OnOpenQuestPanel);
+        openQuestPanelButton.RegisterCallback<ClickEvent>(OpenQuestPanel);
         generalQuestName = generalUIDocument.rootVisualElement.Q<TextElement>("QuestName");
         targetDistance = generalUIDocument.rootVisualElement.Q<TextElement>("TargetDistance");
 
@@ -98,6 +109,10 @@ public class GeneralPresenter : MonoBehaviour
         inventoryPanel.visible = false;
 
         openInventoryButton = generalUIDocument.rootVisualElement.Q<Button>("OpenInventoryButton");
-        openInventoryButton.RegisterCallback<ClickEvent>(OnOpenInventoryPanel);
+        openInventoryButton.RegisterCallback<ClickEvent>(OpenInventoryPanel);
+
+        statsPanel = statsUIDocument.rootVisualElement.Q<VisualElement>("CharacterStatsPanel");
+        openStatsButton = generalUIDocument.rootVisualElement.Q<Button>("OpenStatsButton");
+        openStatsButton.RegisterCallback<ClickEvent>(OpenCharacterStatsPanel);
     }
 }

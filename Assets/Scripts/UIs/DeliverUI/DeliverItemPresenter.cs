@@ -47,7 +47,9 @@ public class DeliverItemPresenter : MonoBehaviour
         if(InventoryManager.Instance.RemoveItem(currentItemID, currentQuantity))
         {
             deliverPanel.visible = false;
-            QFdeliverItem.DeliverSuccess(currentItemID);
+            if (QFdeliverItem != null) {
+                QFdeliverItem.DeliverSuccess(currentItemID);
+            }
             DeliverCompleteEvent?.Invoke(currentItemID);
         } else
         {

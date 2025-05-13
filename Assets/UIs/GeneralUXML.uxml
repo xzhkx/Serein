@@ -12,8 +12,9 @@
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="OverallPanel" style="flex-grow: 1; flex-direction: row-reverse;">
-            <ui:VisualElement name="GeneralPanel" style="flex-grow: 1; flex-direction: row; margin-top: 25px;">
-                <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="OpenInventoryButton" style="width: 80px; height: 80px; background-image: url(&quot;project://database/Assets/Art/UI/InventoryIcon.png?fileID=2800000&amp;guid=80bc4e779646ac0498cec02be1540e7b&amp;type=3#InventoryIcon&quot;); background-color: rgba(188, 188, 188, 0);" />
+            <ui:VisualElement name="GeneralPanel" style="flex-grow: 1; flex-direction: row; margin-top: 25px; width: 150px;">
+                <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="OpenInventoryButton" style="width: 80px; height: 80px; background-image: url(&quot;project://database/Assets/Art/UI/InventoryIcon.png?fileID=2800000&amp;guid=80bc4e779646ac0498cec02be1540e7b&amp;type=3#InventoryIcon&quot;); background-color: rgba(188, 188, 188, 0); margin-right: 50px;" />
+                <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="OpenStatsButton" style="width: 80px; height: 80px; background-image: url(&quot;project://database/Assets/Art/UI/InventoryIcon.png?fileID=2800000&amp;guid=80bc4e779646ac0498cec02be1540e7b&amp;type=3#InventoryIcon&quot;); background-color: rgba(188, 188, 188, 0); margin-right: 50px;" />
             </ui:VisualElement>
             <ui:VisualElement style="flex-grow: 1; align-self: center; flex-direction: row; height: 900px; align-items: flex-end; width: 250px;">
                 <ui:VisualElement name="CollectItemPanel" style="flex-grow: 1; flex-direction: row-reverse; display: none; opacity: 1;">
