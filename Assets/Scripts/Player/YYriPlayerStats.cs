@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,10 +9,10 @@ public class YYriPlayerStats : MonoBehaviour, IDamagable
         new List<CharacterStatsScriptableIObject>();
 
     private Animator yyriAnimator;
-
     private int currentLevel = 0;
+    private PlayerStats yyriStats;
 
-    PlayerStats yyriStats;
+    public Action<CharacterStatsScriptableIObject> StatsChangeAction;
 
     private void Awake()
     {
@@ -19,10 +20,16 @@ public class YYriPlayerStats : MonoBehaviour, IDamagable
         yyriStats = new PlayerStats(yyriStatsScriptable[currentLevel]);
     }
 
+    private void Start()
+    {
+        StatsChangeAction?.Invoke(yyriStatsScriptable[currentLevel]);
+    }
+
     public void LevelUp()
     {
         currentLevel++;
         yyriStats.LevelUp(yyriStatsScriptable[currentLevel]);
+        StatsChangeAction?.Invoke(yyriStatsScriptable[currentLevel]);
     }
 
     public void TakeDamage(int damage)

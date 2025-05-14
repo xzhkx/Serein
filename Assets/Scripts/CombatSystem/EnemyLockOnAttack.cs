@@ -22,8 +22,6 @@ public class EnemyLockOnAttack : MonoBehaviour
             int numberColliders = Physics.OverlapSphereNonAlloc(transform.position, detectEnemyRadius,
                 playersInRange, playerLayerMask);
             currentPlayerLockOn = playersInRange[0].gameObject;
-
-            Debug.Log("dmg");
             currentPlayerLockOn.GetComponent<IDamagable>().TakeDamage(damage);
         }
     }

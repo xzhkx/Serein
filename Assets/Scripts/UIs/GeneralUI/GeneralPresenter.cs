@@ -79,7 +79,7 @@ public class GeneralPresenter : MonoBehaviour
     {
         openQuestPanelButton.style.display = DisplayStyle.None;
         openInventoryButton.style.display = DisplayStyle.None;
-       // openStatsButton.style.display = DisplayStyle.None;
+        //openStatsButton.style.display = DisplayStyle.None;
     }
 
     private void OpenQuestPanel(ClickEvent clickEvent)
