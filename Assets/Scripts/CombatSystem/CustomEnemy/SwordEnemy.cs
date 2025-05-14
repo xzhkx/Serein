@@ -17,7 +17,10 @@ public class SwordEnemy : MonoBehaviour, IDamagable
 
     public void TakeDamage(int damage)
     {
-        swordEnemy.TakeDamage(damage);
+        if (!swordEnemy.TakeDamage(damage))
+        {
+            gameObject.SetActive(false);
+        }
         Debug.Log(swordEnemy.GetHealth());
     } 
 }

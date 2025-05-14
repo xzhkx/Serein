@@ -15,5 +15,5 @@ MonoBehaviour:
   itemID: 12
   itemName: Glass Bottle
   itemDescription: glass jar
-  itemIcon: {fileID: 2800000, guid: 138cbfa3491297e43b447a056af32865, type: 3}
+  itemIcon: {fileID: 2800000, guid: d7fb2a702112a8a468a7da888e84f34c, type: 3}
   itemBigIcon: {fileID: 2800000, guid: 138cbfa3491297e43b447a056af32865, type: 3}

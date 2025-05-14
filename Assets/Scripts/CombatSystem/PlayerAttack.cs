@@ -10,6 +10,8 @@ public class PlayerAttack : MonoBehaviour
 
     private void Awake()
     {
+        this.enabled = false;
+
         playerRigidbody = GetComponent<Rigidbody>();
         playerAnimatorControl = GetComponent<PlayerAnimatorControl>();
         playerInput = GetComponent<PlayerInput>();

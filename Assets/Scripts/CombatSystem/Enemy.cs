@@ -14,8 +14,12 @@ public class Enemy
         return health;
     }
 
-    public void TakeDamage(int damage)
+    public bool TakeDamage(int damage)
     {
         health -= damage;
+        if (health <= 0) { 
+            health = 0;
+            return false;
+        } else return true;
     }
 }

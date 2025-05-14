@@ -49,12 +49,17 @@ Grow up. Or go home.
 
 And- 
 Let me guess, a blonde guy brought you here? #anim: NameDunTalk
-That man... He's doing it again. #animatorID: 2 #anim: Warning
+Physically, he isn't a man but... whatever.
 
 ... #speaker: You
 +[Yes]
 
 Sign... #speaker: Dun 
+That man... He's doing it again. #animatorID: 2 #anim: Warning
+
+Just want to give you a warning.
+See the scar on my face? 
+That was the consequence of choosing the wrong person.
 Don't trust anyone in this world, anyone but yourself. #anim: Trust
 
 -> END

@@ -5,10 +5,17 @@ using UnityEngine.UIElements;
 
 public class GeneralPresenter : MonoBehaviour
 {
-    [SerializeField] private UIDocument generalUIDocument;
-    [SerializeField] private UIDocument questUIDocument;
-    [SerializeField] private UIDocument inventoryUIDocument;
-    [SerializeField] private UIDocument statsUIDocument;
+    [SerializeField] 
+    private UIDocument generalUIDocument;
+
+    [SerializeField] 
+    private UIDocument questUIDocument;
+
+    [SerializeField] 
+    private UIDocument inventoryUIDocument;
+
+    [SerializeField] 
+    private UIDocument statsUIDocument;
 
     private VisualElement questPanel, inventoryPanel, statsPanel;
     private Button openQuestPanelButton, openInventoryButton, openStatsButton;
@@ -72,7 +79,7 @@ public class GeneralPresenter : MonoBehaviour
     {
         openQuestPanelButton.style.display = DisplayStyle.None;
         openInventoryButton.style.display = DisplayStyle.None;
-        openStatsButton.style.display = DisplayStyle.None;
+       // openStatsButton.style.display = DisplayStyle.None;
     }
 
     private void OpenQuestPanel(ClickEvent clickEvent)
@@ -87,11 +94,6 @@ public class GeneralPresenter : MonoBehaviour
         inventoryPanel.style.display = DisplayStyle.Flex;
     }
 
-    private void OpenCharacterStatsPanel(ClickEvent clickEvent)
-    {
-        statsPanel.visible = true;
-        statsPanel.style.display = DisplayStyle.Flex;
-    }
 
     private void SetUpUI()
     {
@@ -111,8 +113,6 @@ public class GeneralPresenter : MonoBehaviour
         openInventoryButton = generalUIDocument.rootVisualElement.Q<Button>("OpenInventoryButton");
         openInventoryButton.RegisterCallback<ClickEvent>(OpenInventoryPanel);
 
-        statsPanel = statsUIDocument.rootVisualElement.Q<VisualElement>("CharacterStatsPanel");
         openStatsButton = generalUIDocument.rootVisualElement.Q<Button>("OpenStatsButton");
-        openStatsButton.RegisterCallback<ClickEvent>(OpenCharacterStatsPanel);
     }
 }

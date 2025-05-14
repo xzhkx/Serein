@@ -16,3 +16,4 @@ MonoBehaviour:
   itemName: Specter Dust
   itemDescription: star dust, finding it way home
   itemIcon: {fileID: 2800000, guid: abeefe94ea47e344e9614aa4383f7b0f, type: 3}
+  itemBigIcon: {fileID: 2800000, guid: c90a0eaf682798e408fa1903015d065d, type: 3}

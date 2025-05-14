@@ -15,5 +15,5 @@ MonoBehaviour:
   itemID: 5
   itemName: Blue Fabric
   itemDescription: 
-  itemIcon: {fileID: 2800000, guid: 02005e7f70b8fd74bbbd88c5abff87bc, type: 3}
+  itemIcon: {fileID: 2800000, guid: 1919c974cede162458a79867e6a5d254, type: 3}
   itemBigIcon: {fileID: 2800000, guid: a69bf062ef01c8b419dc259dfb857b06, type: 3}

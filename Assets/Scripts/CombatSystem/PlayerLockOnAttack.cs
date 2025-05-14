@@ -4,8 +4,12 @@ public class PlayerLockOnAttack : MonoBehaviour
 {
     [SerializeField] 
     private LayerMask enemyLayerMask;
+
     [SerializeField] 
     private float detectEnemyRadius;
+
+    [SerializeField]
+    private int damage;
 
     private GameObject currentEnemyLockOn;
     private Collider[] enemiesInRange;
@@ -40,6 +44,6 @@ public class PlayerLockOnAttack : MonoBehaviour
         Vector3 direction = currentEnemyLockOn.transform.position - transform.position;
         direction.y = 0;
         transform.localRotation = Quaternion.LookRotation(direction);
-        currentEnemyLockOn.GetComponent<IDamagable>().TakeDamage(2);
+        currentEnemyLockOn.GetComponent<IDamagable>().TakeDamage(damage);
     }
 }

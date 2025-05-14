@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: EverlinMeteor
   m_EditorClassIdentifier: 
   ID: 2
-  functionalityIcon: {fileID: 2800000, guid: 9fe951a52b417b14faf3a9713f1ac90b, type: 3}
+  functionalityIcon: {fileID: 2800000, guid: 8478d3ba4da369845bd2af7137e5376e, type: 3}
   functionalityName: Evelin Meteor
   functionalityDescription: 'LEvel up... '
