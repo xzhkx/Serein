@@ -27,10 +27,17 @@ public class CollectItemPresenter : MonoBehaviour
     private void Start()
     {
         collectItemModel = GetComponent<CollectItemModel>();
-        collectItemButton.RegisterCallback<ClickEvent>(CollectItem);
+        collectItemButton.RegisterCallback<ClickEvent>(OnCollectItem);
     }
 
-    public void CollectItem(ClickEvent clickEvent)
+    public void CollectItem()
+    {
+        collectItemModel.CollectItem();
+        DisableCollectButton();
+        CollectItemAction?.Invoke();
+    }
+
+    public void OnCollectItem(ClickEvent clickEvent)
     {
         collectItemModel.CollectItem();
         DisableCollectButton();

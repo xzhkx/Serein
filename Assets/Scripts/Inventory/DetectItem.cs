@@ -6,10 +6,24 @@ public class DetectItem : MonoBehaviour
     private int itemID;
 
     private CollectItemPresenter collectItemPresenter;
+    private PlayerInput playerInput;
+
+    private bool playerInRange = false;
 
     private void Start()
     {
+        playerInput = PlayerInput.Instance;
         collectItemPresenter = CollectItemPresenter.Instance;
+    }
+
+    private void Update()
+    {
+        if (playerInRange) {
+            if (playerInput.GetInteractPressed())
+            {
+                collectItemPresenter.CollectItem();
+            }
+        }
     }
 
     private void OnCollectItem()
@@ -21,6 +35,8 @@ public class DetectItem : MonoBehaviour
     {
         if (!collider.gameObject.CompareTag("Player")) return;
 
+        playerInRange = true;
+
         collectItemPresenter.CollectItemAction += OnCollectItem;
         collectItemPresenter.DisplayCollectButton();
         collectItemPresenter.SetCurrentItemID(itemID);
@@ -29,6 +45,8 @@ public class DetectItem : MonoBehaviour
     private void OnTriggerExit(Collider collider)
     {
         if (!collider.gameObject.CompareTag("Player")) return;
+
+        playerInRange = false;
 
         collectItemPresenter.CollectItemAction -= OnCollectItem;
         collectItemPresenter.DisableCollectButton();

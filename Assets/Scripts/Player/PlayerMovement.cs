@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     private Transform cameraTransform;
-    [SerializeField] 
+
+    [SerializeField]
     private float walkSpeed, runSpeed, turnSmoothTime;
 
     private float turnSmoothVelocity;
@@ -15,8 +17,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        playerRigidbody = GetComponent<Rigidbody>();   
         playerInput = GetComponent<PlayerInput>();
+
+        playerRigidbody = GetComponent<Rigidbody>();
         playerAnimatorControl = GetComponent<PlayerAnimatorControl>();
     }
 
@@ -42,8 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
             playerAnimatorControl.SetIdle(false);
             transform.localRotation = Quaternion.Euler(0, angle, 0);
-        } else playerAnimatorControl.SetIdle(true);
+        }
+        else playerAnimatorControl.SetIdle(true);
     }
-
-
 }

@@ -132,7 +132,6 @@ public class DialogueManager : MonoBehaviour
         for (int i = 0; i < lineArray.Length; i++)
         {
             dialogueText.text += lineArray[i];
-            //SoundManager.Instance.PlaySound(SoundType.DIALOGUETEXT, 0.4f);
             yield return new WaitForSeconds(typingSpeed);
         }
         DisplayChoice();

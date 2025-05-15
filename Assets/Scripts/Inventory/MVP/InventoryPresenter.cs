@@ -5,9 +5,9 @@ using UnityEngine.UIElements;
 public class InventoryPresenter : MonoBehaviour
 {
     [SerializeField]
-    private UIDocument inventoryUIDocument;
+    private UIDocument generalUIDocument, inventoryUIDocument;
 
-    private VisualElement inventoryPanel;
+    private VisualElement generalPanel, inventoryPanel;
     private Button closeInventoryPanelButton;
 
     private VisualElement itemBigIcon;
@@ -25,6 +25,7 @@ public class InventoryPresenter : MonoBehaviour
     private void Start()
     {
         inventoryModel = GetComponent<InventoryModel>();
+        generalPanel = generalUIDocument.rootVisualElement.Q<VisualElement>("GeneralPanel");
     }
 
     public void AddItem(Item item, int quantity)
@@ -77,10 +78,16 @@ public class InventoryPresenter : MonoBehaviour
 
     private void CloseInventoryPanel(ClickEvent clickEvent)
     {
+        BlurManager.Instance.DisableBlur();
+        DialogueManager.Instance.EnablePlayerAction();
+
+        generalPanel.style.display = DisplayStyle.Flex;
         inventoryPanel.style.display = DisplayStyle.None;
+
         itemBigIcon.style.backgroundImage = null;
         itemName.text = string.Empty;
         itemDescription.text = string.Empty;    
+
         inventoryPanel.visible = false;
     }
 

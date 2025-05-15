@@ -6,9 +6,9 @@ using UnityEngine.UIElements;
 public class QuestPresenter : MonoBehaviour
 {
     [SerializeField]
-    private UIDocument questUIDocument, questIconDisplayUIDocument;
+    private UIDocument generalUIDocument, questUIDocument, questIconDisplayUIDocument;
 
-    private VisualElement questPanel, questIcon, questIconPanel;
+    private VisualElement generalPanel, questPanel, questIcon, questIconPanel;
     private TextElement questName, questDescription, questIconName;
 
     private Button closeQuestPanelButton, trackButton;
@@ -26,6 +26,7 @@ public class QuestPresenter : MonoBehaviour
     private void Start()
     {
         questModel = GetComponent<QuestModel>();
+        generalPanel = generalUIDocument.rootVisualElement.Q<VisualElement>("GeneralPanel");
     }
 
     private void OnSetQuest(ClickEvent clickEvent)
@@ -103,6 +104,11 @@ public class QuestPresenter : MonoBehaviour
     {
         questPanel.style.display = DisplayStyle.None;
         questPanel.visible = false;
+
+        generalPanel.style.display = DisplayStyle.Flex;
+        BlurManager.Instance.DisableBlur();
+        DialogueManager.Instance.EnablePlayerAction();
+
     }
 
     private void SetUpUI()

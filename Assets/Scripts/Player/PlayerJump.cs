@@ -3,12 +3,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerJump : MonoBehaviour
 {
-    [SerializeField] private float jumpForce, groundDistance;
+    [SerializeField] 
+    private float jumpForce, groundDistance;
 
     private PlayerAnimatorControl playerAnimatorControl;
     private Rigidbody playerRigidbody;
     private float groundCheckDistance;
     private bool isJump;
+
+
 
     private void Awake()
     {

@@ -5,11 +5,11 @@ using UnityEngine.UIElements;
 public class DeliverItemPresenter : MonoBehaviour
 {
     [SerializeField]
-    private UIDocument deliverUIDocument;
+    private UIDocument generalUIDocument, deliverUIDocument;
 
     private QF_DeliverItemTrack QFdeliverItem;
 
-    private VisualElement deliverPanel, itemIcon;
+    private VisualElement generalPanel, deliverPanel, itemIcon;
     private Button deliverButton, closePanelButton;
 
     public Action<int> DeliverCompleteEvent;
@@ -25,6 +25,7 @@ public class DeliverItemPresenter : MonoBehaviour
         closePanelButton.RegisterCallback<ClickEvent>(CloseDeliverPanel);
 
         itemIcon = deliverUIDocument.rootVisualElement.Q<VisualElement>("ItemIcon");
+        generalPanel = generalUIDocument.rootVisualElement.Q<VisualElement>("GeneralPanel");
 
         deliverPanel = deliverUIDocument.rootVisualElement.Q<VisualElement>("DeliverPanel");
         deliverPanel.visible = false;
@@ -47,6 +48,9 @@ public class DeliverItemPresenter : MonoBehaviour
         if(InventoryManager.Instance.RemoveItem(currentItemID, currentQuantity))
         {
             deliverPanel.visible = false;
+            generalPanel.style.display = DisplayStyle.Flex;
+            DialogueManager.Instance.EnablePlayerAction();
+
             if (QFdeliverItem != null) {
                 QFdeliverItem.DeliverSuccess(currentItemID);
             }
@@ -60,11 +64,15 @@ public class DeliverItemPresenter : MonoBehaviour
     private void CloseDeliverPanel(ClickEvent clickEvent)
     {
         deliverPanel.visible = false;
+        generalPanel.style.display = DisplayStyle.Flex;
+        DialogueManager.Instance.EnablePlayerAction();
     }
 
     public void EnableDeliverPanel()
     {
         deliverPanel.visible = true;
+        generalPanel.style.display = DisplayStyle.None;
+        DialogueManager.Instance.FreezePlayerAction();
     }
 
     public void SetCurrentItem(int itemID, int quantity, Texture2D itemIcon) { 

@@ -16,7 +16,7 @@ public class CharacterStatsPresenter : MonoBehaviour
     [SerializeField]
     private YYriPlayerStats playerStats;
 
-    private VisualElement statsPanel;
+    private VisualElement generalPanel, statsPanel;
     private Button openStatsButton, closeStatsButton;
 
     private TextElement soulLevelStat, hpStat, attackStat, defStat;
@@ -31,6 +31,8 @@ public class CharacterStatsPresenter : MonoBehaviour
         statsPanel = characterStatsUIDocument.rootVisualElement
             .Q<VisualElement>("CharacterStatsPanel");
         statsPanel.visible = false;
+
+        generalPanel = generalUIDocument.rootVisualElement.Q<VisualElement>("GeneralPanel");
 
         openStatsButton = generalUIDocument.rootVisualElement.Q<Button>("OpenStatsButton");
         openStatsButton.RegisterCallback<ClickEvent>(OpenCharacterStatsPanel);
@@ -80,6 +82,7 @@ public class CharacterStatsPresenter : MonoBehaviour
 
     private void OpenCharacterStatsPanel(ClickEvent clickEvent)
     {
+        DialogueManager.Instance.FreezePlayerAction();
         StartCoroutine(OpenStats());
     }
 
@@ -87,6 +90,7 @@ public class CharacterStatsPresenter : MonoBehaviour
     {
         FadePresenter.Instance.PlayFadeAnimation();
         yield return new WaitForSeconds(1f);
+        generalPanel.style.display = DisplayStyle.None;
         statsCamera.enabled = true;
         statsPanel.visible = true;
         statsPanel.style.display = DisplayStyle.Flex;
@@ -99,8 +103,10 @@ public class CharacterStatsPresenter : MonoBehaviour
 
     private IEnumerator CloseStats()
     {
+        DialogueManager.Instance.EnablePlayerAction();
         FadePresenter.Instance.PlayFadeAnimation();
         yield return new WaitForSeconds(1f);
+        generalPanel.style.display = DisplayStyle.Flex;
         statsCamera.enabled = false;
         statsPanel.visible = false;
         statsPanel.style.display = DisplayStyle.None;
