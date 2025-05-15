@@ -27,9 +27,13 @@ public class YYriPlayerStats : MonoBehaviour, IDamagable
 
     public void LevelUp()
     {
-        currentLevel++;
-        yyriStats.LevelUp(yyriStatsScriptable[currentLevel]);
-        StatsChangeAction?.Invoke(yyriStatsScriptable[currentLevel]);
+        CharacterStatsScriptableIObject stats = yyriStatsScriptable[currentLevel];
+        if (InventoryManager.Instance.RemoveItem(stats.materialID, stats.materialQuantity))
+        {
+            currentLevel++;
+            yyriStats.LevelUp(yyriStatsScriptable[currentLevel]);
+            StatsChangeAction?.Invoke(yyriStatsScriptable[currentLevel]);
+        }
     }
 
     public void TakeDamage(int damage)

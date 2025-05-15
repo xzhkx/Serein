@@ -2,7 +2,7 @@
     <ui:VisualElement name="CharacterStatsPanel" style="flex-grow: 1; flex-direction: column;">
         <ui:VisualElement style="width: 1920px; flex-direction: row; flex-grow: 1;">
             <ui:VisualElement style="padding-top: 80px; padding-left: 80px; width: 650px;">
-                <ui:VisualElement name="StatsPanel" style="height: 400px; background-color: rgba(255, 255, 255, 0.43); padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px; width: 500px;">
+                <ui:VisualElement name="StatsPanel" style="height: 400px; background-color: rgba(0, 0, 0, 0.24); padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px; width: 500px;">
                     <ui:VisualElement name="SoulVisual" style="height: 100px; flex-direction: row;">
                         <ui:Label tabindex="-1" text="Soul" parse-escape-sequences="true" display-tooltip-when-elided="true" style="flex-grow: 1; font-size: 42px; -unity-text-align: middle-left; flex-shrink: 1;" />
                         <ui:Label tabindex="-1" text="100000" parse-escape-sequences="true" display-tooltip-when-elided="true" name="SoulLevelStat" style="font-size: 42px; -unity-text-align: middle-left;" />
@@ -23,10 +23,16 @@
             </ui:VisualElement>
             <ui:VisualElement name="CameraVisualPanel" style="flex-grow: 1; flex-shrink: 1; width: 818px;" />
             <ui:VisualElement style="justify-content: center; width: 650px;">
-                <ui:VisualElement name="LevelUpPanel" style="justify-content: space-between; align-self: center; background-color: rgba(255, 255, 255, 0.55); width: 500px; height: 450px;">
-                    <ui:VisualElement name="MaterialsPanel" style="height: 300px;" />
-                    <ui:VisualElement style="flex-grow: 1; justify-content: center; align-items: center;">
-                        <ui:Button text="Level Up" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" style="height: 100px; width: 300px; font-size: 42px;" />
+                <ui:VisualElement name="LevelUpPanel" style="justify-content: space-between; align-self: center; background-color: rgba(0, 0, 0, 0.24); width: 500px; height: 525px;">
+                    <ui:VisualElement name="MaterialsPanel" style="height: 270px; justify-content: flex-end;">
+                        <ui:VisualElement name="MatIcon" style="width: 200px; height: 200px; align-self: center;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement style="flex-grow: 1; flex-direction: row; height: 20px;">
+                        <ui:Label tabindex="-1" text="X   " parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-text-align: middle-right; width: 230px; font-size: 42px;" />
+                        <ui:Label tabindex="-1" text=" 10" parse-escape-sequences="true" display-tooltip-when-elided="true" name="QuantityLabel" style="font-size: 42px; -unity-text-align: middle-left; width: 250px;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement style="flex-grow: 1; justify-content: flex-start; align-items: center;">
+                        <ui:Button text="Level Up" parse-escape-sequences="true" display-tooltip-when-elided="true" enable-rich-text="true" name="LevelUpButton" style="height: 100px; width: 300px; font-size: 42px;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>

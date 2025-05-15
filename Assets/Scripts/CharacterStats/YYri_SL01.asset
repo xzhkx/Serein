@@ -16,3 +16,6 @@ MonoBehaviour:
   attack: 11
   defense: 6
   hp: 103
+  materialID: 11
+  materialIcon: {fileID: 2800000, guid: d0de8b434e2c83b47ba864a979172974, type: 3}
+  materialQuantity: 3

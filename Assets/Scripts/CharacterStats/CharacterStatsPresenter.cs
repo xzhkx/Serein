@@ -21,6 +21,11 @@ public class CharacterStatsPresenter : MonoBehaviour
 
     private TextElement soulLevelStat, hpStat, attackStat, defStat;
 
+    private VisualElement materialIcon;
+    private TextElement quantityLabel;
+
+    private Button levelUpButton;
+
     private void Awake()
     {
         statsPanel = characterStatsUIDocument.rootVisualElement
@@ -37,6 +42,12 @@ public class CharacterStatsPresenter : MonoBehaviour
         hpStat = characterStatsUIDocument.rootVisualElement.Q<TextElement>("HPStat");
         attackStat = characterStatsUIDocument.rootVisualElement.Q<TextElement>("AttackStat");
         defStat = characterStatsUIDocument.rootVisualElement.Q<TextElement>("DEFStat");
+
+        materialIcon = characterStatsUIDocument.rootVisualElement.Q<VisualElement>("MatIcon");
+        quantityLabel = characterStatsUIDocument.rootVisualElement.Q<TextElement>("QuantityLabel");
+
+        levelUpButton = characterStatsUIDocument.rootVisualElement.Q<Button>("LevelUpButton");
+        levelUpButton.RegisterCallback<ClickEvent>(LevelUp);
     }
 
     private void OnEnable()
@@ -54,8 +65,17 @@ public class CharacterStatsPresenter : MonoBehaviour
     {
         soulLevelStat.text = stats.soulLevel.ToString();
         hpStat.text = stats.hp.ToString();
+
         attackStat.text = stats.attack.ToString();
         defStat.text = stats.defense.ToString();
+
+        materialIcon.style.backgroundImage = stats.materialIcon;
+        quantityLabel.text = stats.materialQuantity.ToString();
+    }
+
+    private void LevelUp(ClickEvent clickEvent)
+    {
+        playerStats.LevelUp();
     }
 
     private void OpenCharacterStatsPanel(ClickEvent clickEvent)

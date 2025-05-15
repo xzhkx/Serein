@@ -7,4 +7,7 @@ public class CharacterStatsScriptableIObject : ScriptableObject
     public int attack;
     public int defense;
     public int hp;
+    public int materialID;
+    public Texture2D materialIcon;
+    public int materialQuantity;
 }
