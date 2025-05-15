@@ -20,6 +20,7 @@ public class SwordEnemy : MonoBehaviour, IDamagable
         if (!swordEnemy.TakeDamage(damage))
         {
             gameObject.SetActive(false);
+            InventoryManager.Instance.AddItem(13, 1);
         }
         Debug.Log(swordEnemy.GetHealth());
     } 
