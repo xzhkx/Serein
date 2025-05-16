@@ -22,11 +22,19 @@ public class QuestModel : MonoBehaviour
 
     public Quest GetQuest(Button button)
     {
+        if (!buttonQuestDictionary.ContainsKey(button))
+        {
+            return null;
+        }
         return buttonQuestDictionary[button];
     }
 
     public Button GetButton(Quest quest)
     {
+        if (!questButtonDictionary.ContainsKey(quest))
+        {
+            return null;
+        }
         return questButtonDictionary[quest];
     }
 }

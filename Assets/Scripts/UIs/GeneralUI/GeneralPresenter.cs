@@ -82,6 +82,13 @@ public class GeneralPresenter : MonoBehaviour
         openStatsButton.style.display = DisplayStyle.None;
     }
 
+    public void EnableGeneralUI()
+    {
+        BlurManager.Instance.DisableBlur();
+        DialogueManager.Instance.EnablePlayerAction();
+        generalPanel.style.display = DisplayStyle.Flex;
+    }
+
     private void OpenQuestPanel(ClickEvent clickEvent)
     {
         questPanel.visible = true;
@@ -102,7 +109,6 @@ public class GeneralPresenter : MonoBehaviour
         DialogueManager.Instance.FreezePlayerAction();
         generalPanel.style.display = DisplayStyle.None; 
     }
-
 
     private void SetUpUI()
     {

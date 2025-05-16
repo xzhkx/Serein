@@ -51,6 +51,7 @@ public class QuestManager : MonoBehaviour
                 questList.Remove(currentQuest);
                 questPresenter.RemoveQuest(currentQuest);
                 generalPresenter.ClearGeneralQuest();
+                generalPresenter.EnableGeneralUI();
 
                 currentQuest.CompleteQuest();   
                 currentQuest = null;
@@ -67,6 +68,7 @@ public class QuestManager : MonoBehaviour
     public void TrackQuest(ClickEvent clickEvent)
     {
         Quest quest = questPresenter.GetSelectedQuest();
+        if (quest == null) return;
         currentQuest = quest;
         quest.SetQuestState(QuestState.IN_PROGRESS);
         generalPresenter.SetGeneralQuestName(quest.GetQuestName());
