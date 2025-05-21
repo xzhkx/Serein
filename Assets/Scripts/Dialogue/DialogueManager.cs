@@ -34,6 +34,7 @@ public class DialogueManager : MonoBehaviour
     private CutSceneAnimatorControl cutSceneAnimatorControl;
     private CharacterAnimators characterAnimators;
     private Animator currentAnimator;
+    private FadePresenter fadePresenter;
 
     private VisualElement dialoguePanel;
     private TextElement dialogueText;
@@ -51,6 +52,11 @@ public class DialogueManager : MonoBehaviour
     private const string ANIM_TAG = "anim";
     private const string CUTSCENE_TAG = "cs";
 
+    private WaitForSeconds waitForSeconds1;
+    private WaitForSeconds waitForSeconds0_5;
+    private WaitForSeconds waitForSeconds0_1;
+    private WaitForSeconds waitForTypingSpeed;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -62,10 +68,17 @@ public class DialogueManager : MonoBehaviour
 
         isSelectChoice = false; isFirstChoice = false; isDisplayLine = false;
         dialogueIsPlaying = false;
+
+        waitForSeconds1 = new WaitForSeconds(1);
+        waitForSeconds0_5 = new WaitForSeconds(0.5f);
+        waitForSeconds0_1 = new WaitForSeconds(0.1f);
+        waitForTypingSpeed = new WaitForSeconds(typingSpeed);
     }
 
     private void Start()
-    {      
+    {
+        fadePresenter = FadePresenter.Instance;
+
         characterName = uiDocument.rootVisualElement.Q<TextElement>("NameLabel");
         dialogueText = uiDocument.rootVisualElement.Q<TextElement>("DialogueLabel");
 
@@ -98,8 +111,8 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator StartDialogue(TextAsset inkJson)
     {
-        FadePresenter.Instance.PlayFadeAnimation();
-        yield return new WaitForSeconds(0.5f);
+        fadePresenter.PlayFadeAnimation();
+        yield return waitForSeconds0_5;
 
         dialogueIsPlaying = true;
         dialoguePanel.visible = true;
@@ -125,14 +138,14 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator DisplayLine(string line)
     {
-        dialogueText.text = "";
+        dialogueText.text = string.Empty;
         isDisplayLine = true;
 
         char[] lineArray = line.ToCharArray();
         for (int i = 0; i < lineArray.Length; i++)
         {
             dialogueText.text += lineArray[i];
-            yield return new WaitForSeconds(typingSpeed);
+            yield return waitForTypingSpeed;
         }
         DisplayChoice();
         isDisplayLine = false;
@@ -222,13 +235,13 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator ExitDialogue()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return waitForSeconds0_1;
 
         dialogueText.text = string.Empty;
         dialoguePanel.visible = false;
 
-        FadePresenter.Instance.PlayFadeAnimation();
-        yield return new WaitForSeconds(1f);
+        fadePresenter.PlayFadeAnimation();
+        yield return waitForSeconds1;
         cutSceneAnimatorControl.DisableCamera();
 
         FinishDialogueEvent?.Invoke();

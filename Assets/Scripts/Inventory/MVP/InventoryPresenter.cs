@@ -13,7 +13,7 @@ public class InventoryPresenter : MonoBehaviour
     private VisualElement itemBigIcon;
     private TextElement itemDescription, itemName;
 
-    private Queue<Button> buttonsQueue = new Queue<Button>(15);
+    private Queue<Button> buttonsQueue = new Queue<Button>(30);
 
     private InventoryModel inventoryModel;
 
@@ -33,8 +33,7 @@ public class InventoryPresenter : MonoBehaviour
         inventoryPanel.visible = true;
         if (inventoryModel.ExistItem(item))
         {
-            Button button = inventoryModel.GetButton(item);
-            button.Q<TextElement>("ItemQuantity").text = quantity.ToString();
+            inventoryModel.GetButton(item).Q<TextElement>("ItemQuantity").text = quantity.ToString();
         }
 
         else
@@ -68,8 +67,7 @@ public class InventoryPresenter : MonoBehaviour
 
     private void SelectItem(ClickEvent clickEvent)
     {
-        Button button = clickEvent.target as Button;
-        Item item = inventoryModel.GetItem(button);
+        Item item = inventoryModel.GetItem(clickEvent.target as Button);
 
         itemName.text = item.GetItemName();
         itemDescription.text = item.GetItemDescription();

@@ -12,6 +12,9 @@ public class UnlockFunctionalityPresenter : MonoBehaviour
     private VisualElement functionalityPanel, functionalityIcon;
     private TextElement functionalityName, functionalityDescription;
 
+    private WaitForSeconds waitForSeconds1;
+    private WaitForSeconds waitForSeconds5;
+
     private void Awake()
     {
         Instance = this;
@@ -23,6 +26,9 @@ public class UnlockFunctionalityPresenter : MonoBehaviour
         functionalityDescription = unlockUIDocument.rootVisualElement.Q<TextElement>("FunctionalityDescription");
 
         functionalityPanel.visible = false;
+
+        waitForSeconds1 = new WaitForSeconds(1);
+        waitForSeconds5 = new WaitForSeconds(5);
     }
 
     public void UnlockFunctionality(FunctionalityScriptableObject functionality)
@@ -37,11 +43,11 @@ public class UnlockFunctionalityPresenter : MonoBehaviour
         functionalityName.text = functionality.functionalityName;
         functionalityDescription.text = functionality.functionalityDescription;
 
-        yield return new WaitForSeconds(1f);
+        yield return waitForSeconds1;
         functionalityPanel.AddToClassList("fade-in");
-        yield return new WaitForSeconds(5f);
+        yield return waitForSeconds5;
         functionalityPanel.RemoveFromClassList("fade-in");
-        yield return new WaitForSeconds(1f);
+        yield return waitForSeconds1;
         functionalityPanel.visible = false;
     }
 }

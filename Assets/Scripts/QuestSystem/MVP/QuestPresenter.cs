@@ -18,9 +18,15 @@ public class QuestPresenter : MonoBehaviour
 
     private Quest selectedQuest;
 
+    private WaitForSeconds waitForSeconds1;
+    private WaitForSeconds waitForSeconds5;
+
     private void Awake()
     {
         SetUpUI();
+
+        waitForSeconds1 = new WaitForSeconds(1);
+        waitForSeconds5 = new WaitForSeconds(5f);
     }
 
     private void Start()
@@ -76,14 +82,13 @@ public class QuestPresenter : MonoBehaviour
         questPanel.visible = true;
         questPanel.style.display = DisplayStyle.None;
 
-        Button button = questModel.GetButton(quest);
-        button.style.display = DisplayStyle.None;
+        questModel.GetButton(quest).style.display = DisplayStyle.None;
 
         questName.text = string.Empty;
         questDescription.text = string.Empty;
 
-        questModel.RemoveQuest(button, quest);
-        buttonsQueue.Enqueue(button);
+        questModel.RemoveQuest(questModel.GetButton(quest), quest);
+        buttonsQueue.Enqueue(questModel.GetButton(quest));
     }
 
     private IEnumerator ReceiveQuestAnimation(string questIconName, Texture2D questIcon)
@@ -92,11 +97,11 @@ public class QuestPresenter : MonoBehaviour
         this.questIcon.style.backgroundImage = questIcon;
         this.questIconName.text = questIconName;
 
-        yield return new WaitForSeconds(1);
+        yield return waitForSeconds1;
         questIconPanel.AddToClassList("quest-panel-fade-in");
-        yield return new WaitForSeconds(5);
+        yield return waitForSeconds5;
         questIconPanel.RemoveFromClassList("quest-panel-fade-in");
-        yield return new WaitForSeconds(1);
+        yield return waitForSeconds1;
         questIconPanel.visible = false;
     }
 

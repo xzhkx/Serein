@@ -6,8 +6,8 @@ using UnityEngine.UIElements;
 
 public class InventoryModel : MonoBehaviour
 {
-    private Dictionary<Button, Item> buttonItemDictionary = new Dictionary<Button, Item>();
-    private Dictionary<Item, Button> itemButtonDictionary = new Dictionary<Item, Button>();
+    private Dictionary<Button, Item> buttonItemDictionary = new Dictionary<Button, Item>(30);
+    private Dictionary<Item, Button> itemButtonDictionary = new Dictionary<Item, Button>(30);
 
     public void AddItem(Button button, Item item)
     {

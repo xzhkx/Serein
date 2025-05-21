@@ -12,6 +12,11 @@ public class PlayerInput : MonoBehaviour
         EnablePlayerInputActions();
     }
 
+    private void OnDisable()
+    {
+        playerInputActions.Disable();
+    }
+
     public PlayerInputAction GetPlayerInputAction()
     {
         return playerInputActions; 
