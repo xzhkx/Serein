@@ -10096,7 +10096,7 @@ MonoBehaviour:
   playerInput: {fileID: 4442879815887814142}
   uiDocument: {fileID: 799840637}
   typingSpeed: 0.01
-  yellow: {r: 0.41568628, g: 0.25490198, b: 0, a: 1}
+  yellow: {r: 0.9245283, g: 0.7523596, b: 0.44045925, a: 1}
   red: {r: 1, g: 0, b: 0.09019608, a: 1}
   blue: {r: 0, g: 0, b: 0, a: 1}
   dialogueIsPlaying: 0
@@ -30524,8 +30524,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3955170974198835021}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.13052616, z: 0, w: 0.9914449}
-  m_LocalPosition: {x: 2406, y: 9.4, z: 666}
+  m_LocalRotation: {x: -0, y: 0.13052616, z: -0, w: 0.9914449}
+  m_LocalPosition: {x: 0, y: 9.42, z: 10.98}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:

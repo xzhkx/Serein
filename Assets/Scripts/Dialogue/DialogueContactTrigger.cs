@@ -21,7 +21,8 @@ public class DialogueContactTrigger : MonoBehaviour
     private Button interactButton;
 
     private bool playerInRange;
-    private void Awake()
+
+    private void Start()
     {
         iStartDialogue = GetComponents<IStartDialogue>();
         iFinishDialogue = GetComponents<IFinishDialogue>();
@@ -32,10 +33,7 @@ public class DialogueContactTrigger : MonoBehaviour
 
         interactButton = generalUIDocument.rootVisualElement.Q<Button>("InteractButton");
         interactButton.RegisterCallback<ClickEvent>(OnEnterDialogue);
-    }
 
-    private void Start()
-    {
         playerInput = PlayerInput.Instance;
         playerInRange = false;
         dialogueManager = DialogueManager.Instance;

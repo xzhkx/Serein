@@ -13,7 +13,7 @@ public class QuestPresenter : MonoBehaviour
 
     private Button closeQuestPanelButton, trackButton;
 
-    private Queue<Button> buttonsQueue = new Queue<Button>(10);
+    private Queue<Button> buttonsQueue = new Queue<Button>(20);
     private QuestModel questModel;
 
     private Quest selectedQuest;
@@ -30,7 +30,7 @@ public class QuestPresenter : MonoBehaviour
     }
 
     private void Start()
-    {
+    {  
         questModel = GetComponent<QuestModel>();
         generalPanel = generalUIDocument.rootVisualElement.Q<VisualElement>("GeneralPanel");
     }
@@ -62,6 +62,7 @@ public class QuestPresenter : MonoBehaviour
         questPanel.style.display = DisplayStyle.None;
 
         Button button = buttonsQueue.Dequeue();
+        Debug.Log(buttonsQueue.Count);
         button.RegisterCallback<ClickEvent>(OnSetQuest);
 
         button.style.display = DisplayStyle.Flex;
